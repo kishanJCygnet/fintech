@@ -577,8 +577,8 @@
 										mouseDrag:false,
 									
 										navText: [
-											'<span><img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/icon-angle.svg" alt="navigation right" /></span>',
-											'<span><img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/icon-angle.svg" alt="navigation left" /></span>'
+											'<span><img src="<?php echo THEME_PATH; ?>/images/icon-angle.svg" alt="navigation right" /></span>',
+											'<span><img src="<?php echo THEME_PATH; ?>/images/icon-angle.svg" alt="navigation left" /></span>'
 										],
 										responsive : {
 											// breakpoint from 0 up

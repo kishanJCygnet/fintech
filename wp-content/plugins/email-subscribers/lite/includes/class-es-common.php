@@ -683,6 +683,26 @@ class ES_Common {
 	}
 
 	/**
+	 * Get list of registered custom post types
+	 * 
+	 * @since 5.4.0
+	 * 
+	 * @return array $custom_post_types List of custom post types
+	 */
+	public static function get_custom_post_types() {
+
+		$args = array(
+			'public'              => true,
+			'exclude_from_search' => false,
+			'_builtin'            => false,
+		);
+
+		$custom_post_types = get_post_types( $args );
+
+		return $custom_post_types;
+	}
+
+	/**
 	 * Get Opt-in types
 	 *
 	 * @return array

@@ -36,32 +36,20 @@
     <link rel="icon" type="image/png" sizes="196x196" href="<?php echo get_theme_file_uri(); ?>/images/favicons/196.png">
     <link rel="icon" type="image/png" sizes="228x228" href="<?php echo get_theme_file_uri(); ?>/images/favicons/228.png">
 	
-	<link rel="stylesheet" href="<?php echo site_url(); ?>/wp-content/themes/fintech/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo site_url(); ?>/wp-content/themes/fintech/css/animate.css">
+	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo THEME_PATH; ?>/css/animate.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-	<!--<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=62303ec059894e0012b77115&#038;product=inline-buttons' id='share-this-share-buttons-mu-js' async='async'></script>-->
-	<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=624e7021b2841900196d492a&product=sop' id='share-this-share-buttons-mu-js' async='async'></script>
+	<!--<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=624e7021b2841900196d492a&product=sop' id='share-this-share-buttons-mu-js' async='async'></script>-->
 	
-	<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TMGFD5C');</script>
-<!-- End Google Tag Manager -->
 
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMGFD5C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 	<?php //get_template_part( 'template-parts/header/site-header' ); ?>
 <!--<div class="loader">
-    <img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Web loader Cygnature.gif" alt="loader" />
+    <img src="<?php echo THEME_PATH; ?>/images/Web loader Cygnature.gif" alt="loader" />
 </div>-->
 <header>
         <div class="topBar navbar-expand-lg py-2">
@@ -135,7 +123,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                
                 <div class="collapse navbar-collapse" id="navbarScroll">
 					<?php if ( has_nav_menu( 'primary' ) ) : ?>
-						<nav id="site-navigation" class="primary-navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'cygnature' ); ?>">
+						<nav id="site-navigation" class="primary-navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'fitech' ); ?>">
 							<?php
 							wp_nav_menu(
 								array(
@@ -149,69 +137,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							?>
 						</nav><!-- #site-navigation -->
 					<?php endif; ?>
-					
-					<!--<ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Product
-                            </a>
-                            <ul class="dropdown-menu bgPrimary dropdown-menu-start"
-                                aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Features</a></li>
-                                <li><a class="dropdown-item" href="#">Signature Types</a></li>
-                                <li><a class="dropdown-item" href="#">National ID esign</a></li>
-                                <li><a class="dropdown-item" href="#"> How it works?</a></li>
-                                <li><a class="dropdown-item" href="#">Mobile App</a></li>
-                                <li><a class="dropdown-item" href="#">Bulk Signing</a></li>
-                                <li><a class="dropdown-item" href="#">21 CFR Compliance</a></li>
-                                <li><a class="dropdown-item" href="#">Secured By Blockchain</a></li>
-                                <li><a class="dropdown-item" href="#">Integrations</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">How Cygnature works?</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Solutions
-                            </a>
-                            <ul class="dropdown-menu bgPrimary dropdown-menu-start"
-                                aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Integrations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Pricing</a>
-                        </li>                       
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Resources
-                            </a>
-                            <ul class="dropdown-menu bgPrimary dropdown-menu-start"
-                                aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">About Us</a>
-                        </li>
-                    </ul>-->
                 </div>			
                
                <div class="right-content d-flex align-items-center">

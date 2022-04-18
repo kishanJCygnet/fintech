@@ -3,7 +3,7 @@
 File Name custom-wp-walker-class.php
 Custom walker class used for wo navigation menu.
 @file ​    custom-wp-walker-class.php
-@path ​    /wp-content/themes/cygnet/include/custom-wp-walker-class.php (full path from root)
+@path ​    /wp-content/themes/fintech/include/custom-wp-walker-class.php (full path from root)
 @version ​ 2017-04-22
 @version ​ 2017-05-03
 */

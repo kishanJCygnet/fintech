@@ -28,7 +28,7 @@
 			<?php } ?>
 			<?php //if ( is_front_page() ) : ?>
 				<div class="technology-move">
-					<div class="text-center"> <img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/phraise.png" alt="" /></div>
+					<div class="text-center"> <img src="<?php echo THEME_PATH; ?>/images/phraise.png" alt="" /></div>
 				</div>
 			<?php //endif; ?>
 			</div>
@@ -40,9 +40,9 @@
             <div class="footer-contents d-flex justify-content-center">
                 <!-- Footer logo begin -->
                 <div class="footer-logo">
-                    <a href="<?php echo site_url(); ?>" title="Cygnature" alt="Cygnature">
-                        <span class="visually-hidden">Cygnature</span>
-                        <img src='<?php echo get_field("footer_logo", "option"); ?>' alt="Cygnature">
+                    <a href="<?php echo site_url(); ?>" title="Cygnet Fintech" alt="Cygnet Fintech">
+                        <span class="visually-hidden">Cygnet Fintech</span>
+                        <img src='<?php echo get_field("footer_logo", "option"); ?>' alt="Cygnet Fintech">
                     </a>
                 </div>
                 <!-- Footer logo end -->
@@ -89,12 +89,12 @@
     <!-- End Footer -->
 
    <!-- js -->
-    <script src="<?php echo site_url(); ?>/wp-content/themes/fintech/js/jquery-3.6.0.min.js"></script>
-    <script src="<?php echo site_url(); ?>/wp-content/themes/fintech/js/bootstrap.bundle.js"></script>   
-	<script src="<?php echo site_url(); ?>/wp-content/themes/fintech/js/owl.carousel.min.js"></script>
-	<link rel="stylesheet" href="<?php echo site_url(); ?>/wp-content/themes/fintech/css/owl.carousel.min.css">
-	<script src="<?php echo site_url(); ?>/wp-content/themes/fintech/js/wow.min.js"></script>
-	<script src="<?php echo site_url(); ?>/wp-content/themes/fintech/js/main.js"></script>	
+    <script src="<?php echo THEME_PATH; ?>/js/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo THEME_PATH; ?>/js/bootstrap.bundle.js"></script>   
+	<script src="<?php echo THEME_PATH; ?>/js/owl.carousel.min.js"></script>
+	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>/css/owl.carousel.min.css">
+	<script src="<?php echo THEME_PATH; ?>/js/wow.min.js"></script>
+	<script src="<?php echo THEME_PATH; ?>/js/main.js"></script>	
 	<script type='text/javascript' id='cygnet-global-js-extra'>
 	/* <![CDATA[ */
 	//var ajaxPath = {"ajaxurl":"http:\/\/localhost\/cygnet\/wp-admin\/admin-ajax.php"};
@@ -102,7 +102,7 @@
 	var ajaxPath = {"ajaxurl":templateUrl};
 	/* ]]> */
 	</script>
-	<script src="<?php echo site_url(); ?>/wp-content/themes/fintech/js/scripts.js"></script>
+	<script src="<?php echo THEME_PATH; ?>/js/scripts.js"></script>
     <!-- End js -->
 	<script>
 	jQuery(document).ready(function () {
@@ -261,7 +261,7 @@
 	<!-- Download PDF from fet a free copy pdf -->
 	<script>
 	jQuery(document).ready(function(){
-		var siteurl = '<?php echo site_url(); ?>/wp-content/themes/fintech/images/Cygnature_a_fresh_and_innovative_approach_to_digital_signing_Deep_Analysis_Vignette.pdf';
+		var siteurl = '<?php echo THEME_PATH; ?>/images/Cygnature_a_fresh_and_innovative_approach_to_digital_signing_Deep_Analysis_Vignette.pdf';
 		if (siteurl) {
 			document.addEventListener('wpcf7mailsent', function(e) {
 				if (e.detail.contactFormId == 24597) {
