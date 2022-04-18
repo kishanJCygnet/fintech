@@ -3,51 +3,72 @@
 	/* banner content */
 		if (have_rows('banner')) : ?>
 			<section class="banner-content <?php echo the_field('banner_class'); ?>">    
-				<?php while (have_rows('banner')) : the_row(); ?>
-					<div class="banner-inner-content w-100" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')">  
-						<div class="container">
-						 <div class="row" >
-							<div class="col-lg-7">
-								<div class="d-flex align-items-center h-100">
-									<div class="text-content ">
-										<?php if (get_sub_field('title')) :  ?>
-											<h1 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?></h1>
-										<?php endif; ?>
-										<?php if (get_sub_field('sub_title')) :  ?>
-											<h3 class="text-white wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('sub_title'); ?></h3>
-										<?php endif; ?>
-										<?php if (get_sub_field('primary_button_url') && get_sub_field('primary_button_label')) : ?>
-											<a href="<?php echo the_sub_field('primary_button_url'); ?>" class="btn btn-primary me-3 wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('primary_button_label'); ?></a>
-										<?php endif; ?>
-										<?php if (get_sub_field('secondary_button_url') && get_sub_field('secondary_button_label')) : ?>
-											<a href="<?php echo the_sub_field('secondary_button_url'); ?>" class="btn wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('secondary_button_label'); ?></a>
-										<?php endif; ?>
+				<div class="owl-carousel banner-slider">
+					<?php while (have_rows('banner')) : the_row(); ?>
+						<div class="banner-inner-content w-100" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')">  
+							<div class="container">
+							 <div class="row" >
+								<div class="col-lg-7">
+									<div class="d-flex align-items-center h-100">
+										<div class="text-content ">
+											<?php if (get_sub_field('title')) :  ?>
+												<h1 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?></h1>
+											<?php endif; ?>
+											<?php if (get_sub_field('sub_title')) :  ?>
+												<h3 class="text-white wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('sub_title'); ?></h3>
+											<?php endif; ?>
+											<?php if (get_sub_field('primary_button_url') && get_sub_field('primary_button_label')) : ?>
+												<a href="<?php echo the_sub_field('primary_button_url'); ?>" class="btn btn-primary me-3 wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('primary_button_label'); ?></a>
+											<?php endif; ?>
+											<?php if (get_sub_field('secondary_button_url') && get_sub_field('secondary_button_label')) : ?>
+												<a href="<?php echo the_sub_field('secondary_button_url'); ?>" class="btn wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('secondary_button_label'); ?></a>
+											<?php endif; ?>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-5 d-md-none d-none d-lg-block">
+									<div class="img-content">
+									<?php if(get_sub_field('video_url')){ 
+										?>
+										<!--<iframe class="banner-video" src="<?php echo the_sub_field('video_url'); ?>?autoplay=1&amp;modestbranding=1&amp;showinfo=0" allowfullscreen="allowfullscreen"></iframe>-->
+										<video class="banner-video animate__animated wow fadeIn " data-wow-duration="3s" data-wow-delay="1s" loop="true" autoplay="autoplay" muted/> 										  
+											<source src="<?php echo the_sub_field('video_url'); ?>" type="video/mp4"> 
+										</video>
+										<?php
+									} else {
+										if (get_sub_field('image')) :
+											?><img src="<?php echo the_sub_field('image'); ?>" class="w-100 wow fadeIn" data-wow-duration="3s" data-wow-delay="1s" alt="<?php echo the_sub_field('title'); ?>"><?php
+										endif;
+									} ?>
+									<?php /* if (get_sub_field('image')) : ?>
+										<img src="<?php echo the_sub_field('image'); ?>" class="w-100" alt="<?php echo the_sub_field('title'); ?>">
+									<?php endif; */ ?>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-5 d-md-none d-none d-lg-block">
-								<div class="img-content">
-								<?php if(get_sub_field('video_url')){ 
-									?>
-									<!--<iframe class="banner-video" src="<?php echo the_sub_field('video_url'); ?>?autoplay=1&amp;modestbranding=1&amp;showinfo=0" allowfullscreen="allowfullscreen"></iframe>-->
-									<video class="banner-video animate__animated wow fadeIn " data-wow-duration="3s" data-wow-delay="1s" loop="true" autoplay="autoplay" muted/> 										  
-										<source src="<?php echo the_sub_field('video_url'); ?>" type="video/mp4"> 
-									</video>
-									<?php
-								} else {
-									if (get_sub_field('image')) :
-										?><img src="<?php echo the_sub_field('image'); ?>" class="w-100 wow fadeIn" data-wow-duration="3s" data-wow-delay="1s" alt="<?php echo the_sub_field('title'); ?>"><?php
-									endif;
-								} ?>
-								<?php /* if (get_sub_field('image')) : ?>
-									<img src="<?php echo the_sub_field('image'); ?>" class="w-100" alt="<?php echo the_sub_field('title'); ?>">
-								<?php endif; */ ?>
-								</div>
 							</div>
-						</div>
-						</div>
-					</div>    
-				<?php endwhile;	?> 
+						</div>    
+					<?php endwhile;	?> 
+				</div>
+				<script>
+				jQuery(document).ready(function() {
+					jQuery('.banner-slider').length && jQuery('.banner-slider').owlCarousel({
+						loop: true,
+						autoplay: true,
+						nav: false,
+						dots: true,
+						mouseDrag:false,
+						animateOut: 'fadeOut',
+						animateIn: 'fadeIn',
+						items: 1,
+						navText: [
+							'<span><img src="<?php echo THEME_PATH; ?>/images/right-arrow.png" alt="" /></span>',
+							'<span><img src="<?php echo THEME_PATH; ?>/images/right-arrow.png" alt="" /></span>'
+						],               
+						
+					})
+				})
+				</script>
 			</section>
 		<?php endif;
 	/* End banner content */	
