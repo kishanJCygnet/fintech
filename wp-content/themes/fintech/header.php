@@ -132,7 +132,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<?php endif;*/ ?>
 				</a>
                
-               
+                <div class="right-content d-flex align-items-center">
                 <div class="collapse navbar-collapse" id="navbarScroll">
 					<?php if ( has_nav_menu( 'primary' ) ) : ?>
 						<nav id="site-navigation" class="primary-navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'cygnature' ); ?>">
@@ -214,10 +214,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </ul>-->
                 </div>			
                
-               <div class="right-content d-flex align-items-center">
+              
                <?php $post_slug = $post->post_name;
 				if($post_slug != '15-days-free-trial' && $post_slug != 'sign-up' && $post_slug != 'thank-you-for-contacting-us' && $post_slug != 'thank-you-for-signing-up' && $post_slug != 'thank-you-for-your-interest' ){?>
-                    <a id="contact_us" href="#contactus" class="btn btn-outline-primary rounded-pill contact-us ms-2 fw-bold">Book a demo</a>
+                    <a id="contact_us" href="#contactus" class="btn btn-outline-primary rounded-pill contact-us ms-2 fw-bold">Get In Touch</a>
                     <?php } ?>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
