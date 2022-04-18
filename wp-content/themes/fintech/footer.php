@@ -28,16 +28,17 @@
 			<?php } ?>
 			<?php //if ( is_front_page() ) : ?>
 				<div class="technology-move">
-					<div class="text-center"> <img src="<?php echo THEME_PATH; ?>/images/phraise.png" alt="" /></div>
+					<div class="text-center"> <img src="<?php echo THEME_PATH; ?>/images/finance.png" alt="" /></div>
 				</div>
 			<?php //endif; ?>
 			</div>
 		</div>
 	</section>
  <!-- Footer -->
-    <footer class="footer ">
-        <div class="footer-container">
-            <div class="footer-contents d-flex justify-content-center">
+    <footer class="footer" style="background-image:url('<?php echo THEME_PATH; ?>/images/footer-curve.png')">
+    <div class="container">   
+	<div class="footer-container">
+            <div class="footer-contents d-flex justify-content-end">
                 <!-- Footer logo begin -->
                 <div class="footer-logo">
                     <a href="<?php echo site_url(); ?>" title="Cygnet Fintech" alt="Cygnet Fintech">
@@ -84,7 +85,7 @@
                 </div>
             </div>
         </div>
-
+	</div>
     </footer>
     <!-- End Footer -->
 

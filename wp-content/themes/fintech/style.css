@@ -787,40 +787,15 @@ opacity: 0;
        border:2px solid #18B57B;
    }
 /* Footer */
-.footer {
-    /* margin-top: 15.03%;
-    padding-top: 25px;
-    padding-bottom: 30px; */
+.footer {  
     z-index: 0;
-    background: linear-gradient(263deg, rgba(0,0,0,1) 0%, rgba(24,181,123,1) 0%, rgba(12,55,97,1) 100%);
 }
-
-
-/* .footer-container {
-    margin-top: -10.5%;
-    padding: 0 7.8125vw;
-} */
 .footer-logo img {
     width: 280px;
-    margin-top: 14px;
+    margin-bottom: 30px;
 }
 .footer-logo{
-    margin-right: 70px;
-    position: relative;
-}
-.footer-logo::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background-color: white;
-    right: -38px;
-}
-
-.footer-logo,
-.section-top-bar {
-    /* margin-bottom: 20px; */
+       width: 100%;
 }
 .section-shape svg {
     display: block;
@@ -830,9 +805,12 @@ opacity: 0;
     transform: translateX(-50%);
     height: 100%;
 }
-
 .footer a {
     text-decoration: none;
+}
+.footer .footer-contents{
+    flex-wrap: wrap;
+    text-align: right;
 }
 input[type=checkbox]:after{
     border:0;
@@ -888,10 +866,12 @@ input[type=checkbox]:after{
     top: 0;
 }
 .footer {
-    background-color: #0c3761;
-    padding-top: 50px;
-    padding-bottom: 20px;
-    border-top: 1px solid rgba(255, 255, 255,0.3) ;    
+       padding-top: 100px;
+       padding-bottom: 20px;
+       border-top: 1px solid rgba(255, 255, 255,0.3);
+       background-repeat: no-repeat;
+       background-position: top;
+       background-size: cover; 
 }
 /* Title */
 .title-heading{
@@ -1296,10 +1276,13 @@ margin-top: 15px;
 .search.search-results h2 a:hover{
     color: #8ebf69;
 }
-/* .asl_keyword{ display: none;} */
-/* .search.search-results .testimonials {
-    display: none; */
-/* } */
+.technology-move{
+    margin-top: 50px;
+}
+.form-control:focus{
+    outline: 0;
+    box-shadow: none;
+}
 
 @media only screen and (max-width: 1400px) {
     .primary-navigation .menu-wrapper li.menu-item{
@@ -1393,10 +1376,7 @@ margin-top: 15px;
   @media only screen and (max-width: 991px) {
     
 
-    .footer-contents{
-        flex-wrap: wrap;
-        text-align: center;
-    }
+   
     .footer-logo::after{
         display: none;
     }
