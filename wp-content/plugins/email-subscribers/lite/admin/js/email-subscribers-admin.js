@@ -2596,6 +2596,7 @@
 				    }
 
 				}
+
 		});
 
 		function ig_es_uc_first(string){
@@ -2764,8 +2765,6 @@
 			});
 		}
 })(jQuery);
-
-
 
 
 function checkDelete() {

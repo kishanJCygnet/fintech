@@ -128,6 +128,14 @@ if ( ! class_exists( 'ES_Handle_Subscription' ) ) {
 		public $ip_address;
 
 		/**
+		 * Reference Site
+		 *
+		 * @since 5.4.0
+		 * @var
+		 */
+		public $reference_site;
+
+		/**
 		 * If the user is subscribed from Rainmaker
 		 *
 		 * @since 4.0.0
@@ -245,16 +253,17 @@ if ( ! class_exists( 'ES_Handle_Subscription' ) ) {
 					$last_name  = $name_parts['last_name'];
 				}
 
-				$this->name          = $first_name;
-				$this->first_name    = $first_name;
-				$this->last_name     = $last_name;
-				$this->email         = $email;
-				$this->ip_address    = $ip_address;
-				$this->list_hashes   = isset( $form_data['esfpx_lists'] ) ? $form_data['esfpx_lists'] : array();
-				$this->es_nonce      = isset( $form_data['esfpx_es-subscribe'] ) ? trim( $form_data['esfpx_es-subscribe'] ) : '';
-				$this->form_id       = isset( $form_data['esfpx_form_id'] ) ? trim( $form_data['esfpx_form_id'] ) : 0;
-				$this->es_optin_type = get_option( 'ig_es_optin_type' );
-				$this->guid          = ES_Common::generate_guid();
+				$this->name           = $first_name;
+				$this->first_name     = $first_name;
+				$this->last_name      = $last_name;
+				$this->email          = $email;
+				$this->ip_address     = $ip_address;
+				$this->list_hashes    = isset( $form_data['esfpx_lists'] ) ? $form_data['esfpx_lists'] : array();
+				$this->es_nonce       = isset( $form_data['esfpx_es-subscribe'] ) ? trim( $form_data['esfpx_es-subscribe'] ) : '';
+				$this->form_id        = isset( $form_data['esfpx_form_id'] ) ? trim( $form_data['esfpx_form_id'] ) : 0;
+				$this->reference_site = isset( $form_data['esfpx_reference_site'] ) ? sanitize_url( $form_data['esfpx_reference_site'] ) : null;
+				$this->es_optin_type  = get_option( 'ig_es_optin_type' );
+				$this->guid           = ES_Common::generate_guid();
 
 				if ( in_array( $this->es_optin_type, array( 'double_opt_in', 'double_optin' ) ) ) { // Backward Compatibility
 					$this->is_double_optin = true;
@@ -292,6 +301,10 @@ if ( ! class_exists( 'ES_Handle_Subscription' ) ) {
 							$data['created_at'] = ig_get_current_date_time();
 							$data['updated_at'] = null;
 							$data['meta']       = null;
+
+							if ( ! is_null( $this->reference_site ) ) {
+								$data['reference_site'] = $this->reference_site;
+							}
 
 							$data = apply_filters( 'ig_es_add_subscriber_data', $data );
 

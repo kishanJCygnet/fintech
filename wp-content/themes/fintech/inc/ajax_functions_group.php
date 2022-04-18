@@ -157,7 +157,7 @@ function get_casestudy_listing_data()
 
               <?php if (get_field('pdf_link')) : ?>
                 <div class="card-footer bg-transparent border-top-0">
-                  <a href="<?php echo the_field('pdf_link'); ?>" class="read-more-link" title="Read Full Story" target="_blank">Read Full Story <img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
+                  <a href="<?php echo the_field('pdf_link'); ?>" class="read-more-link" title="Read Full Story" target="_blank">Read Full Story <img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
                 </div>
               <?php endif; ?>
             </div>
@@ -195,7 +195,7 @@ function get_casestudy_listing_data()
                 <?php endif; ?>
               </div>
               <div class="card-footer bg-transparent border-top-0">
-                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Know More">Read More <img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
+                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Know More">Read More <img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
               </div>
             </div>
           </div>
@@ -228,7 +228,7 @@ function get_casestudy_listing_data()
                 <?php endif; ?>
               </div>
               <div class="card-footer bg-transparent border-top-0 text-end">
-                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Know More">Know More<img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
+                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Know More">Know More<img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
               </div>
             </div>
           </div>
@@ -267,7 +267,7 @@ function get_casestudy_listing_data()
                 <?php endif; ?>
               </div>
               <div class="card-footer bg-transparent border-top-0 text-end">
-                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Know More">Know More<img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
+                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Know More">Know More<img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
               </div>
             </div>
           </div>
@@ -314,11 +314,11 @@ function get_casestudy_listing_data()
 
                 <?php
                 if ($speakerinner != '') : ?>
-                  <p class="card-text"><img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/employee.svg" alt="navigation right" /> <?php echo rtrim(trim($speakerinner), '|'); ?></p>
+                  <p class="card-text"><img src="<?php echo THEME_PATH; ?>/images/employee.svg" alt="navigation right" /> <?php echo rtrim(trim($speakerinner), '|'); ?></p>
                 <?php endif; ?>
               </div>
               <div class="card-footer bg-transparent border-top-0">
-                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Watch Now">Watch Now <img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
+                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Watch Now">Watch Now <img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
               </div>
             </div>
           </div>
@@ -375,7 +375,7 @@ function get_casestudy_listing_data()
               </div>
               <?php if (get_field('news_url', $post->ID)) : ?>
                 <div class="card-footer bg-transparent border-top-0 text-end">
-                  <a href="<?php echo the_field('news_url', $post->ID); ?>" class="read-more-link" title="Read More" target="_blank">Read More<img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
+                  <a href="<?php echo the_field('news_url', $post->ID); ?>" class="read-more-link" title="Read More" target="_blank">Read More<img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
                 </div>
               <?php endif; ?>
             </div>
@@ -528,7 +528,7 @@ function get_press_release_listing()
               </div>
 
               <div class="card-footer bg-transparent border-top-0 text-end">
-                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Read More">Read More<img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
+                <a href="<?php the_permalink(); ?>" class="read-more-link" title="Read More">Read More<img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
               </div>
             </div>
           </div>

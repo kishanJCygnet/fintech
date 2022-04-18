@@ -34,6 +34,7 @@
 				);
 
 				$custom_query = new WP_Query($custom_query_args);
+				$s = 1;
 				if ($custom_query->have_posts()) :
 					while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
 						<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
@@ -68,7 +69,7 @@
 								</div>
 								<?php if (get_field('pdf_link')) : ?>
 									<div class="card-footer  bg-transparent border-top-0">
-										<a href="<?php echo the_field('pdf_link'); ?>" class="read-more-link" title="Read Full Story" target="_blank">Read Full Story <img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
+										<a href="<?php echo the_field('pdf_link'); ?>" class="read-more-link" title="Read Full Story" target="_blank">Read Full Story <img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>
 									</div>
 								<?php endif; ?>
 							</div>

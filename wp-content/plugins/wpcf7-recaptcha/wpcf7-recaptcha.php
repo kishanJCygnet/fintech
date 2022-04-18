@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ReCaptcha v2 for Contact Form 7
  * Description: ReCaptcha v2 Fix for Contact Form 7 5.1 and later.
- * Version: 1.3.8
+ * Version: 1.3.9
  * Author: IQComputing
  * Author URI: http://www.iqcomputing.com/
  * License: GPL2

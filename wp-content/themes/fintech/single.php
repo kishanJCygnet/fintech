@@ -140,11 +140,9 @@ if (have_posts()) :
             <section id="newsletter" class="default-content bg-light pb-0 free-trial-access-content newsletter pt-0">
             <div class="container">       
             <?php if (get_field('show_sidebar') == 'Yes') : ?>  
-                    <div class="free-trial-access text-center wow fadeInUp" style="background-image:url('<?php echo site_url(); ?>/wp-content/uploads/2022/03/file-access-bg.png')">
-                            <?php //echo do_shortcode('[contact-form-7 id="407" title="Subscribe to Newsletter"]'); ?>
-                            <?php echo do_shortcode('[email-subscribers-form id="1"]'); ?>
-                            </p>
-                        </div>
+                    <div class="free-trial-access text-center wow fadeInUp" style="background-image:url('<?php echo THEME_PATH; ?>/images/file-access-bg.png')">
+						<?php echo do_shortcode('[email-subscribers-form id="1"]'); ?>
+					</div>
                 <?php endif; ?>
             </div>
             </section>

@@ -233,6 +233,10 @@ div#post-body-content .meta-box-sortables .row-blog p.submit input#submit {
 	height: auto;
 }
 
+body.rtl div#post-body-content {
+    float: right;
+}
+
 .blog-content {
 	width: 100%;
 }

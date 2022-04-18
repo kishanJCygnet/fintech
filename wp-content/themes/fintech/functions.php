@@ -8,7 +8,7 @@ $parenthandle = 'twentytwentyone-style'; // This is 'twentyfifteen-style' for th
         $theme->parent()->get('Version')
     );
 	
-    wp_enqueue_style( 'cygnature-style', get_stylesheet_uri());
+    wp_enqueue_style( 'fintech-style', get_stylesheet_uri());
 	//wp_enqueue_style('bootstrap.min', get_template_directory_uri() . '/bootstrap.min.css');
 	
     /*wp_localize_script('cygnet-global', 'ajaxPath', array(
@@ -36,20 +36,20 @@ if (function_exists('acf_add_options_page')) {
 }
 
 /**
-  Function name : cygnature_setup
+  Function name : fintech_setup
   Sets up theme defaults and registers support for various WordPress features.
   Note that this function is hooked into the after_setup_theme hook, which
   runs before the init hook. The init hook is too late for some features, such
   as indicating support for post thumbnail .
  */
-function cygnature_setup()
+function fintech_setup()
 {
-    //Load cygnature-deparments theme
-    load_theme_textdomain('cygnature');
+    //Load fintech-deparments theme
+    load_theme_textdomain('fintech');
     //Enable support for Post Thumbnails on posts and pages.
     add_theme_support('post-thumbnails');
     //Add the size of featured image on posts and pages.
-    //add_image_size('cygnature_setup-featured-image', 2000, 1200, true);
+    //add_image_size('fintech_setup-featured-image', 2000, 1200, true);
     //Switch default core markup for search form, comment form, and comments to output valid HTML5.
     add_theme_support('html5', array(
         'comment-form',
@@ -72,9 +72,9 @@ function cygnature_setup()
     // This theme uses wp_nav_menu() in two locations.
     register_nav_menus(
         array(
-            'header_menu' => __('Header Menu', 'cygnature'),
-            'footer_menu' => __('Footer Menu', 'cygnature'),
-            'menu_above_search' => __('Menu Above Search', 'cygnature')
+            'header_menu' => __('Header Menu', 'fintech'),
+            'footer_menu' => __('Footer Menu', 'fintech'),
+            'menu_above_search' => __('Menu Above Search', 'fintech')
         )
     );
     //Add different image sizes
@@ -83,7 +83,7 @@ function cygnature_setup()
     add_image_size('1250w', 1250);
     add_image_size('1920w', 1900);*/
 }
-add_action('after_setup_theme', 'cygnature_setup');
+add_action('after_setup_theme', 'fintech_setup');
 
 
 /* Added code 22-3-2022 */
@@ -209,30 +209,11 @@ function testimonial_slider()
     if ($testimonials && count($testimonials) > 0) :?>
         <section class="testimonial-section <?php echo the_sub_field('testimonials_section_custom_class'); ?>">
             <div class="container">                
-						<?php /*if (is_page(array('technology-partners'))) : ?>
-                            <?php if (get_field('testimonial_title_partner')) : ?>
-                                <h2 class="section-title"><?php echo the_field('testimonial_title_partner'); ?></h2>
-                            <?php endif; ?>
-
-                            <?php if (get_field('testimonial_content_partner')) {
-                                echo the_field('testimonial_content_partner');
-                            } ?>
-
-                        <?php else: ?>
-                            <?php if (get_field('testimonial_title', 'option')) : ?>
-                                <h2 class="section-title"><?php echo the_field('testimonial_title', 'option'); ?></h2>
-                            <?php endif; ?>
-
-                            <?php if (get_field('testimonial_content', 'option')) {
-                                echo the_field('testimonial_content', 'option');
-                            } ?>
-                        <?php endif; */ ?>
-						<?php if (get_field('testimonial_title', 'option')) : ?>
-							<div class="title-heading">
-                                <h2 class="wow fadeInUp" data-wow-offset="50"><?php echo the_field('testimonial_title', 'option'); ?> <span class="heading-border"></span></h2>
-							</div>
-						<?php endif; ?>                    
-
+				<?php if (get_field('testimonial_title', 'option')) : ?>
+					<div class="title-heading">
+						<h2 class="wow fadeInUp" data-wow-offset="50"><?php echo the_field('testimonial_title', 'option'); ?> <span class="heading-border"></span></h2>
+					</div>
+				<?php endif; ?>   
                 <div class="testimonial">
                     <div class="owl-carousel testimonial-slider">
                        <?php foreach ($testimonials as $testimonial) :?>
@@ -274,8 +255,8 @@ function testimonial_slider()
                 animateIn: 'fadeIn',
 				items: 1,
 				navText: [
-					'<span><img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/right-arrow.png" alt="" /></span>',
-                    '<span><img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/right-arrow.png" alt="" /></span>'
+					'<span><img src="<?php echo THEME_PATH; ?>/images/right-arrow.png" alt="" /></span>',
+                    '<span><img src="<?php echo THEME_PATH; ?>/images/right-arrow.png" alt="" /></span>'
 				],               
 				
 			})
@@ -444,9 +425,9 @@ function case_studies_slider()
 											</p>
 										</div>
 										<?php if ($casestudy_url != '') : ?>
-											  <a href="<?php echo $casestudy_url; ?>" title="Read More" target="_blank">Read More <img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>											
+											  <a href="<?php echo $casestudy_url; ?>" title="Read More" target="_blank">Read More <img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /></a>											
 										<?php endif; ?>
-										<!--<a href="<?php echo esc_url( get_permalink($case_studies->ID) ); ?>" class="">Read More <img src="<?php echo site_url(); ?>/wp-content/themes/fintech/images/Iconfeather-arrow-right.svg" alt="navigation right" /> </a>-->
+										<!--<a href="<?php echo esc_url( get_permalink($case_studies->ID) ); ?>" class="">Read More <img src="<?php echo THEME_PATH; ?>/images/Iconfeather-arrow-right.svg" alt="navigation right" /> </a>-->
 									</div>
 								</div>
 							</div>
