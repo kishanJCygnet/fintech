@@ -48,12 +48,12 @@
 
 <body <?php body_class(); ?>>
 	<?php //get_template_part( 'template-parts/header/site-header' ); ?>
-<!--<div class="loader">
+<div class="loader">
     <img src="<?php echo THEME_PATH; ?>/images/Web loader Cygnature.gif" alt="loader" />
-</div>-->
+</div>
 <header>
         <div class="topBar navbar-expand-lg py-2">
-            <div class="container-fluid d-flex">
+            <div class="container d-flex">
                 <ul class="navbar-nav ms-auto   justify-content-end item-cent">
                     <li class="nav-item Website-list">
                         <a class="nav-link gp-website" href="javascript:void(0);">Group Websites</a> 
@@ -98,7 +98,7 @@
         </div>
 		
         <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="nav-inner-content">
 				<a href="<?php echo site_url(); ?>" class="navbar-brand" title="<?php echo the_field('logo_title', 'option'); ?>" alt="<?php echo the_field('logo_title', 'option'); ?>">
 					<!--<span class="visually-hidden"><?php echo the_field('logo_title', 'option'); ?></span>-->

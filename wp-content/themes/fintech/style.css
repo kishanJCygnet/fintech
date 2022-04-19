@@ -262,15 +262,14 @@ header{
 }
 header .navbar{
     border-bottom:1px solid #fff;
-    padding: 0px 0;
-    background: linear-gradient(263deg, rgba(24,181,123,0.8) 0%,  rgba(24,181,123,0.8) 60%, #256E7C 100%);
+    padding: 0px 0;    
 }
 .navbar.fixed {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #0c3761eb;
+    background: linear-gradient(263deg, rgba(24,181,123,0.8) 0%,  rgba(24,181,123,0.8) 60%, #256E7C 100%);
     border-bottom: 1px solid #ececec;  
 }
 .navbar-brand img {
@@ -541,6 +540,7 @@ flex-direction: row;
 .contact-form-content{
     padding-top: 0;
     background-color: transparent;
+    padding-bottom: 0;
 }
    
 .contact-form .section-shape {
@@ -914,6 +914,7 @@ input[type=checkbox]:after{
     padding: 0;
 }
 /* banner content */
+
 .banner-content .banner-inner-content{
     background-size: cover;
     background-position: center center;   
@@ -927,8 +928,8 @@ input[type=checkbox]:after{
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
 }
+
 .banner-content.inner-page-banner .banner-inner-content,
 .post-type-archive-webinars .banner-inner-content,
 .half-banner .banner-inner-content {
@@ -960,12 +961,15 @@ input[type=checkbox]:after{
     align-items: center;
 }
 .banner-content .btn-primary{
-    background-color: #fff;
-    border-color: #fff;
-    color:#0C3761;
+    background: linear-gradient(263deg, rgba(24,181,123,1) 0%, #0c3761 100%);
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2.5px;
 }
 .banner-content .btn-primary:hover{
-    border-color: #fff;
+    background: rgba(24,181,123,1);
     color:#fff;
 }
 .banner-content .overlay.blue{
@@ -1283,6 +1287,9 @@ margin-top: 15px;
 .technology-move{
     margin-top: 50px;
 }
+.technology-move img{
+    width: 450px;
+}
 .form-control:focus{
     outline: 0;
     box-shadow: none;
@@ -1379,6 +1386,69 @@ section{
     text-align: center;
 }
 /* esignature-solution  how-it-works */
+
+/* Home banner */
+.home-banner.banner-content .banner-inner-content{
+    background-color: transparent;
+    background-blend-mode: unset;
+    background-image: url(./images/banner-bg.jpg) !important;
+    min-height: 730px;
+    align-items: flex-start;
+}
+.home-banner.banner-content .banner-inner-content .text-content{
+    margin-top: 30px;
+    padding-right: 100px;  
+} 
+.home-banner.banner-content .banner-inner-content .text-content h1{
+    font-size: 54px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.home-banner.banner-content .img-content{
+    background-image: url(./images/Screen.png) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    height: 471px;
+    width: 570px;
+    margin-top: 30px;
+    right: 32px;
+}
+.home-banner.banner-content .inner-img-content{
+    width: 496px;
+    height: 279px;
+    overflow: auto;
+    position: absolute;
+    left: 39px;
+    top: 29px;
+}
+.home-banner.banner-content .col-lg-7 .align-items-center{
+    align-items: flex-start !important;
+}
+.banner-text-heading-content{
+    min-height: 340px;
+}
+.owl-dots{
+    margin-left: 0;
+    position: absolute;
+    bottom: 100px;
+    left: 115px;
+}
+.owl-dot{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: transparent !important;
+    border: 1px solid #18B57B !important;
+    margin: 0 2px;
+}
+.owl-dot.active{
+    background-color: #18B57B !important;
+    width: 30px;
+    border-radius: 15px;
+}
  
 @media only screen and (max-width: 1400px) {
     .primary-navigation .menu-wrapper li.menu-item{
@@ -1694,9 +1764,7 @@ section{
         margin: 11px 10px;
         width: 225px;
     }
-    .owl-dots{
-        margin-left: 0;
-    }
+ 
     .navbar-brand img{
         width: 150px;
     }
