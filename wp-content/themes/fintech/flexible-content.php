@@ -1,4 +1,5 @@
 <div class="main">
+<?php /*if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); */ ?>
 	<?php
 	/* banner content */
 		if (have_rows('banner')) : ?>
