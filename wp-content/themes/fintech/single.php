@@ -16,6 +16,7 @@ if (have_posts()) :
                                                 
                                                 <div class="blog-title">
                                                     <h1><?php the_title(); ?></h1>
+													<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs();  ?>
                                                 </div>
                                                 <div class="mb-5">
                                                     <div class="author-share-block mb-3">

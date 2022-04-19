@@ -4,7 +4,7 @@
 	/* banner content */
 		if (have_rows('banner')) : ?>
 			<section class="banner-content <?php echo the_field('banner_class'); ?>">    
-				<div class="owl-carousel banner-slider">
+				<div <?php if ( is_front_page() ) : ?> class="owl-carousel banner-slider" <?php endif; ?> >
 					<?php while (have_rows('banner')) : the_row(); ?>
 						<div class="banner-inner-content w-100" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')">  
 							<div class="container">
@@ -514,6 +514,11 @@
 			/* Background Image with Content section Start */
 			if (get_row_layout() == 'background_image_with_content') : 	?>
 				<section class="background_image_with_content <?php echo the_sub_field('background_image_with_content_custom_class'); ?>" <?php if (get_sub_field('background_image')): ?> style="background-image:url('<?php echo get_sub_field('background_image'); ?>')" <?php endif; ?> >
+					<?php if (get_sub_field('title')){ ?>
+						<div class="tag-title">
+							<?php echo the_sub_field('tag_title'); ?>
+						</div>
+					<?php } ?>
 					<div class="container">						
 						<div class="row">
 							<div class="col-md-12">
