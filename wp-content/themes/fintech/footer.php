@@ -34,7 +34,7 @@
 			</div>
 		</div>
 	</section>
- <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer" style="background-image:url('<?php echo THEME_PATH; ?>/images/footer-curve.png')">
     <div class="container">   
 	<div class="footer-container">

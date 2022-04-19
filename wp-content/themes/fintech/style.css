@@ -905,6 +905,10 @@ input[type=checkbox]:after{
     color:#3D3D3E;
     padding: 0 160px;
 }
+.title-white .title-heading h2,
+.title-white .title-heading h3{
+    color: #ffffff;
+}
 /* Footer Content */
 .banner-content{
     padding: 0;
@@ -1283,7 +1287,99 @@ margin-top: 15px;
     outline: 0;
     box-shadow: none;
 }
+section{
+    padding: 80px 0;
+}
+/* Two Colum */
+.two-colum-layout .two-colum-content{
+    display: flex;
+    justify-content: space-between;     
+}
+/* .two-colum-layout .title-heading{
+    margin-bottom: 100px;
+} */
+.two-colum-layout.pos-left .two-colum-content{
+    
+    flex-direction: row-reverse;
+}
+.two-colum-layout .two-colum-content > div{
+    width: 50%;
+}
 
+.two-colum-layout.cfr-tw-col-item.pos-left  .two-colum-content .col-right {
+   padding-right: 80px;
+   padding-left: 0;
+}
+.two-colum-layout.cfr-tw-col-item.pos-left .two-colum-content .col-left{
+     padding-left: 80px;
+     text-align: left;
+     padding-right: 0;
+}
+/* .two-colum-layout.cfr-tw-col-item .two-colum-content .col-right img{
+    box-shadow: 0 50px 100px -20px rgba(50,50,93,0.25),0 30px 60px -30px rgba(0,0,0,0.3);
+    border-radius: 25px;
+} */
+.two-colum-layout.cfr-tw-col-item .two-colum-content img{
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+.two-colum-layout.cfr-tw-col-item .two-colum-content .col-right {
+    padding-right: 0px;
+    padding-left: 80px;
+ }
+ .two-colum-layout.cfr-tw-col-item .two-colum-content .col-left{
+      padding-right: 80px;
+      text-align: right;
+ }
+ .two-colum-layout .content-title-heading h2{
+     font-weight: 500;
+     line-height: 38px;
+     margin-bottom: 40px;
+     position: relative;
+     color: #0C3761;
+ }
+ .two-colum-layout .title-heading{
+     margin-bottom: 30px;
+ }
+ .two-colum-layout.left-title .two-colum-content .col-left{
+     text-align: left;     
+ }
+ /* Home About us */
+ .two-colum-layout.cfr-tw-col-item.about-us .two-colum-content .col-left{
+    width: 40%;
+ }
+ .two-colum-layout.cfr-tw-col-item.about-us .two-colum-content .col-right{
+     padding-right: 0;   
+     width: 60%;
+     position: relative;
+ }
+ .two-colum-layout.cfr-tw-col-item.about-us .two-colum-content .col-right:after{
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-color: rgba(24, 181, 123, 0.11);
+    border-radius: 50%;
+    position: absolute;
+    right: 35px;
+    top: 70px;
+    z-index: 0;
+ }
+ .two-colum-layout.cfr-tw-col-item.about-us .p2{
+     margin-bottom: 30px;
+ }
+ /* End Home About us */
+ /* background_image_with_content  */
+ .background_image_with_content {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: #0C3761;
+    background-blend-mode: multiply;
+    text-align: center;
+}
+/* esignature-solution  how-it-works */
+ 
 @media only screen and (max-width: 1400px) {
     .primary-navigation .menu-wrapper li.menu-item{
         padding: 0 5px;
