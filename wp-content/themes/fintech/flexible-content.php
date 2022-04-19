@@ -21,6 +21,17 @@
 												<h3 class="text-white wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('sub_title'); ?></h3>
 											<?php endif; ?>
 											</div>
+											<?php if (have_rows('tags')) : ?>
+												<div class="banner-tag">
+													<ul>
+													<?php while (have_rows('tags')) : the_row(); 
+															if (get_sub_field('tag_title')) :?>
+																<li><?php echo the_sub_field('tag_title'); ?></li>
+													<?php 	endif; 
+														endwhile; ?> 
+													</ul>
+												</div>
+											<?php endif;  ?>
 											<?php if (get_sub_field('primary_button_url') && get_sub_field('primary_button_label')) : ?>
 												<a href="<?php echo the_sub_field('primary_button_url'); ?>" class="btn btn-primary me-3 wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('primary_button_label'); ?></a>
 											<?php endif; ?>
