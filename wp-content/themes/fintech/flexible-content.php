@@ -15,6 +15,7 @@
 											<div class="banner-text-heading-content">
 										   <?php if (get_sub_field('title')) :  ?>
 												<h1 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?></h1>
+												<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs();  ?>
 											<?php endif; ?>
 											<?php if (get_sub_field('sub_title')) :  ?>
 												<h3 class="text-white wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('sub_title'); ?></h3>

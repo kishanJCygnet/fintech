@@ -102,31 +102,6 @@ if ( have_posts() ) {
 				'mid_size'           => 2,
 				'prev_text'                  => __('<span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>', 'textdomain'),
 				'next_text'                  => __('<span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>', 'textdomain'),
-				/*'prev_text'          => sprintf(
-					'%s <span class="nav-prev-text">%s</span>',
-					is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ),
-					wp_kses(
-						__( 'Newer <span class="nav-short">posts</span>', 'twentytwentyone' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					)
-				),*/
-				
-				/*'next_text'          => sprintf(
-					'<span class="nav-next-text">%s</span> %s',
-					wp_kses(
-						__( 'Older <span class="nav-short">posts</span>', 'twentytwentyone' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' )
-				),*/
 			)
 		);
 
