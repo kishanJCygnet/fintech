@@ -12,12 +12,14 @@
 								<div class="col-lg-7">
 									<div class="d-flex align-items-center h-100">
 										<div class="text-content ">
-											<?php if (get_sub_field('title')) :  ?>
+											<div class="banner-text-heading-content">
+										   <?php if (get_sub_field('title')) :  ?>
 												<h1 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?></h1>
 											<?php endif; ?>
 											<?php if (get_sub_field('sub_title')) :  ?>
 												<h3 class="text-white wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('sub_title'); ?></h3>
 											<?php endif; ?>
+											</div>
 											<?php if (get_sub_field('primary_button_url') && get_sub_field('primary_button_label')) : ?>
 												<a href="<?php echo the_sub_field('primary_button_url'); ?>" class="btn btn-primary me-3 wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('primary_button_label'); ?></a>
 											<?php endif; ?>
@@ -29,6 +31,7 @@
 								</div>
 								<div class="col-lg-5 d-md-none d-none d-lg-block">
 									<div class="img-content">
+										<div class="inner-img-content">
 									<?php if(get_sub_field('video_url')){ 
 										?>
 										<!--<iframe class="banner-video" src="<?php echo the_sub_field('video_url'); ?>?autoplay=1&amp;modestbranding=1&amp;showinfo=0" allowfullscreen="allowfullscreen"></iframe>-->
@@ -44,6 +47,7 @@
 									<?php /* if (get_sub_field('image')) : ?>
 										<img src="<?php echo the_sub_field('image'); ?>" class="w-100" alt="<?php echo the_sub_field('title'); ?>">
 									<?php endif; */ ?>
+									</div>
 									</div>
 								</div>
 							</div>
