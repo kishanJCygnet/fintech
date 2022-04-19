@@ -638,9 +638,9 @@ add_action( 'send_headers', 'tg_enable_strict_transport_security_hsts_header_wor
 /**
 * Remove custom post type within search page
 */
-// function remove_post_type_page_from_search() {
-//     global $wp_post_types;
-//     $wp_post_types['testimonials']->exclude_from_search = true;
-//     $wp_post_types['case_studies']->exclude_from_search = true;
-// }
-// add_action('init', 'remove_post_type_page_from_search');
+function remove_post_type_page_from_search() {
+     global $wp_post_types;
+     $wp_post_types['testimonials']->exclude_from_search = true;
+     $wp_post_types['case_studies']->exclude_from_search = true;
+}
+add_action('init', 'remove_post_type_page_from_search');
