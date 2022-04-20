@@ -282,8 +282,7 @@ class Options extends CommonOptions\Options {
 		],
 		'searchAppearance' => [
 			'advanced' => [
-				'removeCatBase'       => [ 'type' => 'boolean', 'default' => false ],
-				'autoAddImageAltTags' => [ 'type' => 'boolean', 'default' => false ],
+				'removeCatBase' => [ 'type' => 'boolean', 'default' => false ]
 			]
 		],
 		'image'            => [
@@ -501,6 +500,10 @@ class Options extends CommonOptions\Options {
 				? $options['localBusiness']['locations']['business']['address']['country']
 				: null;
 
+		// Remove category base.
+		$removeCategoryBase    = isset( $options['searchAppearance']['advanced']['removeCatBase'] ) ? $options['searchAppearance']['advanced']['removeCatBase'] : null;
+		$removeCategoryBaseOld = aioseo()->options->searchAppearance->advanced->removeCatBase;
+
 		// Local business - multiple locations.
 		// Changes that require reload.
 		$requireReload = [ 'multiple', 'singleLabel', 'pluralLabel' ];
@@ -582,6 +585,13 @@ class Options extends CommonOptions\Options {
 			if ( $notification->exists() ) {
 				Models\Notification::deleteNotificationByName( 'v3-migration-local-business-country' );
 			}
+		}
+
+		if (
+			null !== $removeCategoryBase &&
+			$removeCategoryBase !== $removeCategoryBaseOld
+		) {
+			aioseo()->options->flushRewriteRules();
 		}
 	}
 
