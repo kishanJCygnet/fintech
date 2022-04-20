@@ -37,7 +37,7 @@
 											<?php if (get_sub_field('secondary_button_url') && get_sub_field('secondary_button_label')) : ?>
 												<a href="<?php echo the_sub_field('secondary_button_url'); ?>" class="btn wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('secondary_button_label'); ?></a>
 											<?php endif; ?>
-											<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs();  ?>
+											<?php /*if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); */ ?>
 										</div>
 									</div>
 								</div>
