@@ -135,7 +135,7 @@ a:active{
     font-weight: normal;
 } 
 .topBar {
-    background: linear-gradient(263deg, rgba(0,0,0,1) 0%, rgba(24,181,123,1) 0%, rgba(12,55,97,1) 100%);
+    background: linear-gradient(263deg, rgba(24,181,123,1) 0%, #0c3761 100%);
 }
 .topBar .navbar-nav .btn{
     margin: 0 30px;
@@ -924,10 +924,9 @@ input[type=checkbox]:after{
     display: flex;
     align-items: center;
     padding-top: 100px;
-    background-color: #0C3761;
+    background-image: url(./images/inner-page-bg-img.jpg) !important;
     background-blend-mode: multiply;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-repeat: no-repeat;  
 }
 
 .banner-content.inner-page-banner .banner-inner-content,
@@ -1394,6 +1393,7 @@ section{
     background-image: url(./images/banner-bg.jpg) !important;
     min-height: 730px;
     align-items: flex-start;
+    background-attachment: fixed;
 }
 .home-banner.banner-content .banner-inner-content .text-content{
     margin-top: 30px;
@@ -1428,7 +1428,7 @@ section{
     align-items: flex-start !important;
 }
 .banner-text-heading-content{
-    min-height: 340px;
+    min-height: 300px;
 }
 .owl-dots{
     margin-left: 0;
@@ -1573,6 +1573,28 @@ section{
     margin: 0 40px;
     width: 190px;
 }
+.banner-tag ul{
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0 15px -5px;
+}
+.banner-tag ul li{
+    background-color: #fff;
+    padding: 5px 15px;
+    border-radius: 32px;
+    margin: 5px;
+    color: #0C3761;
+    font-weight: 500;
+    text-transform: capitalize;
+    background-image: url(./images/circle-check-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 8px;
+    padding-left: 40px;
+}
+
  
 @media only screen and (max-width: 1400px) {
     .primary-navigation .menu-wrapper li.menu-item{
