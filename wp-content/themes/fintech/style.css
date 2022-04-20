@@ -928,7 +928,6 @@ input[type=checkbox]:after{
     background-blend-mode: multiply;
     background-repeat: no-repeat;  
 }
-
 .banner-content.inner-page-banner .banner-inner-content,
 .post-type-archive-webinars .banner-inner-content,
 .half-banner .banner-inner-content {
@@ -948,6 +947,10 @@ input[type=checkbox]:after{
 }
 .banner-content .text-content{
     position: relative;
+}
+.banner-content .banner-inner-content .col-lg-7:not(.home-banner.banner-content .banner-inner-content .col-lg-7){
+    width: 100%;
+    text-align: center;
 }
 .post-type-archive-webinars .slide-content-main,
 .banner-content.inner-page-banner .slide-content-main
@@ -1427,7 +1430,7 @@ section{
 .home-banner.banner-content .col-lg-7 .align-items-center{
     align-items: flex-start !important;
 }
-.banner-text-heading-content{
+.home-banner .banner-text-heading-content{
     min-height: 300px;
 }
 .owl-dots{
@@ -1593,6 +1596,26 @@ section{
     background-size: 24px;
     background-position: 8px;
     padding-left: 40px;
+}
+.aioseo-breadcrumbs{
+    margin-top: 50px;
+}
+.aioseo-breadcrumbs span{
+    color: #fff;
+    font-size: 16px;
+    margin: 0 5px;
+}
+.aioseo-breadcrumbs span a{
+    color: #18B57B;
+}
+.aioseo-breadcrumbs span.aioseo-breadcrumb-separator{
+    color: transparent;
+    background-image: url(./images/white-angle.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.aioseo-breadcrumbs .aioseo-breadcrumb:first-child + span.aioseo-breadcrumb-separator{
+    background-image: url(./images/green-angle.png) !important;
 }
 
  
