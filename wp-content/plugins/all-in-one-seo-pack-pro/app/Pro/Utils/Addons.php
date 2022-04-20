@@ -315,14 +315,14 @@ class Addons extends CommonUtils\Addons {
 	 */
 	public function getMinimumVersion( $slug ) {
 		$minimumVersions = [
-			'aioseo-image-seo'      => '1.0.8',
-			'aioseo-link-assistant' => '1.0.3',
-			'aioseo-local-business' => '1.2.4',
-			'aioseo-news-sitemap'   => '1.0.6',
-			'aioseo-redirects'      => '1.1.8',
-			'aioseo-video-sitemap'  => '1.1.2',
-			'aioseo-index-now'      => '1.0.1',
-			'aioseo-rest-api'       => '1.0.0'
+			'aioseo-image-seo'      => '1.0.9',
+			'aioseo-link-assistant' => '1.0.5',
+			'aioseo-local-business' => '1.2.6',
+			'aioseo-news-sitemap'   => '1.0.7',
+			'aioseo-redirects'      => '1.1.9',
+			'aioseo-video-sitemap'  => '1.1.3',
+			'aioseo-index-now'      => '1.0.3',
+			'aioseo-rest-api'       => '1.0.1'
 		];
 
 		if ( ! empty( $slug ) && ! empty( $minimumVersions[ $slug ] ) ) {

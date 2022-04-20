@@ -32,11 +32,6 @@ class Admin extends CommonAdmin\Admin {
 		}
 
 		parent::__construct();
-
-		if ( is_admin() ) {
-			// Add the columns to page/posts.
-			add_action( 'current_screen', [ $this, 'addTaxonomyColumns' ], 1 );
-		}
 	}
 
 	/**
@@ -178,104 +173,6 @@ class Admin extends CommonAdmin\Admin {
 		}
 
 		return parent::getAdminBarMenuData( $post );
-	}
-
-	/**
-	 * Check if the taxonomy should show AIOSEO column.
-	 *
-	 * @since 4.0.0
-	 *
-	 * @param string $taxonomy The taxonomy slug.
-	 *
-	 * @return bool
-	 */
-	public function isTaxonomyColumn( $screen, $taxonomy ) {
-		if ( 'type' === $taxonomy ) {
-			$taxonomy = '_aioseo_type';
-		}
-
-		if ( 'edit-tags' === $screen ) {
-			if ( aioseo()->options->advanced->taxonomies->all && in_array( $taxonomy, aioseo()->helpers->getPublicTaxonomies( true ), true ) ) {
-				return true;
-			}
-
-			$taxonomies = aioseo()->options->advanced->taxonomies->included;
-			if ( in_array( $taxonomy, $taxonomies, true ) ) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Adds the AIOSEO column to taxonomies.
-	 *
-	 * @since 4.0.0
-	 *
-	 * @param WP_Screen $screen The current screen.
-	 *
-	 * @return void
-	 */
-	public function addTaxonomyColumns( $screen ) {
-		if ( $this->isTaxonomyColumn( $screen->base, $screen->taxonomy ) ) {
-			add_action( 'admin_enqueue_scripts', [ $this, 'enqueuePostsScripts' ] );
-			add_filter( "manage_edit-{$screen->taxonomy}_columns", [ $this, 'postColumns' ], 10, 1 );
-			add_filter( "manage_{$screen->taxonomy}_custom_column", [ $this, 'renderTaxonomyColumn' ], 10, 3 );
-		}
-	}
-
-	/**
-	 * Renders the column in the taxonomy table.
-	 *
-	 * @since 4.0.0
-	 *
-	 * @param  string $out        The output to display.
-	 * @param  string $columnName The column name.
-	 * @param  int    $termId     The current term id.
-	 * @return string             A rendered html.
-	 */
-	public function renderTaxonomyColumn( $out, $columnName, $termId ) {
-		if ( 'aioseo-details' === $columnName ) {
-			// Add this column/post to the localized array.
-			global $wp_scripts, $wp_query;
-
-			$data = $wp_scripts->get_data( 'aioseo/js/' . $this->assetSlugs['posts-table'], 'data' );
-
-			if ( ! is_array( $data ) ) {
-				$data = json_decode( str_replace( 'var aioseo = ', '', substr( $data, 0, -1 ) ), true );
-			}
-
-			$nonce   = wp_create_nonce( "aioseo_meta_{$columnName}_{$termId}" );
-			$terms   = $data['terms'];
-			$theTerm = Models\Term::getTerm( $termId );
-
-			// Turn on the tax query so we can get specific tax data.
-			$originalTax      = $wp_query->is_tax;
-			$wp_query->is_tax = true;
-
-			$terms[] = [
-				'id'                => $termId,
-				'columnName'        => $columnName,
-				'nonce'             => $nonce,
-				'title'             => ! empty( $theTerm->title ) ? $theTerm->title : '',
-				'titleParsed'       => aioseo()->meta->title->getTermTitle( get_term( $termId ) ),
-				'description'       => ! empty( $theTerm->description ) ? $theTerm->description : '',
-				'descriptionParsed' => aioseo()->meta->description->getTermDescription( get_term( $termId ) )
-			];
-
-			$wp_query->is_tax = $originalTax;
-			$data['terms']    = $terms;
-
-			$wp_scripts->add_data( 'aioseo/js/' . $this->assetSlugs['posts-table'], 'data', '' );
-			wp_localize_script( 'aioseo/js/' . $this->assetSlugs['posts-table'], 'aioseo', $data );
-
-			ob_start();
-			require( AIOSEO_DIR . '/app/Common/Views/admin/terms/columns.php' );
-			$out = ob_get_clean();
-		}
-
-		return $out;
 	}
 
 	/**

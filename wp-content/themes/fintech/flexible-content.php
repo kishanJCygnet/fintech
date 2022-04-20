@@ -41,27 +41,29 @@
 										</div>
 									</div>
 								</div>
+								<?php if ( is_front_page() ) : ?>
 								<div class="col-lg-5 d-md-none d-none d-lg-block">
 									<div class="img-content">
 										<div class="inner-img-content">
-									<?php if(get_sub_field('video_url')){ 
-										?>
-										<!--<iframe class="banner-video" src="<?php echo the_sub_field('video_url'); ?>?autoplay=1&amp;modestbranding=1&amp;showinfo=0" allowfullscreen="allowfullscreen"></iframe>-->
-										<video class="banner-video animate__animated wow fadeIn " data-wow-duration="3s" data-wow-delay="1s" loop="true" autoplay="autoplay" muted/> 										  
-											<source src="<?php echo the_sub_field('video_url'); ?>" type="video/mp4"> 
-										</video>
-										<?php
-									} else {
-										if (get_sub_field('image')) :
-											?><img src="<?php echo the_sub_field('image'); ?>" class="w-100 wow fadeIn" data-wow-duration="3s" data-wow-delay="1s" alt="<?php echo the_sub_field('title'); ?>"><?php
-										endif;
-									} ?>
-									<?php /* if (get_sub_field('image')) : ?>
-										<img src="<?php echo the_sub_field('image'); ?>" class="w-100" alt="<?php echo the_sub_field('title'); ?>">
-									<?php endif; */ ?>
-									</div>
+											<?php if(get_sub_field('video_url')){ 
+												?>
+												<!--<iframe class="banner-video" src="<?php echo the_sub_field('video_url'); ?>?autoplay=1&amp;modestbranding=1&amp;showinfo=0" allowfullscreen="allowfullscreen"></iframe>-->
+												<video class="banner-video animate__animated wow fadeIn " data-wow-duration="3s" data-wow-delay="1s" loop="true" autoplay="autoplay" muted/> 										  
+													<source src="<?php echo the_sub_field('video_url'); ?>" type="video/mp4"> 
+												</video>
+												<?php
+											} else {
+												if (get_sub_field('image')) :
+													?><img src="<?php echo the_sub_field('image'); ?>" class="w-100 wow fadeIn" data-wow-duration="3s" data-wow-delay="1s" alt="<?php echo the_sub_field('title'); ?>"><?php
+												endif;
+											} ?>
+											<?php /* if (get_sub_field('image')) : ?>
+												<img src="<?php echo the_sub_field('image'); ?>" class="w-100" alt="<?php echo the_sub_field('title'); ?>">
+											<?php endif; */ ?>
+										</div>
 									</div>
 								</div>
+								<?php endif; ?>
 							</div>
 							</div>
 						</div>    
