@@ -48,8 +48,8 @@ class Main extends CommonMain\Main {
 	 *
 	 * @return void
 	 */
-	public function enqueueAssets() {
-		parent::enqueueAssets();
+	public function enqueueTranslations() {
+		parent::enqueueTranslations();
 
 		wp_localize_script(
 			'aioseo-app',
