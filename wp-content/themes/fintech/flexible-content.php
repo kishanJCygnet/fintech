@@ -14,8 +14,7 @@
 										<div class="text-content ">
 											<div class="banner-text-heading-content">
 										   <?php if (get_sub_field('title')) :  ?>
-												<h1 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?></h1>
-												<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs();  ?>
+												<h1 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?></h1>												
 											<?php endif; ?>
 											<?php if (get_sub_field('sub_title')) :  ?>
 												<h3 class="text-white wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('sub_title'); ?></h3>
@@ -38,6 +37,7 @@
 											<?php if (get_sub_field('secondary_button_url') && get_sub_field('secondary_button_label')) : ?>
 												<a href="<?php echo the_sub_field('secondary_button_url'); ?>" class="btn wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('secondary_button_label'); ?></a>
 											<?php endif; ?>
+											<?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs();  ?>
 										</div>
 									</div>
 								</div>
