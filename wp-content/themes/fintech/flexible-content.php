@@ -196,18 +196,18 @@
 			if (get_row_layout() == 'default_content') : ?>
 				<section class="curved-section default-content <?php echo the_sub_field('default_section_custom_class'); ?>">
 					 <?php if (get_sub_field('default_page_content')) : ?>
-						 <div class="container section-container-padding">
-						 <div class="title-heading">
-						<?php if (get_sub_field('title')){ ?>
-							<h2 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?>
-								<span class="heading-border"></span>
-							</h2>
-						<?php } ?>
-						<?php if (get_sub_field('sub_title')){ ?>
-							<h3 class="wow fadeInUp" data-wow-delay="0.6s" ><?php echo the_sub_field('sub_title'); ?></h3>
-						<?php } ?>
-					</div>
-						 <div class="row">
+						<div class="container section-container-padding">
+							<div class="title-heading">
+								<?php if (get_sub_field('title')){ ?>
+									<h2 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?>
+										<span class="heading-border"></span>
+									</h2>
+								<?php } ?>
+								<?php if (get_sub_field('sub_title')){ ?>
+									<h3 class="wow fadeInUp" data-wow-delay="0.6s" ><?php echo the_sub_field('sub_title'); ?></h3>
+								<?php } ?>
+							</div>
+							<div class="row">
 								<div class="col-md-12 col-xl-12 align-self-center industry-highlight-text">
 									<?php echo the_sub_field('default_page_content'); ?>
 								</div>
