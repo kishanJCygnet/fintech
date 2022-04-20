@@ -133,7 +133,6 @@
 		} else if(e.detail.contactFormId == 24966) {
 			location = url + '/thank-you-for-signing-up';
 		} else if(e.detail.contactFormId == 24382) {
-			//location = url + '/thank-you-for-contacting-us';
 			setTimeout(function () {
 				 jQuery("#exampleModal").modal('hide');
 			 }, 5000);
