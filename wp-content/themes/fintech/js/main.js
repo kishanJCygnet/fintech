@@ -10,13 +10,7 @@ jQuery(document).ready(function(){
   jQuery('.search-icon .overlay').click(function(){
      jQuery('.search-icon').toggleClass('show');
   }); 
-  // jQuery('.icon-box .action .readmore').click(function(){
-  //   jQuery(this).parents('.action').siblings('.description').toggleClass('show-text')
-  // });
-  // jQuery('.product-feature-tab ul li:first-child').addClass('active');
-  // jQuery('.product-feature-tab ul li').click(function(){
-  //   jQuery(this).addClass('active').siblings('li').removeClass('active');
-  // });
+
 
   jQuery('.navbar-toggler').click(function(){
     jQuery('html').toggleClass('overflow-h');
