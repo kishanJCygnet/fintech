@@ -299,7 +299,12 @@
 								<div class="owl-carousel client-logo-slider">
 								   <?php while (have_rows('logo_list')) : the_row(); ?>
 										<?php if (get_sub_field('logo_image')) { ?>
-												<img src="<?php echo the_sub_field('logo_image'); ?>" alt="<?php echo the_sub_field('logo_title'); ?>" >
+											<span class="icon-item">
+												<span class="icon">
+											    	<img src="<?php echo the_sub_field('logo_image'); ?>" alt="<?php echo the_sub_field('logo_title'); ?>" >
+												</span>
+												<span class="text"><?php echo the_sub_field('logo_title'); ?></span>
+											</span>												
 										<?php } ?>
 								   <?php endwhile;?>
 								</div>
