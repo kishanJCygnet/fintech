@@ -4,7 +4,8 @@
 	/* banner content */
 		if (have_rows('banner')) : ?>
 			<section class="banner-content <?php echo the_field('banner_class'); ?>">    
-				<div <?php if ( is_front_page() ) : ?> class="owl-carousel banner-slider" <?php endif; ?> >
+				<!--<div <?php if ( is_front_page() ) : ?> class="owl-carousel banner-slider" <?php endif; ?> >-->
+				<div class="owl-carousel banner-slider">
 					<?php while (have_rows('banner')) : the_row(); ?>
 						<div class="banner-inner-content w-100" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')">  
 							<div class="container">
@@ -80,11 +81,6 @@
 						animateOut: 'fadeOut',
 						animateIn: 'fadeIn',
 						items: 1,
-						navText: [
-							'<span><img src="<?php echo THEME_PATH; ?>/images/right-arrow.png" alt="" /></span>',
-							'<span><img src="<?php echo THEME_PATH; ?>/images/right-arrow.png" alt="" /></span>'
-						],               
-						
 					})
 				})
 				</script>
