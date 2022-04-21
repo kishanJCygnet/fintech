@@ -6,7 +6,7 @@ Tags: email marketing, subscription, autoresponder, post notification, welcome e
 Requires at least: 3.9
 Tested up to: 5.9.3
 Requires PHP: 5.6
-Stable tag: 5.3.11
+Stable tag: 5.3.12
 License: GPLv3
 License URI: http://www.gnu.org/licenses
 
@@ -310,13 +310,19 @@ Refer [here](https://www.icegram.com/documentation/es-faq/).
 
 == Upgrade Notice ==
 
-= 5.3.11 =
+= 5.3.12 =
 
-* New: Now ES forms can be added to remote sites/pages via HTML code
-* Fix: Workflows are not getting saved in some cases
+* Fix: Incorrect name when registering through Ultimate Member plugin
+* Fix: Broadcast send now not working on sites having timezone before UTC
 * Fix: Security related issues [Thanks to WP team]
 
 == Changelog ==
+
+**5.3.12 (21.04.2022)**
+
+* Fix: Incorrect name when registering through Ultimate Member plugin
+* Fix: Broadcast send now not working on sites having timezone before UTC
+* Fix: Security related issues [Thanks to WP team]
 
 **5.3.11 (12.04.2022)**
 

@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Email Subscribers & Newsletters plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Email Subscribers & Newsletters 5.3.11\n"
+"Project-Id-Version: Email Subscribers & Newsletters 5.3.12\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/email-subscribers\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-04-13T09:05:30+02:00\n"
+"POT-Creation-Date: 2022-04-21T07:11:31+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: email-subscribers\n"
@@ -29,7 +29,7 @@ msgstr ""
 
 #. Author of the plugin
 #: lite/admin/partials/help.php:28
-#: lite/includes/class-email-subscribers.php:1608
+#: lite/includes/class-email-subscribers.php:1494
 msgid "Icegram"
 msgstr ""
 
@@ -209,12 +209,12 @@ msgid "Fetching contacts from MailChimp...Please do not close this window"
 msgstr ""
 
 #: lite/admin/class-email-subscribers-admin.php:295
-#: lite/admin/partials/dashboard.php:101
+#: lite/admin/partials/dashboard.php:147
 msgid "Dashboard"
 msgstr ""
 
 #: lite/admin/class-email-subscribers-admin.php:300
-#: lite/admin/partials/dashboard.php:108
+#: lite/admin/partials/dashboard.php:154
 #: lite/includes/classes/class-es-contacts-table.php:214
 #: lite/includes/pro-features.php:186
 #: starter/starter-class-email-subscribers.php:648
@@ -290,7 +290,7 @@ msgid "Workflows"
 msgstr ""
 
 #: lite/admin/class-email-subscribers-admin.php:343
-#: lite/admin/partials/dashboard.php:239
+#: lite/admin/partials/dashboard.php:285
 #: lite/includes/classes/class-es-campaign-report.php:17
 #: lite/includes/classes/class-es-reports-table.php:17
 #: lite/includes/classes/class-es-reports-table.php:55
@@ -304,7 +304,7 @@ msgid "Reports"
 msgstr ""
 
 #: lite/admin/class-email-subscribers-admin.php:347
-#: lite/admin/partials/dashboard.php:247
+#: lite/admin/partials/dashboard.php:293
 #: lite/includes/classes/class-es-admin-settings.php:133
 msgid "Settings"
 msgstr ""
@@ -324,7 +324,7 @@ msgstr ""
 
 #: lite/admin/class-email-subscribers-admin.php:1327
 #: lite/includes/class-email-subscribers-activator.php:61
-#: lite/includes/class-email-subscribers.php:1605
+#: lite/includes/class-email-subscribers.php:1491
 #: lite/includes/classes/class-es-form-widget.php:11
 #: lite/includes/classes/class-es-old-widget.php:13
 #: lite/includes/classes/class-es-old-widget.php:15
@@ -362,7 +362,7 @@ msgid "Avg Open Rate"
 msgstr ""
 
 #: lite/admin/class-email-subscribers-admin.php:1402
-#: lite/admin/partials/dashboard.php:194
+#: lite/admin/partials/dashboard.php:240
 msgid "Messages Sent"
 msgstr ""
 
@@ -375,7 +375,7 @@ msgid "Sent to"
 msgstr ""
 
 #: lite/admin/class-email-subscribers-admin.php:1461
-#: lite/admin/partials/dashboard.php:178
+#: lite/admin/partials/dashboard.php:224
 #: lite/includes/pro-features.php:1336
 #: lite/includes/pro-features.php:1374
 #: pro/classes/class-es-pro-reports-data.php:321
@@ -529,9 +529,9 @@ msgid "Template saved succesfully."
 msgstr ""
 
 #: lite/admin/class-es-campaign-admin.php:646
-#: lite/includes/classes/class-es-newsletters.php:445
+#: lite/admin/partials/trial-optin-form.php:70
 #: pro/classes/class-es-campaign-admin-pro.php:103
-msgid "Something went wrong. Please try again later"
+msgid "Something went wrong. Please try again later."
 msgstr ""
 
 #: lite/admin/class-es-campaign-admin.php:1145
@@ -834,169 +834,207 @@ msgid "An error occured. Please try again later."
 msgstr ""
 
 #. translators: 1. Main list name. 2. Default list name.
-#: lite/admin/class-ig-es-onboarding.php:462
+#: lite/admin/class-ig-es-onboarding.php:447
 msgid "Unable to create %1$s and %2$s list."
 msgstr ""
 
 #. translators: Main list name
-#: lite/admin/class-ig-es-onboarding.php:609
+#: lite/admin/class-ig-es-onboarding.php:594
 msgid "Add to %s list when someone registers"
 msgstr ""
 
-#: lite/admin/class-ig-es-onboarding.php:733
+#: lite/admin/class-ig-es-onboarding.php:718
 msgid "Please accept terms & condition"
 msgstr ""
 
 #. translators: Active sidebar name.
-#: lite/admin/class-ig-es-onboarding.php:791
+#: lite/admin/class-ig-es-onboarding.php:776
 msgid "Adding the form to \"%s\" sidebar, so you can show it on the site"
 msgstr ""
 
 #. translators: Active sidebar name.
-#: lite/admin/class-ig-es-onboarding.php:794
+#: lite/admin/class-ig-es-onboarding.php:779
 msgid "Unable to add form widget to \"%s\" sidebar. Widget may already exists."
 msgstr ""
 
 #. translators: Active sidebar name.
-#: lite/admin/class-ig-es-onboarding.php:799
+#: lite/admin/class-ig-es-onboarding.php:784
 msgid "Unable to add form widget to \"%s\" sidebar. No subscription form found."
 msgstr ""
 
-#: lite/admin/class-ig-es-onboarding.php:851
-#: lite/admin/class-ig-es-onboarding.php:852
+#: lite/admin/class-ig-es-onboarding.php:836
+#: lite/admin/class-ig-es-onboarding.php:837
 msgid "Welcome To Email Subscribers"
 msgstr ""
 
-#: lite/admin/class-ig-es-onboarding.php:1039
+#: lite/admin/class-ig-es-onboarding.php:1017
 msgid "Seems like your server is not setup correctly to send emails. Please confirm if you're getting any other emails from within WordPress"
 msgstr ""
 
-#: lite/admin/class-ig-es-onboarding.php:1165
+#: lite/admin/class-ig-es-onboarding.php:1120
 #: lite/includes/classes/class-es-post-notifications.php:627
 msgid "New Post Published - {{POSTTITLE}}"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:50
+#: lite/admin/partials/dashboard.php:51
 msgid "Add a Subscription Form"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:51
+#: lite/admin/partials/dashboard.php:52
 msgid "Grow subscribers. Add a newsletter signup form to your site."
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:52
-#: lite/admin/partials/dashboard.php:117
+#: lite/admin/partials/dashboard.php:53
+#: lite/admin/partials/dashboard.php:163
 msgid "Create"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:58
+#: lite/admin/partials/dashboard.php:59
 #: lite/includes/classes/class-es-contacts-table.php:133
 #: lite/includes/classes/class-es-import-subscribers.php:415
 msgid "Import Contacts"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:59
+#: lite/admin/partials/dashboard.php:60
 msgid "Coming from another email marketing system? Upload a CSV file to import subscribers."
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:60
+#: lite/admin/partials/dashboard.php:61
 #: lite/includes/classes/class-es-import-subscribers.php:378
 msgid "Import"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:66
+#: lite/admin/partials/dashboard.php:67
 msgid "Configure Email Sending"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:67
+#: lite/admin/partials/dashboard.php:68
 msgid " Essential for high email delivery and reaching the inbox. SMTP, email service providers... set it all up."
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:68
+#: lite/admin/partials/dashboard.php:69
 msgid "Setup"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:74
+#: lite/admin/partials/dashboard.php:75
 msgid "Send a Newsletter"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:75
+#: lite/admin/partials/dashboard.php:76
 msgid "Broadcast a newsletter campaign to all or selected subscribers."
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:76
+#: lite/admin/partials/dashboard.php:77
 msgid "Begin"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:82
+#: lite/admin/partials/dashboard.php:83
 msgid "Create an Auto-responder Sequence"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:83
+#: lite/admin/partials/dashboard.php:84
 msgid "Welcome emails, drip campaigns... Send automatic emails at regular intervals to engage readers."
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:84
+#: lite/admin/partials/dashboard.php:85
 msgid "Start"
 msgstr ""
 
+#: lite/admin/partials/dashboard.php:99
+msgid "Try Email Subscribers Premium"
+msgstr ""
+
+#. translators: %d: Trial period in days
+#: lite/admin/partials/dashboard.php:101
+msgid "Start your %d days free trial to get automatic email sending, advance spam protection and more."
+msgstr ""
+
+#: lite/admin/partials/dashboard.php:102
+#: lite/admin/partials/trial-optin-form.php:33
+msgid "Start trial"
+msgstr ""
+
+#. translators: %d: Trial period in days
+#: lite/admin/partials/dashboard.php:114
+msgid "Your free %d days trial is on"
+msgstr ""
+
+#. translators: %s: Number of days remaining in trial
+#: lite/admin/partials/dashboard.php:116
+msgid "Hope you are enjoying the premium features of Email Subscribers. It will expire on %s. You can anytime upgrade it to Pro."
+msgstr ""
+
+#: lite/admin/partials/dashboard.php:117
+#: lite/admin/partials/dashboard.php:129
+msgid "Upgrade to Pro"
+msgstr ""
+
+#. translators: %d: Trial period in days
+#: lite/admin/partials/dashboard.php:127
+msgid "Your %d days trial is expired"
+msgstr ""
+
 #: lite/admin/partials/dashboard.php:128
+msgid "Upgrade now to continue uninterrupted use of premium features like automatic email sending and more."
+msgstr ""
+
+#: lite/admin/partials/dashboard.php:174
 msgid "New Broadcast"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:130
+#: lite/admin/partials/dashboard.php:176
 msgid "New Post Notification"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:133
-#: lite/admin/partials/dashboard.php:135
+#: lite/admin/partials/dashboard.php:179
+#: lite/admin/partials/dashboard.php:181
 #: pro/pro-class-sequences.php:48
 msgid "New Sequence"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:136
+#: lite/admin/partials/dashboard.php:182
 msgid "Premium"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:141
+#: lite/admin/partials/dashboard.php:187
 msgid "New Template"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:145
+#: lite/admin/partials/dashboard.php:191
 msgid "New Form"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:146
+#: lite/admin/partials/dashboard.php:192
 msgid "New List"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:147
+#: lite/admin/partials/dashboard.php:193
 msgid "New Contact"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:162
+#: lite/admin/partials/dashboard.php:208
 msgid " active contacts"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:170
+#: lite/admin/partials/dashboard.php:216
 #: lite/includes/classes/class-es-contacts-table.php:320
 msgid "Last 60 days"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:186
+#: lite/admin/partials/dashboard.php:232
 msgid " Avg Open Rate"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:202
+#: lite/admin/partials/dashboard.php:248
 #: lite/includes/pro-features.php:1272
 msgid "Avg Click Rate"
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:237
+#: lite/admin/partials/dashboard.php:283
 msgid "Jump to: "
 msgstr ""
 
-#: lite/admin/partials/dashboard.php:243
+#: lite/admin/partials/dashboard.php:289
 #: lite/includes/class-email-subscribers-activator.php:49
 #: lite/includes/class-email-subscribers-activator.php:50
 #: lite/includes/class-email-subscribers-activator.php:55
@@ -1117,220 +1155,249 @@ msgstr ""
 msgid "Activate"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:38
+#: lite/admin/partials/onboarding.php:40
 msgid "STEP 1 of 3"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:42
+#: lite/admin/partials/onboarding.php:44
 msgid "Welcome!"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:48
+#: lite/admin/partials/onboarding.php:50
 msgid ""
 "We've simplified and automated email marketing, so you can get\n"
 "\t\t                results quickly."
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:57
+#: lite/admin/partials/onboarding.php:59
 msgid "Essentials:"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:64
+#: lite/admin/partials/onboarding.php:66
 msgid "\"From\" name for emails: "
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:73
+#: lite/admin/partials/onboarding.php:75
 msgid "\"From\" email: "
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:84
+#: lite/admin/partials/onboarding.php:86
 msgid "Email delivery testing:"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:89
+#: lite/admin/partials/onboarding.php:91
 msgid ""
 "Add a couple of your own email addresses below. We will add\n"
 "\t\t                  them to your audience lists."
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:118
+#: lite/admin/partials/onboarding.php:120
 msgid "Your preferences:"
 msgstr ""
 
 #. translators: %s. Plugin name.
-#: lite/admin/partials/onboarding.php:153
+#: lite/admin/partials/onboarding.php:136
 msgid "Help us to improve %s by opting in to share non-sensitive plugin usage data. No personal data is tracked or stored."
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:173
+#: lite/admin/partials/onboarding.php:155
 msgid ""
 "I want to send email notifications when new blog posts are\n"
 "\t\t                      published"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:195
+#: lite/admin/partials/onboarding.php:177
 msgid ""
 "Enable double opt-in (people have to click a confirmation\n"
 "\t\t                      link in email before they're subscribed)"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:214
+#: lite/admin/partials/onboarding.php:196
 msgid "Add GDPR consent in subscription forms"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:227
+#: lite/admin/partials/onboarding.php:209
 msgid "Ok, set it up for me →"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:257
+#: lite/admin/partials/onboarding.php:239
 msgid "STEP 2 of 3"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:261
+#: lite/admin/partials/onboarding.php:243
 msgid "Hold on, personalizing for you..."
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:266
+#: lite/admin/partials/onboarding.php:248
 msgid ""
 "We'll create audience lists, campaigns and a subscription form.\n"
 "\t\t                And then try to send a test email to make sure everything works."
 msgstr ""
 
 #. translators: 1: Main List 2: Test List
-#: lite/admin/partials/onboarding.php:282
+#: lite/admin/partials/onboarding.php:264
 msgid "Creating audience lists - %1$s &amp; %2$s"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:296
+#: lite/admin/partials/onboarding.php:278
 msgid "Subscribing you and "
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:298
+#: lite/admin/partials/onboarding.php:280
 msgid " to these lists"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:310
+#: lite/admin/partials/onboarding.php:292
 msgid "Creating a campaign - newsletter broadcast test"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:322
+#: lite/admin/partials/onboarding.php:304
 msgid "Creating a campaign - new post notification test"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:334
+#: lite/admin/partials/onboarding.php:316
 msgid "Creating a subscription opt-in form for the Main list"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:347
+#: lite/admin/partials/onboarding.php:329
 msgid ""
 "Adding the form to an active sidebar, so you can show it on\n"
 "\t\t                    the site"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:365
+#: lite/admin/partials/onboarding.php:347
 msgid "Testing email delivery..."
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:375
+#: lite/admin/partials/onboarding.php:357
 msgid "Queuing up campaign - newsletter broadcast test"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:385
+#: lite/admin/partials/onboarding.php:367
 msgid "Dispatching emails from your server"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:396
+#: lite/admin/partials/onboarding.php:378
 msgid "Waiting for test email to arrive on destination server"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:407
+#: lite/admin/partials/onboarding.php:389
 msgid "Excellent! Email delivery setup is working well!"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:420
+#: lite/admin/partials/onboarding.php:402
 msgid "Continue anyway →"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:422
+#: lite/admin/partials/onboarding.php:404
 msgid "All good, let's finish up →"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:457
+#: lite/admin/partials/onboarding.php:439
 msgid "STEP 3 of 3"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:461
+#: lite/admin/partials/onboarding.php:443
 msgid "Done! Now speed up your success!"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:468
+#: lite/admin/partials/onboarding.php:456
 msgid "Setup is complete. Couple of things to support you..."
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:473
-msgid "Free course: WordPress Email Marketing Masterclass 2021"
+#. translators: %d. Trial period in days
+#: lite/admin/partials/onboarding.php:467
+msgid "Sign up for free trial of premium features"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:477
+#. translators: %d. Trial period in days
+#: lite/admin/partials/onboarding.php:473
+msgid ""
+"Get %d days free trial of managed email sending, advance spam\n"
+"\t\t\t\t\t\t\t\t\t\tprotection, security, email deliverability checks and more. Premium features will be disabled\n"
+"\t\t\t\t\t\t\t\t\t\tautomatically after the trial if you don't continue."
+msgstr ""
+
+#. translators: %d. Current year
+#: lite/admin/partials/onboarding.php:484
+msgid "Also, get free WordPress Email Marketing Masterclass %d Course and grow your audience."
+msgstr ""
+
+#. translators: %d. Current year
+#: lite/admin/partials/onboarding.php:493
+msgid "Free course: WordPress Email Marketing Masterclass %d"
+msgstr ""
+
+#: lite/admin/partials/onboarding.php:498
 msgid ""
 "How to build your list, make sure your email reach your\n"
-"\t\t\t\t                  audience and influence your audience."
+"\t\t\t\t\t\t\t\t\taudience and influence your audience."
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:509
-msgid "Premium features for free:"
+#: lite/admin/partials/onboarding.php:515
+#: lite/admin/partials/trial-optin-form.php:15
+msgid "Your name"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:538
-msgid "Yes, start the trial"
+#: lite/admin/partials/onboarding.php:524
+#: lite/admin/partials/trial-optin-form.php:25
+msgid "Your email"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:548
+#: lite/admin/partials/onboarding.php:536
 msgid "Recommended next steps:"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:551
+#: lite/admin/partials/onboarding.php:539
 msgid "Review \"Settings\" and make adjustments if needed"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:552
+#: lite/admin/partials/onboarding.php:540
 msgid "Import your contacts, create new campaigns and test"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:555
+#: lite/admin/partials/onboarding.php:543
 #: pro/workflows/triggers/class-es-trigger-wc-product-review-approved.php:25
 msgid "Review"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:560
+#: lite/admin/partials/onboarding.php:548
 msgid "documentation"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:562
+#: lite/admin/partials/onboarding.php:550
 msgid "if you need any help"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:575
+#: lite/admin/partials/onboarding.php:563
 msgid "Complete setup &amp; take me to \"Dashboard\" "
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:616
+#: lite/admin/partials/onboarding.php:604
 msgid "Email sending did not work"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:621
+#: lite/admin/partials/onboarding.php:609
 msgid "Here's the error we encountered:"
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:632
+#: lite/admin/partials/onboarding.php:620
 msgid ""
 "We recommend you solve this problem quickly after completing\n"
 "\t\t\t\t\t                  the setup. Do make sure emails are getting delivered before\n"
 "\t\t\t\t\t                  you send any real campaigns."
 msgstr ""
 
-#: lite/admin/partials/onboarding.php:651
+#: lite/admin/partials/onboarding.php:639
 msgid " Understood, continue for now →"
+msgstr ""
+
+#: lite/admin/partials/trial-optin-form.php:8
+msgid "Sign up now"
+msgstr ""
+
+#: lite/admin/partials/trial-optin-form.php:47
+msgid "It's done!"
 msgstr ""
 
 #: lite/includes/class-email-subscribers-activator.php:51
@@ -1390,16 +1457,16 @@ msgid "OK, I Got it!"
 msgstr ""
 
 #. translators: 1: Error message 2: File name  3: Line number
-#: lite/includes/class-email-subscribers.php:1355
+#: lite/includes/class-email-subscribers.php:1284
 msgid "%1$s in %2$s on line %3$s"
 msgstr ""
 
-#: lite/includes/class-email-subscribers.php:1618
+#: lite/includes/class-email-subscribers.php:1504
 msgid "Icegram WC"
 msgstr ""
 
 #. translators: %1$s - constant that was used
-#: lite/includes/class-email-subscribers.php:2069
+#: lite/includes/class-email-subscribers.php:1955
 msgid "Value was set using constant %1$s"
 msgstr ""
 
@@ -3195,13 +3262,17 @@ msgstr ""
 #: lite/includes/classes/class-es-newsletters.php:431
 #: lite/includes/classes/class-es-reports-table.php:592
 #: lite/includes/classes/class-es-templates-table.php:154
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:243
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:261
 msgid "Close"
 msgstr ""
 
 #: lite/includes/classes/class-es-newsletters.php:444
 #: pro/classes/class-es-campaign-admin-pro.php:100
 msgid "Email sent successfully "
+msgstr ""
+
+#: lite/includes/classes/class-es-newsletters.php:445
+msgid "Something went wrong. Please try again later"
 msgstr ""
 
 #: lite/includes/classes/class-es-old-widget.php:75
@@ -3630,66 +3701,72 @@ msgstr ""
 msgid "Inline CSS"
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:122
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:103
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:227
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:291
+msgid "Feature available during Trial"
+msgstr ""
+
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:130
 msgid "Custom CSS"
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:179
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:213
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:187
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:223
 msgid "Get Spam Score"
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:190
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:217
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:198
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:235
 #: lite/includes/pro-features.php:1108
 msgid "Check"
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:194
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:232
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:202
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:250
 msgid "Awesome score. Your email is almost perfect."
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:195
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:233
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:203
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:251
 msgid "Ouch! your email needs improvement. "
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:197
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:236
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:205
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:254
 msgid "Here are some things to fix: "
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:230
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:248
 msgid "Spam score"
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:275
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:287
 #: lite/includes/pro-features.php:1091
 msgid "UTM tracking"
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:290
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:320
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:322
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:309
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:339
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:341
 msgid "Campaign Name"
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:301
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:320
 msgid "Google Analytics link tracking"
 msgstr ""
 
 #. translators: 1: UTM parameters
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:318
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:337
 msgid "This will be appended to every URL in this template with parameters: %s"
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:360
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:379
 #: lite/includes/pro-features.php:338
 msgid "Google Analytics UTM tracking"
 msgstr ""
 
-#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:361
+#: lite/includes/premium-services-ui/class-ig-es-premium-services-ui.php:380
 #: lite/includes/pro-features.php:339
 msgid "Do you want to automatically add campaign tracking parameters in emails to track performance in Google Analytics? (We recommend keeping it enabled)"
 msgstr ""
@@ -4322,7 +4399,7 @@ msgstr ""
 msgid "Want to add more form fields?"
 msgstr ""
 
-#: lite/includes/services/class-es-email-delivery-check.php:46
+#: lite/includes/services/class-es-email-delivery-check.php:50
 msgid " The test email did not reach our test server. Did you get any test emails on your email? This could be a temporary problem, but it can also mean that emails are getting stuck on your server, or getting rejected by recipients."
 msgstr ""
 
@@ -5157,6 +5234,10 @@ msgstr ""
 
 #: pro/classes/class-es-pro-embed-form.php:82
 msgid "Invalid form!"
+msgstr ""
+
+#: pro/classes/class-es-pro-embed-form.php:257
+msgid "Make sure to paste this below code on remote pages"
 msgstr ""
 
 #: pro/classes/class-es-pro-embed-form.php:264
