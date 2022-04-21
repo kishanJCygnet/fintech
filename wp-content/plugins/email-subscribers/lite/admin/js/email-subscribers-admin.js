@@ -1195,9 +1195,9 @@
 			jQuery('#enable_utm_tracking').on('change', function() {
 				let enable_utm_tracking = jQuery(this).prop('checked') ? 'yes' : 'no';
 				if( 'yes' === enable_utm_tracking ) {
-					jQuery('.ig_es_broadcast_campaign_name_wrapper').removeClass('hidden');
+					jQuery('.ig_es_utm_campaign_name_wrapper').removeClass('hidden');
 				} else {
-					jQuery('.ig_es_broadcast_campaign_name_wrapper').addClass('hidden');
+					jQuery('.ig_es_utm_campaign_name_wrapper').addClass('hidden');
 				}
 			});
 			

@@ -1799,6 +1799,16 @@ body.email-subscribers_page_es_campaigns .column-status .dashicons[title="Finish
 	background: url('../images/premium-icon.svg');
 }
 
+.trial-icon {
+	display: inline-block;
+	vertical-align: middle;
+	color: #319795;
+  	width: 20px;
+  	height: 21px;
+  	padding-top: 0.25rem;
+	background: url('../images/trial-icon.svg');
+}
+
 #ig-es-trial-to-premium-notice p {
     line-height: 2em;
 }
@@ -2422,3 +2432,18 @@ button#close-campaign-preview-popup {
 	margin-bottom: 0;
 }
 /** Workflow Gallery CSS - END **/
+
+/** Trial CSS - START **/
+#ig-es-trial-expired-block .block-description,
+#ig-es-trial-optin-block .block-description,
+#ig-es-trial-active-block .block-description {
+	width: auto!important;
+}
+/** Trial CSS - END **/
+
+/** Onboarding CSS - START **/
+#es-trial-optin-section.disabled {
+	color: #8b8f95;
+    pointer-events: none;
+}
+/** Onboarding CSS - END */

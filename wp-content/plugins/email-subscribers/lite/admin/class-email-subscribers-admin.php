@@ -1229,7 +1229,7 @@ class Email_Subscribers_Admin {
 	public function ig_es_send_additional_data_for_tracking() {
 
 		// Send data only if user had opted for trial or user is on a premium plan.
-		$is_plan_valid      = ES()->is_trial() || ES()->is_premium();
+		$is_plan_valid      = ES()->trial->is_trial() || ES()->is_premium();
 
 		// Check if the data is already sent once
 		$can_send_data      = get_option( 'ig_es_send_additional_data_for_tracking', 'yes' );

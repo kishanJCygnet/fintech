@@ -1,12 +1,10 @@
 <?php
 /* Common Listing using AJAX */
-
 add_action('wp_ajax_get_casestudy_listing_data', 'get_casestudy_listing_data');
 add_action('wp_ajax_nopriv_get_casestudy_listing_data', 'get_casestudy_listing_data');
 
 function get_casestudy_listing_data()
 {
-
   //Declaration of temporary variables
   $type_query = array();
   $date_query = array();
@@ -472,10 +470,8 @@ $s = $s + 0.2;
     die();
     ?>
   </div>
-<?php } ?>
+<?php } 
 
-
-<?php
 /* Press Release Listing */
 add_action('wp_ajax_get_press_release_listing', 'get_press_release_listing');
 add_action('wp_ajax_nopriv_get_press_release_listing', 'get_press_release_listing');
@@ -624,9 +620,8 @@ function get_press_release_listing()
     die();
     ?>
   </div>
-<?php } ?>
+<?php } 
 
-<?php
 /* Search Result Listing */
 add_action('wp_ajax_get_search_result_listing', 'get_search_result_listing');
 add_action('wp_ajax_nopriv_get_search_result_listing', 'get_search_result_listing');
@@ -768,4 +763,4 @@ function get_search_result_listing()
         die();
         ?>
       </div>
-    <?php } ?>
+<?php } ?>

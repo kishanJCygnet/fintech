@@ -191,7 +191,7 @@
 			/* Default Content Start */
 			if (get_row_layout() == 'default_content') : ?>
 				<section class="curved-section default-content <?php echo the_sub_field('default_section_custom_class'); ?>">
-					 <?php if (get_sub_field('default_page_content')) : ?>
+					 <?php //if (get_sub_field('default_page_content')) : ?>
 						<div class="container section-container-padding">
 							<div class="title-heading">
 								<?php if (get_sub_field('title')){ ?>
@@ -203,13 +203,15 @@
 									<h3 class="wow fadeInUp" data-wow-delay="0.6s" ><?php echo the_sub_field('sub_title'); ?></h3>
 								<?php } ?>
 							</div>
+							<?php if (get_sub_field('default_page_content')) : ?>
 							<div class="row">
 								<div class="col-md-12 col-xl-12 align-self-center industry-highlight-text">
 									<?php echo the_sub_field('default_page_content'); ?>
 								</div>
 							</div>
+							<?php endif; ?>
 						</div>
-					<?php endif; ?>
+					<?php //endif; ?>
 				</section>
 			<?php endif; 
 			/* Default Content End */			
@@ -312,33 +314,31 @@
 							<script>
 							jQuery(document).ready(function() {
 								jQuery('.client-logo-slider').length && jQuery('.client-logo-slider').owlCarousel({
-									loop: false,
-									
+									loop: true,									
 									autoplay: true,
-									nav: false,
-									dots: true,
-									
+									nav: true,
+									dots: false,									
 									navText: [
-										'<span><i class=\'bi bi-chevron-left\'></i></span>Previous',
-										'Next<span><i class=\'bi bi-chevron-right\'></i></span>'
+										'<span><img src="<?php echo THEME_PATH; ?>/images/icon-angle.svg" alt="navigation right" /></span>',
+										'<span><img src="<?php echo THEME_PATH; ?>/images/icon-angle.svg" alt="navigation left" /></span>'									
 									],
 									responsive : {
 											// breakpoint from 0 up
 											0 : {
 												items:2,
-												margin: 40,
+												margin: 20,
 											},
 											768 : {
 												items:3,
-												margin: 60,
+												margin: 30,
 											},
 											992 : {
 												items:3,
-												margin: 60,
+												margin: 30,
 											},
 											1200 : {
 												items: 5,
-												margin: 100,
+												margin: 40,
 											},											
 										}
 									
@@ -563,7 +563,7 @@
 			/* Icon Box Slider Start */
 			if (get_row_layout() == 'icon_box_slider') : ?>
 				<section class="<?php echo the_sub_field('icon_box_custom_class'); ?>">
-					<div class="container-fluid">
+					<div class="container">
 						<div class="title-heading">
 							<?php if (get_sub_field('title')){ ?>
 								<h2 class="wow fadeInUp" data-wow-offset="50"><?php echo the_sub_field('title'); ?>
@@ -619,7 +619,7 @@
 										margin: 10,
 										autoplay: false,
 										nav: true,
-										dots: true,
+										dots: false,
 										mouseDrag:false,
 									
 										navText: [

@@ -632,10 +632,17 @@ if ( ! class_exists( 'ES_Handle_Subscription' ) ) {
 
 			$external_action = ig_es_get_request_data( 'ig_es_external_action' );
 			if ( ! empty( $external_action ) && 'subscribe' === $external_action ) {
-				$list_hash = ig_es_get_request_data( 'list' );
-				$list      = ES()->lists_db->get_by( 'hash', $list_hash );
-				if ( ! empty( $list ) ) {
-					$list_id    = $list['id'];
+				$list_hash  = ig_es_get_request_data( 'list' );
+				$lists_hash = ig_es_get_request_data( 'lists' );
+				if ( ! empty( $list_hash ) ) {
+					$list  = ES()->lists_db->get_by( 'hash', $list_hash );
+					$lists = array( $list );
+					$lists_hash = array( $list_hash );
+				} elseif ( ! empty( $lists_hash ) ) {
+					$lists = ES()->lists_db->get_lists_by_hash( $lists_hash );
+				}
+
+				if ( ! empty( $lists ) ) {
 					$name       = ig_es_get_request_data( 'name' );
 					$email      = ig_es_get_request_data( 'email' );
 					$hp_email   = ig_es_get_request_data( 'es_hp_email' );
@@ -646,13 +653,12 @@ if ( ! class_exists( 'ES_Handle_Subscription' ) ) {
 						'esfpx_email'       => $email,
 						'esfpx_es_hp_email' => $hp_email,
 						'esfpx_ip_address'  => $ip_address,
-						'esfpx_lists'       => array(
-							$list_hash,
-						),
+						'esfpx_lists'       => $lists_hash,
 						'form_type'         => 'external',
 					);
 
-					$this->process_request( $form_data );
+					$response = $this->process_request( $form_data );
+					wp_send_json( $response );
 				}
 			}
 

@@ -192,7 +192,10 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 
 					if ( $can_ask_user_for_review ) {
 
-						$current_page_url = '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+						$current_page_url = '';
+						if ( ! empty( $_SERVER['HTTP_HOST'] ) && ! empty( $_SERVER['REQUEST_URI'] ) ) {
+							$current_page_url = esc_url_raw( '//' . wp_unslash( $_SERVER['HTTP_HOST'] ) . wp_unslash( $_SERVER['REQUEST_URI'] ) );
+						}
 
 						$got_feedback = false;
 						/************** Update Review Status */
@@ -211,7 +214,7 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 								// Redirect them to review page
 								if ( $action === $review_done_option ) {
 
-									$url = ! empty( $_GET['review_url'] ) ? $_GET['review_url'] : '';
+									$url = ! empty( $_GET['review_url'] ) ? esc_url_raw( wp_unslash( $_GET['review_url'] ) ) : '';
 
 									if ( ! empty( $url ) ) {
 										?>
@@ -645,9 +648,9 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 						<label class="ig-label"">Feedback</label><br/>
 						<textarea name="feedback_data[details]" id="ig-feedback-data-message"></textarea>
 					</p>
-					<?php if ( isset( $params['consent'] ) && $params['consent'] === true ) { ?>
+					<?php if ( isset( $params['consent'] ) && true === $params['consent'] ) { ?>
 						<p>
-							<input type="checkbox" name="feedback_data[collect_system_info]" checked="checked" id="ig-feedback-data-consent"/><?php echo $params['consent_text']; ?>
+							<input type="checkbox" name="feedback_data[collect_system_info]" checked="checked" id="ig-feedback-data-consent"/><?php echo esc_html( $params['consent_text'] ); ?>
 						</p>
 					<?php } ?>
 				</form>
@@ -663,6 +666,8 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 			$slug  = sanitize_title( $title );
 			$event = $this->event_prefix . $params['event'];
 			$html  = ! empty( $params['html'] ) ? $params['html'] : '';
+
+			$escape_allowed_tags = $this->get_escape_allowed_tags();
 
 			ob_start();
 			?>
@@ -728,7 +733,7 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 						}).queue([
 							{
 								title: '<p class="ig-feedback-title"><?php echo esc_js( $params['title'] ); ?></p>',
-								html: '<?php echo $html; ?>',
+								html: '<?php echo wp_kses( $html, $escape_allowed_tags ); ?>',
 								customClass: {
 									popup: 'animated fadeInUpBig'
 								},
@@ -930,6 +935,7 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 			$event = $this->event_prefix . $params['event'];
 			$html  = ! empty( $params['html'] ) ? $params['html'] : '';
 
+			$escape_allowed_tags = $this->get_escape_allowed_tags();
 			?>
 
 			<script type="text/javascript">
@@ -979,7 +985,7 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 					}).queue([
 						{
 							title: '<p class="ig-feedback-title"><?php echo esc_js( $params['title'] ); ?></p>',
-							html: '<?php echo $html; ?>',
+							html: '<?php echo wp_kses( $html, $escape_allowed_tags ); ?>',
 							customClass: {
 								popup: 'animated fadeInUpBig'
 							},
@@ -1377,7 +1383,7 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 				<div class="ig-deactivate-survey-wrap">
 					<form class="ig-deactivate-survey" method="post">
 						<span class="ig-deactivate-survey-title"><span class="dashicons dashicons-testimonial"></span><?php echo ' ' . esc_html__( 'Quick Feedback', $this->plugin ); ?></span>
-						<span class="ig-deactivate-survey-desc"><?php echo sprintf( esc_html__( 'If you have a moment, please share why you are deactivating %s:', $this->plugin ), $this->name ); ?></span>
+						<span class="ig-deactivate-survey-desc"><?php echo esc_html__( sprintf( 'If you have a moment, please share why you are deactivating %s:', $this->name ), $this->plugin ); ?></span>
 						<div class="ig-deactivate-survey-options">
 							<?php foreach ( $options as $id => $option ) : ?>
 								<div class="ig-deactivate-survey-option">
@@ -1401,7 +1407,7 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 						</div>
 						<div class="ig-deactivate-survey-footer">
 							<button type="submit" class="ig-deactivate-survey-submit button button-primary button-large"><?php echo sprintf( esc_html__( 'Submit %s Deactivate', $this->plugin ), '&amp;' ); ?></button>
-							<img class="ig-deactivate-survey-loader" id="ig-deactivate-survey-loader" src="<?php echo plugin_dir_url( __FILE__ ); ?>/assets/images/loading.gif"/>
+							<img class="ig-deactivate-survey-loader" id="ig-deactivate-survey-loader" src="<?php echo esc_url( plugin_dir_url( __FILE__ ) ); ?>/assets/images/loading.gif"/>
 							<a href="#" class="ig-deactivate-survey-deactivate"><?php echo sprintf( esc_html__( 'Skip %s Deactivate', $this->plugin ), '&amp;' ); ?></a>
 						</div>
 					</form>
@@ -1709,6 +1715,16 @@ if ( ! class_exists( 'IG_Feedback_V_1_2_6' ) ) {
 			}
 
 			die( json_encode( $result ) );
+		}
+
+		/**
+		 * Get list of tags allowed in escaping
+		 * 
+		 * @return array $ig_es_escape_allowed_tags
+		 */
+		public function get_escape_allowed_tags() {
+			$ig_es_escape_allowed_tags = apply_filters( $this->plugin_abbr . '_escape_allowed_tags', array() );
+			return $ig_es_escape_allowed_tags;
 		}
 	}
 } // End if().
