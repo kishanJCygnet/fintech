@@ -15,7 +15,7 @@
 		<div class="contact-form">
 			<div class="container" id="contactus">			
 			<?php $post_slug = $post->post_name;
-			if($post_slug != 'thank-you-for-contacting-us' && $post_slug != 'thank-you-for-signing-up' && $post_slug != 'thank-you-for-your-interest' ){  ?>				
+			if($post_slug != 'thank-you-for-contacting-us' && !is_404() ){  ?>				
 				<div class="title-heading">	
 					<h2>Get in Touch
 						<span class="heading-border"></span>
