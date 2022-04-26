@@ -10,6 +10,7 @@
  * @subpackage Twenty_Twenty_One
  * @since Twenty Twenty-One 1.0
  */
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> <?php twentytwentyone_the_html_classes(); ?>>
@@ -36,11 +37,11 @@
     <link rel="icon" type="image/png" sizes="228x228" href="<?php echo get_theme_file_uri(); ?>/images/favicons/228.png">
 	
 	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo THEME_PATH; ?>/css/animate.css">
+    <link rel="stylesheet" href="<?php echo THEME_PATH; ?>/css/animate.css">	
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<!--<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=624e7021b2841900196d492a&product=sop' id='share-this-share-buttons-mu-js' async='async'></script>-->
-	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 	<?php wp_head(); ?>
 </head>

@@ -186,6 +186,7 @@
 
 	/* Manage content block */
 	if (have_rows('manage_content')) :
+	$logo_slider_cnt = 1;
 		while (have_rows('manage_content')) : the_row(); 
 			
 			/* Default Content Start */
@@ -219,7 +220,7 @@
 			/* Icon Box Start */
 			if (get_row_layout() == 'icon_box') : ?>
 				<section class="<?php echo the_sub_field('icon_box_custom_class'); ?>">
-					<div class="container-fluid">
+					<div class="container">
 						<div class="title-heading">
 							<?php if (get_sub_field('title')){ ?>
 								<h2 class="wow fadeInUp" data-wow-offset="50"><?php echo the_sub_field('title'); ?>
@@ -254,7 +255,7 @@
 												</div>
 											<?php } ?>						   
 											<?php if (get_sub_field('icon_box_description')){ ?>
-												<div class="description p2 showlesscontent"><?php echo the_sub_field('icon_box_description'); ?></div>
+												<div class="iconbox-description p2 showlesscontent"><?php echo the_sub_field('icon_box_description'); ?></div>
 											<?php } ?>
 											<?php if (get_sub_field('icon_box_url')){ ?>
 												<div class="action">
@@ -296,9 +297,10 @@
 								<h3 class="wow fadeInUp" data-wow-offset="50"><?php echo the_sub_field('sub_title'); ?></h3>
 							<?php } ?>
 						</div>
-						<?php if (have_rows('logo_list')) : ?>					
+						<?php $dynamic_col_logo = get_sub_field('columns');						
+						if (have_rows('logo_list')) : ?>					
 							<div class="client-logos">
-								<div class="owl-carousel client-logo-slider">
+								<div class="owl-carousel client-logo-slider" id="<?php echo 'logo_slider_'.$logo_slider_cnt; ?>">
 								   <?php while (have_rows('logo_list')) : the_row(); ?>
 										<?php if (get_sub_field('logo_image')) { ?>
 											<span class="icon-item">
@@ -313,8 +315,8 @@
 							</div>
 							<script>
 							jQuery(document).ready(function() {
-								jQuery('.client-logo-slider').length && jQuery('.client-logo-slider').owlCarousel({
-									loop: true,									
+								jQuery(<?php echo 'logo_slider_'.$logo_slider_cnt; ?>).length && jQuery(<?php echo 'logo_slider_'.$logo_slider_cnt; ?>).owlCarousel({
+									loop: false,									
 									autoplay: true,
 									nav: true,
 									dots: false,									
@@ -329,16 +331,16 @@
 												margin: 20,
 											},
 											768 : {
-												items:3,
-												margin: 30,
+												margin: 40,
+												items:2,
 											},
 											992 : {
-												items:3,
-												margin: 30,
-											},
-											1200 : {
-												items: 5,
 												margin: 40,
+												items:3,
+											},											
+											1200 : {
+												margin: 40,
+												items: <?php echo $dynamic_col_logo; ?>,
 											},											
 										}
 									
@@ -432,22 +434,35 @@
 						<div class="zick-zack-content pt-4">
 							<?php while (have_rows('zig_zag_content')) : the_row();	?>
 									<div class="zick-zack-inner-content">
-										<div class="col-img">
-											<?php if(get_sub_field('image_with_gradient')) { ?>
-												<div class="img-content wow fadeInUp" data-wow-delay="0.3s" style="background-image:url('<?php echo the_sub_field('image'); ?>'),linear-gradient(0deg, rgba(12,55,97,1) 0%, rgba(188,217,165,1) 100%)">
-													<!-- <img src="" alt="<?php echo the_sub_field('title'); ?>"> -->
-												</div>
-											<?php } else { ?>
-												<div class="img-content wow fadeInUp" data-wow-delay="0.6s" style="background-image:url('<?php echo the_sub_field('image'); ?>')">
-													<!-- <img src="" alt="<?php echo the_sub_field('title'); ?>"> -->
+										<div class="zig-zag-inner-div">
+											<div class="col-img">
+												<?php if(get_sub_field('image_with_gradient')) { ?>
+													<div class="img-content wow fadeInUp" data-wow-delay="0.3s" style="background-image:url('<?php echo the_sub_field('image'); ?>'),linear-gradient(0deg, rgba(12,55,97,1) 0%, rgba(188,217,165,1) 100%)">
+														<!-- <img src="" alt="<?php echo the_sub_field('title'); ?>"> -->
+													</div>
+												<?php } else { ?>
+													<div class="img-content wow fadeInUp" data-wow-delay="0.6s" style="background-image:url('<?php echo the_sub_field('image'); ?>')">
+														<!-- <img src="" alt="<?php echo the_sub_field('title'); ?>"> -->
+													</div>
+												<?php } ?>
+												<?php if(get_sub_field('icon_image')) { ?>
+												<div class="icon-image">
+													<?php $extension = pathinfo(get_sub_field('icon_image'), PATHINFO_EXTENSION);
+														if($extension == 'svg'){
+															$icon_image = get_sub_field('icon_image');
+															echo file_get_contents($icon_image);  
+														} else { ?>
+															<img src="<?php echo the_sub_field('icon_image'); ?>" alt="<?php echo the_sub_field('title'); ?>" />
+													<?php } ?>
 												</div>
 											<?php } ?>
-										</div>
-										<div class="col-text">
-											<div class="text-content">
-												<div>
-													<h3 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?></h3>
-													<p class="wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('description'); ?></p>
+											</div>										
+											<div class="col-text">
+												<div class="text-content">
+													<div>
+														<h3 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?></h3>
+														<p class="wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('description'); ?></p>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -709,7 +724,7 @@
 			</section>
 			<?php endif;  
 			/* Accordion code end */
-			
+			$logo_slider_cnt++;
 		endwhile;
 	endif; 	
 	?>
