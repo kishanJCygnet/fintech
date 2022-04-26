@@ -168,11 +168,11 @@ function get_casestudy_listing_data()
           <div class="col-sm-6 col-lg-4 mb-4">
             <div class="card h-100 wow fadeInUp" data-wow-delay="<?php echo $s; ?>s" data-wow-offset="30">
               <div class="card-image-box">
-                <?php if ($category[0]->name) : ?>
+                <?php /*if ($category[0]->name) : ?>
                   <div class="card-image-tag">
                     <span class="btn btn-sm btn-lightest-blue btn-muted px-3 case-tag"><?php echo $category[0]->name; ?></span>
                   </div>
-                <?php endif; ?>
+                <?php endif; */ ?>
                 <?php if (has_post_thumbnail($post->ID)) : ?>
                   <?php $caseImage = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium_large'); ?>
                   <div class="card-image cover-bg" loading="lazy" style="background-image: url('<?php echo $caseImage[0]; ?>');"></div>

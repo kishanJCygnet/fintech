@@ -477,146 +477,6 @@ function add_blog_rewrites($wp_rewrite)
 }
 /* End */
 
-/* Footer form API call start */
-function getauthtoken_cygnature_app(){
-    $url = "https://account-api.cygnature.io/api/v1.0/auth/token";
-
-    $headers = array(
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Basic RDI2OTZBRkE2RUVGNDk3Mzk3NDJGMUNGQjMwNzM3QTE6YkpmbVF5N3dFNDVYRXkxeG1zYkNxK3JLSFVpRzdhUWNkTkdEWVVrbA==',
-            'app_auth_type' => 'cygnature-oauth2'
-            );
-
-    $fields = array("email"=>"cygnature.marketing@cygnetinfotech.com","password"=>"Bok@83011");
-
-    $result = wp_remote_post($url, array(
-        'method' => 'POST',
-        'headers' => $headers,
-        'httpversion' => '1.0',
-        'sslverify' => false,
-        'body' => json_encode($fields))
-    );
-    $response = wp_remote_retrieve_body($result);
-
-    return $response;
-}
-
-function RegisterNewUser_Cygnature($data){
-	if($_POST['buttonclicked'] == "signup"){
-		$data = array("first_name"=>$_POST['your-name'],
-					 "last_name"=>$_POST['your-name'],
-					 "email"=>$_POST['your-email'],
-					 "country_code"=>$_POST['country-code'],
-					 "phone_number"=>$_POST['your-contact'],
-					 "user_role"=> "User",
-					  "profession_type"=>$_POST['profession-type'],
-					  "enable_marketing_update"=>is_array($_POST['enable_marketing_update'])?true:false,
-					  "t_and_c_acceptedDate"=>is_array($_POST['enable_marketing_update'])?gmdate("Y-m-d\TH:i:s\Z"):null,
-					 "company_name"=> $_POST['company-name'],
-					 "company_address"=> "API Address",
-					 "user_plan"=> "903233ee-2174-42f0-ac87-82d9db6735a0");
-	
-		$accesstoken = getauthtoken_cygnature_app();
-		$accesstoken = json_decode($accesstoken,1);
-		$accesstoken = $accesstoken['data']['access_token'];
-
-		$url = "https://account-api.cygnature.io/api/v1.0/account/create_user";
-
-		$headers = array(
-				'Content-Type' => 'application/json',
-				'Authorization' => 'Bearer '.$accesstoken,
-				'app_auth_type' => 'cygnature-oauth2'
-				);
-
-		$result = wp_remote_post($url, array(
-			'method' => 'POST',
-			'headers' => $headers,
-			'httpversion' => '1.0',
-			'sslverify' => false,
-			'body' => json_encode($data))
-		);
-
-		$response = json_decode($result['body'],1);
-		return $response['message'];
-	}else{
-		return;
-	}
-
-}
-
-add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_Cygnature' );
-/*
-function getauthtoken_cygnature_app(){
-    $url = "https://bapi.cygnature.io/api/v1.0/auth/token";
-
-    $headers = array(
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Basic MkFDMkRFRDMzMjY1NDc5MzlFMUQyM0Y3Mjk4ODJEMzc6cEdNeDFhYUJDMW5WRHMraXNCbDBKbnMyNjBCRmdYZjNLcy9HQXE2dw==',
-            'app_auth_type' => 'cygnature-oauth2'
-            );
-
-    $fields = array("email"=>"priyank.cygnature@yopmail.com","password"=>"Admin@123");
-
-    $result = wp_remote_post($url, array(
-        'method' => 'POST',
-        'headers' => $headers,
-        'httpversion' => '1.0',
-        'sslverify' => false,
-        'body' => json_encode($fields))
-    );
-	//echo "<pre>";print_r($result);exit;
-    $response = wp_remote_retrieve_body($result);
-
-    return $response;
-}
-
-function RegisterNewUser_Cygnature($data){
-	if($_POST['buttonclicked'] == "signup"){
-		$data = array("first_name"=>$_POST['your-name'],
-					 "last_name"=>$_POST['your-name'],
-					 "email"=>$_POST['your-email'],
-					 "country_code"=>$_POST['country-code'],
-					 "phone_number"=>$_POST['your-contact'],
-					 "user_role"=> "User",
-					  "profession_type"=>$_POST['profession-type'],
-					  "enable_marketing_update"=>is_array($_POST['enable_marketing_update'])?true:false,
-					  "t_and_c_acceptedDate"=>is_array($_POST['enable_marketing_update'])?gmdate("Y-m-d\TH:i:s\Z"):null,
-					 "company_name"=> $_POST['company-name'],
-					 "company_address"=> "API Address",
-					 "user_plan"=> "b53ca939-797e-428e-a817-fcd7fae0f8dc");
-	
-		$accesstoken = getauthtoken_cygnature_app();
-		$accesstoken = json_decode($accesstoken,1);
-		$accesstoken = $accesstoken['data']['access_token'];
-
-		$url = "https://bapi.cygnature.io/api/v1.0/account/create_user";
-
-		$headers = array(
-				'Content-Type' => 'application/json',
-				'Authorization' => 'Bearer '.$accesstoken,
-				'app_auth_type' => 'cygnature-oauth2'
-				);
-
-		$result = wp_remote_post($url, array(
-			'method' => 'POST',
-			'headers' => $headers,
-			'httpversion' => '1.0',
-			'sslverify' => false,
-			'body' => json_encode($data))
-		);
-
-		$response = json_decode($result['body'],1);
-		//echo "<pre>";print_r($response);exit;
-		return $response['message'];
-	}else{
-		return;
-	}
-
-}
-
-add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_Cygnature' );*/
-/* Footer form API call end */
-
 function pagely_security_headers( $headers ) {
     $headers['X-XSS-Protection'] = '1; mode=block';
     $headers['X-Content-Type-Options'] = 'nosniff';
@@ -644,3 +504,8 @@ function remove_post_type_page_from_search() {
      $wp_post_types['case_studies']->exclude_from_search = true;
 }
 add_action('init', 'remove_post_type_page_from_search');
+
+function favicon4admin() {
+echo '<link rel="icon" type="image/x-icon" href="' . get_theme_file_uri() . '/images/favicons/favicon.ico" />';
+}
+add_action( 'admin_head', 'favicon4admin' );
