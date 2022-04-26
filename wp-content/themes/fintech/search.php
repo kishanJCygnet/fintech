@@ -31,7 +31,7 @@ get_header();
 <?php
 if ( have_posts() ) {
 	?>
-	<header class="page-header alignwide">
+	<div class="page-header alignwide">
 		<h1 class="page-title">
 			<?php
 			printf(
@@ -41,7 +41,7 @@ if ( have_posts() ) {
 			);
 			?>
 		</h1>
-	</header><!-- .page-header -->
+	</div><!-- .page-header -->
 
 	<div class="search-result-count default-max-width">
 		<?php
@@ -72,13 +72,13 @@ if ( have_posts() ) {
 		//get_template_part( 'template-parts/content/content-excerpt', get_post_format() );
 		?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>						
-			<header class="entry-header">
+			<div class="entry-header">
 				<?php
 				the_title( sprintf( '<h2 class="entry-title default-max-width"><a href="%s">', esc_url( get_permalink() ) ), '</a></h2>' );
 				twenty_twenty_one_post_thumbnail();
 				?>
 				<span class="search-url"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_url( get_permalink() ); ?></a></span>
-			</header><!-- .entry-header -->
+			</div><!-- .entry-header -->
 			<div class="entry-content">
 				<?php //the_excerpt(); 
 				$search_post_id = get_the_ID();
