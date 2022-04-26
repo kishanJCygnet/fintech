@@ -53,7 +53,7 @@
 </div>
 <header>
         <div class="topBar navbar-expand-lg py-2">
-            <div class="container d-flex">
+            <div class="container-fluid d-flex">
                 <ul class="navbar-nav ms-auto   justify-content-end item-cent">
                     <li class="nav-item Website-list">
                         <a class="nav-link gp-website" href="javascript:void(0);">Group Websites</a> 
@@ -98,7 +98,7 @@
         </div>
 		
         <nav class="navbar navbar-expand-lg ">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="nav-inner-content">
 				<a href="<?php echo site_url(); ?>" class="navbar-brand" title="<?php echo the_field('logo_title', 'option'); ?>" alt="<?php echo the_field('logo_title', 'option'); ?>">
 					<!--<span class="visually-hidden"><?php echo the_field('logo_title', 'option'); ?></span>-->
