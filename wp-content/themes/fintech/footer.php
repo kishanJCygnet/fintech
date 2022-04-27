@@ -80,6 +80,14 @@
 							'echo'            => true
 						  )); ?>
                         </div>
+						<div class="footer-sub-menu">
+							<?php wp_nav_menu(array(
+								'theme_location'  => 'footer',
+								'menu_class' => 'footer-links ps-0 d-inline-flex list-none mb-0 justify-content-center justify-content-md-end',
+								'items_wrap'      => '<ul id="menu-footer-links" class="%2$s">%3$s</ul>',
+								'echo'            => true
+							  )); ?>
+						</div>
                     </div>
                     <!-- Copyright and footer links end -->
                 </div>
