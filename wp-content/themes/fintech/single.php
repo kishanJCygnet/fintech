@@ -94,15 +94,14 @@ if (have_posts()) :
                                         <div class="card h-100">
                                             <div class="card-image-box">
                                                 <?php
-                                                $category_detail = get_the_category($post->ID);
+                                                /*$category_detail = get_the_category($post->ID);
                                                 ?>
                                                 <div class="card-image-tag">
                                                     <span class="btn btn-sm btn-lightest-blue btn-tag btn-muted px-3 case-tag">
                                                         <?php echo $category_detail[0]->cat_name; ?>
                                                     </span>
                                                 </div>
-
-                                                <?php
+                                                <?php */
                                                 $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium_large');
                                                 if ($thumb) {
                                                 ?>
