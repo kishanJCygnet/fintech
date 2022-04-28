@@ -81,6 +81,7 @@
 						animateOut: 'fadeOut',
 						animateIn: 'fadeIn',
 						items: 1,
+						autoplayTimeout: 7500,
 					});
 				});
 				</script>

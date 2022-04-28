@@ -2934,6 +2934,7 @@ jQuery.fn.extend({
 
 				// Get placeholder label from the first option.
 				placeholder_label = jQuery(first_option_elem).text();
+				placeholder_label = placeholder_label.trim();
 	
 				// Remove it from option to avoid being shown and allowing users to select it as an option in Select2's options panel. 
 				jQuery(first_option_elem).remove();
