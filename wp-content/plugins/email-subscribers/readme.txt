@@ -6,7 +6,7 @@ Tags: email marketing, subscription, autoresponder, post notification, welcome e
 Requires at least: 3.9
 Tested up to: 5.9.3
 Requires PHP: 5.6
-Stable tag: 5.3.12
+Stable tag: 5.3.13
 License: GPLv3
 License URI: http://www.gnu.org/licenses
 
@@ -310,13 +310,17 @@ Refer [here](https://www.icegram.com/documentation/es-faq/).
 
 == Upgrade Notice ==
 
-= 5.3.12 =
+= 5.3.13 =
 
-* Fix: Incorrect name when registering through Ultimate Member plugin
-* Fix: Broadcast send now not working on sites having timezone before UTC
-* Fix: Security related issues [Thanks to WP team]
+* New: Support for categories for custom post type
+* New: Added preview for sequence emails
 
 == Changelog ==
+
+**5.3.13 (27.04.2022)**
+
+* New: Support for categories for custom post type
+* New: Added preview for sequence emails
 
 **5.3.12 (21.04.2022)**
 

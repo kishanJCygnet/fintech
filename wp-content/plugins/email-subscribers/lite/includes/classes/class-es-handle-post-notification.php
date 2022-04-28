@@ -356,7 +356,7 @@ class ES_Handle_Post_Notification {
 	 * 
 	 * @since 5.4.0
 	 * 
-	 * @param array $response REST response.
+	 * @param object $response REST response.
 	 * @param object $post Post object.
 	 * @param array $request REST request.
 	 * 
@@ -519,10 +519,10 @@ class ES_Handle_Post_Notification {
 		if ( $post instanceof WP_Post ) {
 			$post_type        = $post->post_type;
 			$post_type_object = get_post_type_object( $post_type );
-			$singular_name    = $post_type_object->labels->singular_name;
+			$post_type__name  = $post_type_object->labels->singular_name;
 
-			/* translators: %s: Post type singular name */
-			$notice_text = sprintf( __( 'Notification emails has been queued for this %s.', 'email-subscribers' ), strtolower( $singular_name ) );
+			/* translators: %s: Post type name */
+			$notice_text = sprintf( __( 'Notification emails has been queued for this %s.', 'email-subscribers' ), strtolower( $post_type__name ) );
 		}
 
 		return $notice_text;

@@ -2042,27 +2042,32 @@ body.email-subscribers_page_es_campaigns .column-status .dashicons[title="Finish
     max-width: 60%;
 }
 
-.ig-es-conditions-value-fields .select2-container--default .select2-selection--multiple .select2-selection__choice {
+.ig-es-conditions-value-fields .select2-container--default .select2-selection--multiple .select2-selection__choice,
+.es-post-type-categories .select2-container--default .select2-selection--multiple .select2-selection__choice {
     margin-bottom: 0;
 	margin-top: 4px;
 }
 
-.ig-es-conditions-value-fields .select2-container .select2-search--inline {
+.ig-es-conditions-value-fields .select2-container .select2-search--inline,
+.es-post-type-categories .select2-container .select2-search--inline {
     margin-bottom: 0;
 }
 
 .ig-es-conditions-value-fields .select2-container:not(.select2-container--focus) .select2-search--inline:not(:only-child),
-.ig-es-post-notification-form .select2-container:not(.select2-container--focus) .select2-search--inline:not(:only-child) {
+.ig-es-post-notification-form .select2-container:not(.select2-container--focus) .select2-search--inline:not(:only-child),
+.es-post-type-categories .select2-container:not(.select2-container--focus) .select2-search--inline:not(:only-child) {
 	display: none;
 }
 
-.ig-es-conditions-value-fields .select2-container .select2-search--inline .select2-search__field {
+.ig-es-conditions-value-fields .select2-container .select2-search--inline .select2-search__field,
+.es-post-type-categories .select2-container .select2-search--inline .select2-search__field  {
     margin-top: 0;
     min-height: 20px;
     height: 24px;
 }
 
-.ig-es-conditions-value-fields .select2-container .select2-selection--multiple {
+.ig-es-conditions-value-fields .select2-container .select2-selection--multiple,
+.es-post-type-categories .select2-container .select2-selection--multiple {
     min-height: 30px;
 }
 

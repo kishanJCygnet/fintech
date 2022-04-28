@@ -668,7 +668,7 @@ class ES_Common {
 			$custom_post_type_html = '';
 			foreach ( $post_types as $post_type ) {
 				$post_type_search = '{T}' . $post_type . '{T}';
-				if ( is_array( $custom_post_types ) && in_array( $post_type_search, $custom_post_types ) ) {
+				if ( is_array( $custom_post_types ) && in_array( $post_type_search, $custom_post_types, true ) ) {
 					$checked = "checked='checked'";
 				} else {
 					$checked = '';
@@ -700,6 +700,53 @@ class ES_Common {
 		$custom_post_types = get_post_types( $args );
 
 		return $custom_post_types;
+	}
+
+	/**
+	 * Get categories for given post types
+	 * 
+	 * @since 5.3.13
+	 * 
+	 * @param array $post_type Post type
+	 * 
+	 * @return array $post_type_categories List of categories for given post types
+	 */
+	public static function get_post_type_categories( $post_type ) {
+
+		$taxonomies = get_object_taxonomies( $post_type, 'objects' );
+		if ( empty( $taxonomies ) ) {
+			return array();
+		}
+
+		$post_type_categories = array();
+		
+		foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
+			$is_category_taxonomy = $taxonomy->hierarchical;
+			if ( ! $is_category_taxonomy ) {
+				continue;
+			}
+			$categories = get_categories(
+				array(
+					'hide_empty' => false,
+					'taxonomy'   => $taxonomy_slug,
+					'type'       => $post_type,
+					'orderby'    => 'id',
+				)
+			);
+
+			if ( empty( $categories ) ) {
+				continue;
+			}
+			
+			$taxonomy_categories = array();
+			foreach ( $categories as $category ) {
+				$taxonomy_categories[ $category->term_id ] = $category->name;
+			}
+
+			$post_type_categories[ $taxonomy_slug ] = $taxonomy_categories;
+		}
+
+		return $post_type_categories;
 	}
 
 	/**

@@ -261,7 +261,7 @@ if ( ! class_exists( 'ES_Handle_Subscription' ) ) {
 				$this->list_hashes    = isset( $form_data['esfpx_lists'] ) ? $form_data['esfpx_lists'] : array();
 				$this->es_nonce       = isset( $form_data['esfpx_es-subscribe'] ) ? trim( $form_data['esfpx_es-subscribe'] ) : '';
 				$this->form_id        = isset( $form_data['esfpx_form_id'] ) ? trim( $form_data['esfpx_form_id'] ) : 0;
-				$this->reference_site = isset( $form_data['esfpx_reference_site'] ) ? sanitize_url( $form_data['esfpx_reference_site'] ) : null;
+				$this->reference_site = isset( $form_data['esfpx_reference_site'] ) ? esc_url_raw( $form_data['esfpx_reference_site'] ) : null;
 				$this->es_optin_type  = get_option( 'ig_es_optin_type' );
 				$this->guid           = ES_Common::generate_guid();
 
