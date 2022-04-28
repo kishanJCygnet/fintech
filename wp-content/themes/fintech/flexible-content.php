@@ -4,8 +4,8 @@
 	/* banner content */
 		if (have_rows('banner')) : ?>
 			<section class="banner-content <?php echo the_field('banner_class'); ?>">    
-				<!--<div <?php if ( is_front_page() ) : ?> class="owl-carousel banner-slider" <?php endif; ?> >-->
-				<div class="owl-carousel banner-slider">
+				<div <?php if ( is_front_page() ) : ?> class="owl-carousel banner-slider" <?php endif; ?> >
+				<!--<div class="owl-carousel banner-slider">-->
 					<?php while (have_rows('banner')) : the_row(); ?>
 						<div class="banner-inner-content w-100" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')">  
 							<div class="container">
@@ -55,7 +55,7 @@
 												<?php
 											} else {
 												if (get_sub_field('image')) :
-													?><img src="<?php echo the_sub_field('image'); ?>" class="w-100 wow fadeIn" data-wow-duration="3s" data-wow-delay="1s" alt="<?php echo the_sub_field('title'); ?>"><?php
+													?><img src="<?php echo the_sub_field('image'); ?>" class="w-100" alt="<?php echo the_sub_field('title'); ?>"><?php
 												endif;
 											} ?>
 											<?php /* if (get_sub_field('image')) : ?>
@@ -81,8 +81,8 @@
 						animateOut: 'fadeOut',
 						animateIn: 'fadeIn',
 						items: 1,
-					})
-				})
+					});
+				});
 				</script>
 			</section>
 		<?php endif;
@@ -305,11 +305,18 @@
 										<?php if (get_sub_field('logo_image')) { ?>
 											<span class="icon-item">
 												<span class="icon">
-											    	<img src="<?php echo the_sub_field('logo_image'); ?>" alt="<?php echo the_sub_field('logo_title'); ?>" >
+											    	<!--<img src="<?php echo the_sub_field('logo_image'); ?>" alt="<?php echo the_sub_field('logo_title'); ?>" >-->
+													<?php $extension = pathinfo(get_sub_field('logo_image'), PATHINFO_EXTENSION);
+														if($extension == 'svg'){
+															$logo_image = get_sub_field('logo_image');
+															echo file_get_contents($logo_image);  
+														} else { ?>
+															<img src="<?php echo the_sub_field('logo_image'); ?>" alt="<?php echo the_sub_field('logo_title'); ?>" />
+													<?php } ?>
 												</span>
 												<span class="text"><?php echo the_sub_field('logo_title'); ?></span>
 											</span>												
-										<?php } ?>
+										<?php } ?>										
 								   <?php endwhile;?>
 								</div>
 							</div>
