@@ -34,31 +34,39 @@ jQuery(document).ready(function(){
           }
       });
   });  
-  jQuery(function() {
-    jQuery('a[href*=\\#]:not([href=\\#]):not(.custom-tab-section .custom-tab-nav li a)').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
-  && location.hostname == this.hostname) {
-  
-        var target = jQuery(this.hash);
-        target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
-        if (target.length) {
-          jQuery('html,body').animate({
-            scrollTop: target //offsets for fixed header
-          }, 300);
-          return false;
-        }
+
+jQuery(function() {
+  jQuery('a[href*=\\#]:not([href=\\#]):not(.custom-tab-section .custom-tab-nav li a)').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+&& location.hostname == this.hostname) {
+
+      var target = jQuery(this.hash);
+      target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        jQuery('html,body').animate({
+          scrollTop: target.offset().top - 185 //offsets for fixed header
+        }, 300);
+        return false;
       }
-    });
-    //Executed on page load with URL containing an anchor tag.
-    if(jQuery(location.href.split("#")[1])) {
-        var target = jQuery('#'+location.href.split("#")[1]);
-        if (target.length) {
-          jQuery('html,body').animate({
-            scrollTop: target.offset().top - 185 //offset height of header here too.
-          },300 );
-          return false;
-        }
-     }
+    }
+  });
+  //Executed on page load with URL containing an anchor tag.
+  if(jQuery(location.href.split("#")[1])) {
+      var target = jQuery('#'+location.href.split("#")[1]);
+      if (target.length) {
+        jQuery('html,body').animate({
+          scrollTop: target.offset().top - 185 //offset height of header here too.
+        },300 );
+        return false;
+      }
+    }
+    $('.banner-content:after').click (function() {
+      alert('hi');
+      $('html, body').animate({scrollTop: $('.banner-content:after').offset().top }, 'slow');
+    return false;
+  });
+
+});
 
      // Define selector for selecting
         // anchor links with the hash
@@ -87,7 +95,7 @@ jQuery(document).ready(function(){
                 });
             }
         });
-  });
+
 
   jQuery(window).scroll(function() {
     var sticky = jQuery('header .navbar'),
@@ -283,7 +291,9 @@ jQuery(document).ready(function(){
       jQuery(this).addClass('active');
     });
     $('.banner-content .banner-tag ul li:first-child:not(.banner-content.home-banner .banner-tag ul li:first-child)').addClass('active animate__animated animate__fadeIn');
-});
+
+
+  });
 // jQuery(window).on('resize', function(){
 //   solution();
 // });
@@ -298,7 +308,26 @@ setInterval(function()
 
     // Add .active class to the li next in line.
     next.addClass('active animate__animated animate__fadeIn');
+    
 }, 5000);
+
+
+
+window.setInterval(scrollit, 3000);
+ var scrollHeight;
+function scrollit() {
+    //$('.home-banner.banner-content .inner-img-content').delay(1000).animate({ scrollTop: $(".home-banner.banner-content .inner-img-content").scrollTop() + 60 });
+    $(".home-banner.banner-content .inner-img-content").animate({
+      scrollTop: $(
+        '.home-banner.banner-content .inner-img-content').get(0).scrollHeight
+  }, 3000);
+  }
+
+$('.home-banner.banner-content .inner-img-content').bind('scroll', function () {
+    if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+        $('.home-banner.banner-content .inner-img-content').delay(100).animate({ scrollTop: 0 }, 900);
+    }
+});
 
 
 
