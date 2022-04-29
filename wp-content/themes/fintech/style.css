@@ -109,6 +109,9 @@ h3{
     border-color: #18B57B !important;
     background-color: #18B57B !important; 
 }
+/* a{
+    white-space: nowrap
+} */
 a,
 a:hover,
 a:focus,
@@ -342,7 +345,7 @@ flex-direction: row;
     line-height: 28px;
     padding-top: 35px;
     padding-bottom: 35px;
-    font-weight: bold;
+
 }
 .primary-navigation .menu-wrapper li.menu-item a:hover{
     text-decoration: none;
@@ -930,6 +933,7 @@ input[type=checkbox]:after{
 /* Footer Content */
 .banner-content{
     padding: 0;
+    position: relative;
 }
 /* banner content */
 
@@ -938,7 +942,7 @@ input[type=checkbox]:after{
     background-position: center bottom;   
     position: relative;
     min-height: 90vh;    
-    margin-top: 60px;
+    margin-top: 59px;
     display: flex;
     align-items: center;
     padding-top: 100px;
@@ -956,7 +960,7 @@ input[type=checkbox]:after{
     background-size: contain;
     background-repeat: no-repeat;
     left: calc(50% - 12px);
-    bottom: -18px;
+    top: 96%;
     z-index: 1;
     animation: bounce 1600ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
     cursor: pointer;
@@ -2013,7 +2017,7 @@ section.pain-points-wrapper  .icon-item .icon:after{
     height: 10px;
     border-radius: 50%;
     top: -80px;
-    left: 49%;
+    left: 48.5%;
 }
 .paint-point-div.benefits-div{
      border-bottom: 0;   
@@ -2094,7 +2098,8 @@ section.CTA-btn.analyze-btn {
     position: ABSOLUTE;
     left: 0;
     right: 0;
-    top: 60px;
+    top: 95px;
+    padding: 0;
 }
 section.feature-tab-section .tab-content {
     text-align: center;
@@ -2288,10 +2293,11 @@ section.CTA-btn.text-center.bg-white.reach-out-btn {
     color: #fff;
 }
 .zick-zack-section .col-img .img-content{
-    width: 500px;
+    width: 100%;
     height: 247px;
     /* object-fit: contain; */
     background-size: contain;
+    background-repeat: no-repeat;
 }
 .zick-zack-inner-content .zig-zag-inner-div{
     width: 40%;
@@ -2336,6 +2342,7 @@ section.CTA-btn.text-center.bg-white.reach-out-btn {
 }
 .zick-zack-section .icon-image svg{
  width: 50px;
+ height: 50px;
 }
 .zick-zack-inner-content .zig-zag-inner-div{
     position: relative;
@@ -2565,11 +2572,14 @@ p{
        display: flex;
        justify-content: center;
        text-align: center;
-       margin-bottom: 80px;
+       margin-bottom: 100px;
        position: relative;
 }
 .custom-tab-section .custom-tab-nav li{   
     border-right: 1px solid #18B57B;
+}
+.custom-tab-section .custom-tab-nav li p{
+    display: none;
 }
 .custom-tab-section .custom-tab-nav li:last-child{
     border-right: 0;
@@ -2648,7 +2658,7 @@ padding: 0 30px;
     align-items: center;
     margin-bottom: 40px;
     font-size: 54px;
-    line-height: 64px;
+    line-height: 44px;
     font-family: 'Proxima Nova Cn Rg';
 }
 .banner-content .banner-tag ul li.active{
@@ -2800,6 +2810,79 @@ a#contact_us{
     background-color: #16ad7b;
     height: 100px;
   }
+  .CTA-btn .btn{
+      white-space: normal;
+  }
+  .newsletter .es_caption{
+    color: #0C3761;
+    font-size: 32px;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    font-weight: 500;
+    line-height: 38px;
+}
+.newsletter{
+    background-color: #ffffff !important;
+    padding: 80px 0 !important;
+}
+.newsletter .emaillist{
+    display: inline-block;
+    width: 670px;
+    margin: auto;
+}
+.newsletter .es-field-wrap{
+    width: 50%;
+    display: inline-block;
+}
+.newsletter .es-field-wrap  label{
+    display: inline-block;
+    width: 100%;
+    padding:  0 10px;
+}
+.newsletter .es-field-wrap input{
+    border-radius: 30px;
+    margin-bottom: 20px;
+    height: 56px;
+    padding: 15px 30px;
+    border: 1px solid #0D3862;
+    font-size: 14px;
+    width: 100%;
+}
+.newsletter .es-field-wrap input:focus{
+    outline: 0;
+}
+.newsletter .es_submit_button{
+font-size: 14px;
+text-transform: uppercase;
+font-weight: normal;
+white-space: nowrap;
+color: #fff !important;
+background-color: #18B57B !important;
+line-height: 28px;
+border-radius: 30px;
+padding: 10px 30px;
+margin-top: 50px;
+}
+.newsletter label {
+    display: flex !important;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    font-weight: normal;
+    font-size: 16px;
+}
+.newsletter label input[type='checkbox']{
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #0D3862;
+}
+.newsletter label input[type=checkbox]:checked:after {
+    opacity: 1;    
+    background-color: #82b269;
+}
 @media only screen and (max-width: 1400px) {
     .primary-navigation .menu-wrapper li.menu-item{
         padding: 0 5px;
@@ -2840,6 +2923,52 @@ a#contact_us{
     .home-banner.banner-content .banner-inner-content{
         height: 710px;
     }
+    .credit-processing .credit-processing-content{
+        height: 1000px;
+        width: 1000px;
+    }
+    .client-logos,
+    .icon-box-list {
+        margin-top: 40px;
+        width: calc(100% - 75px);
+        margin: auto;
+    }
+    .credit-processing .credit-processing-content img {
+        width: 60%;
+        margin-bottom: 13px;
+    }
+    .custom-tab-section .custom-tab-nav li a{
+        padding: 0 15px;
+    }
+    .zick-zack-inner-content .zig-zag-inner-div::after {        
+        left: -116px;  
+        transform: rotate(16deg);
+    }
+    .zick-zack-inner-content:nth-child(even) .zig-zag-inner-div::after{
+        right: -116px;  
+        transform: rotate(-16deg);
+    }
+    .feature-zick-zack-type2.zick-zack-section .zick-zack-inner-content .col-text{
+        padding-bottom: 70px;
+    }
+    .feature-zick-zack-type2 .zick-zack-inner-content .zig-zag-inner-div::after {
+        left: -110px;
+        top: 40px;
+        transform: rotate(27deg);
+    }
+    .feature-zick-zack-type2 .zick-zack-inner-content:nth-child(even) .zig-zag-inner-div::after {
+        right: -110px;
+        top: 40px;
+        transform: rotate(-27deg);
+        left: auto;
+    }
+    .zick-zack-inner-content .zig-zag-inner-div::after{
+        height: 100%;
+    }
+    .feature-zick-zack-type2 .zick-zack-inner-content .zig-zag-inner-div::after{
+        height: 116%;
+    }
+   
 }
 @media only screen and (max-width: 1200px) {
     .navbar-brand img{
@@ -2906,9 +3035,9 @@ a#contact_us{
     .home-banner.banner-content .banner-inner-content .text-content h1{
         font-size: 40px
     }
-    .banner-content .banner-inner-content{
+    /* .banner-content .banner-inner-content{
         margin-top: 0;
-    }
+    } */
     .home-banner.banner-content .banner-inner-content{
         background-size: cover;
         background-position: center 0px;
@@ -2929,9 +3058,9 @@ a#contact_us{
         left: 18px;
         top: 25px;
     }
-    .home-banner .banner-text-heading-content{
+    /* .home-banner .banner-text-heading-content{
         min-height: 234px;
-    }
+    } */
     .home-banner.banner-content .img-content{
         margin-top: 20px;
     }
@@ -2959,10 +3088,52 @@ a#contact_us{
     .offer-content .icon-item.right .text{
         margin-right: 0;      
     }
+    .banner-content .banner-inner-content{
+        margin-top: 59px;
+    }
+    .credit-processing .credit-processing-content {
+        height: 950px;
+        width: 900px;
+    }
+    .custom-tab-section .custom-tab-nav li a{
+        line-height: 1.5;
+    }
+    .zick-zack-section .col-img .img-content{
+        background-size: contain;
+        height: 189px;
+    }
+    /* .zick-zack-section .col-img .img-content{
+        height: 189px;
+    } */
+    .zick-zack-section .icon-image{
+        width: 70px;
+        height: 70px;
+    }
+    .zick-zack-section .icon-image{
+        left: -70px;
+    }
+    .zick-zack-inner-content:nth-child(even) .icon-image{
+        right: -70px;
+    }
+    .zick-zack-inner-content .zig-zag-inner-div::after{
+        left: -95px;
+        transform: rotate(21deg);
+    }
+    .zick-zack-inner-content:nth-child(even) .zig-zag-inner-div::after{
+        right: -95px;
+        transform: rotate(-21deg);
+    }
+    .feature-zick-zack-type2 .zick-zack-inner-content .zig-zag-inner-div::after{
+        left: -97px;
+    }
+    .feature-zick-zack-type2 .zick-zack-inner-content:nth-child(even) .zig-zag-inner-div::after{
+        right: -97px;
+    }
+    .feature .circle-action{       
+        top: -70px;        
+    }
   }
-  @media only screen and (max-width: 991px) {
-    
-
+  @media only screen and (max-width: 991px) {   
    
     .footer-logo::after{
         display: none;
@@ -2992,9 +3163,9 @@ a#contact_us{
         font-size: 28px;
     }
    
-    .owl-nav{
+    /* .owl-nav{
         display: none;
-    }
+    } */
    
    
     .banner-content .col-lg-7 .align-items-center{
@@ -3006,8 +3177,8 @@ a#contact_us{
         padding: 15px 0;
     }
     .navbar-toggler{
-        width: 48px;
-        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
         background-color: #18B57B !important;
         color: #fff !important;
         border-radius: 50%;
@@ -3033,7 +3204,7 @@ a#contact_us{
         border-bottom: 1px solid rgba(255, 255, 255, 0.1)
     }
     .navbar.fixed .primary-navigation > div > .menu-wrapper{
-        top:80px;
+        top:78px;
     }
     .navbar-toggler:focus{
         box-shadow: none;
@@ -3153,7 +3324,284 @@ a#contact_us{
     .navigation.pagination{
         margin-top: 80px;
     }
-   
+    .home-banner.banner-content{
+         background: linear-gradient(263deg, rgba(24,181,123,1) 0%, #0c3761 100%), none;
+    }
+    .home-banner.banner-content .banner-inner-content{
+        background-image: none !important;
+        background-size: contain;
+    }
+    .home-banner .banner-text-heading-content{
+        min-height: auto;
+        
+    }
+    .home-banner.banner-content .banner-inner-content{
+        align-items: center;
+        padding-top: 135px;
+        padding-bottom: 80px;
+    }
+    .home-banner.banner-content .banner-inner-content .text-content{
+        padding-right: 0;
+    }
+    .home-banner .banner-tag ul{
+        justify-content: center;
+    }
+    .banner-content h3 br{
+        display: none;
+    }
+    .owl-dots{
+        margin-left: 0;
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    .owl-dot{
+    border: 1px solid #fff !important;
+    }
+    .owl-dot.active{
+         background-color: #ffffff !important;
+    }
+    .about-us{
+        padding-top: 60px !important;
+    }
+    .two-colum-layout .two-colum-content > div {
+        width: 100% !important;
+    }
+    .two-colum-layout .two-colum-content{
+        flex-wrap: wrap;
+    }
+    .two-colum-layout .two-colum-content{
+        flex-direction: column-reverse !important;
+    }
+    .two-colum-layout.cfr-tw-col-item.pos-left .two-colum-content .col-left{
+        padding-left: 0;
+        margin-top: 30px;
+    }
+    .footer{
+        background-size: contain;
+        position: relative;
+        padding-top: 90px;
+    }
+    .footer:after{
+        content: '';
+        position: absolute;
+        left: 0px;
+        right: 0;
+        background: linear-gradient(91deg, rgba(24,181,123,1) 0%, #0c3761 100%), none;
+        bottom: 0;
+        top: 166px;
+        z-index: -1;
+    }
+    .contact-form{
+        padding-top: 40px;
+    }
+    .offer-content .icon-item:first-child, .offer-content .icon-item:nth-child(2), .offer-content .icon-item:last-child, .offer-content .icon-item:nth-last-child(2){
+        position: static;
+    }
+    .offer-content .offer-details{
+        padding-bottom: 40px;
+        flex-wrap: wrap;
+    }
+    .offer-content{
+        padding-top: 20px;
+    }
+    .offer-content .icon-item.left, .offer-content .icon-item.right{
+        width: 33.33%;
+        margin-bottom: 30px;
+    }
+    .footer-logo{
+        text-align: right;
+    }
+    .credit-processing .credit-processing-content {
+        height: 891px;
+        width: 710px;
+        margin-left: 0px;
+    }
+    .credit-processing{
+        background-color: #d3f1e6;
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+    }
+    .credit-processing  .credit-processing{
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+    .credit-processing .credit-processing-content,
+    .credit-processing .credit-processing-content img{
+        width: 100%;
+
+    }
+    .credit-processing .credit-processing-content {
+        height: 891px;
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 0;
+        height: auto;
+        background: transparent;
+        padding: 0;
+    }
+    .CaseStudy-description ul li{
+        margin: 0 0px;
+        padding: 0 20px;
+    }
+    .tag-title {
+        font-size: 14px;
+        padding: 5px 18px 5px 20px;
+       }
+       .credit-assessment-content .inner-content .item .title{
+        font-size: 16px;
+        padding-bottom: 10px;
+        width: calc(100% - 15px);
+       }
+       .credit-assessment-content .inner-content .item ul li{
+        font-size: 13px;
+        padding: 0px 15px;
+        padding-right: 38px;
+         background-size: 25px;
+       }
+       .credit-assessment-content .inner-content .item.last h4{
+           font-size: 16px;
+       }
+       .credit-assessment-content .inner-content .item.last p{
+           font-size: 14px;
+       }
+       .credit-assessment-content .inner-content .item.last .item-sub-content{
+        margin: 25px 0;
+       }
+       .banner-content .banner-tag ul li:not(.banner-content.home-banner .banner-tag ul li){
+           font-size: 32px;
+       }
+       .info-text{
+           padding-left: 0;
+           padding-top: 40px;
+       }
+       .paint-point-div a {
+        width: 180px;
+        height: 90px;
+        font-size: 18px;
+    }
+    .custom-tab-section .custom-tab-nav{
+        overflow: auto;
+        justify-content: flex-start;
+    }
+    .custom-tab-section .custom-tab-nav li{
+        min-width: 180px;
+    }
+    .custom-tab-section .custom-tab-nav{
+        padding-bottom: 18px;
+    }
+    .paint-point-div a:before, .paint-point-div a:after{
+        top: -48px;
+    }
+    .paint-point-div a:after {
+        top: -57px;
+        left: 48.5%;
+    }
+    .paint-point-div a:after {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        top: -57px;
+        left: 48.5%;
+    }
+    .paint-point-div a:before{
+        height: 55px;
+    }
+    .paint-point-div.benefits-div a:before, .paint-point-div.benefits-div a:after {
+        top: auto;
+        bottom: -55px;
+        background-color: #18B57B !important;
+    }
+    section.benefit-wrapper {
+        padding-top: 85px;
+    }
+    .zick-zack-section .col-img .img-content {
+        background-size: contain;
+        height: 138px;
+    }
+    .zick-zack-inner-content .zig-zag-inner-div::after {
+        left: -74px;
+        transform: rotate(14deg);
+    }
+    .zick-zack-inner-content:nth-child(even) .zig-zag-inner-div::after{
+        right: -74px;
+        transform: rotate(-14deg);
+    }
+    .testimonial-section .testimonial-content{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .testimonial-section .testimonial{
+        width: 100%;
+    }
+    .testimonial-section .testimonial-content .short-decoration{
+        padding-left: 0;
+        text-align: center;
+    }
+    .testimonial-section .testimonial-content .client-details{
+        min-width: 300px;
+        min-height: 300px;
+        width: 300px;
+        height: 300px;
+        padding: 25px;
+        margin-bottom: 15px;
+    }
+    
+    .testimonial-section .short-decoration p{
+        margin-top: 10px;
+        padding-left: 40px;
+    }
+    .testimonial-section .owl-nav{
+        position: static;
+    }
+    .testimonial-section .short-decoration p::before{
+        left: 0;
+    }
+    .testimonial-section .owl-nav {
+        position: relative;
+        bottom: 0px;
+        left: calc(50% - 83px);
+    }
+    .feature-zick-zack-type2 .zick-zack-inner-content .zig-zag-inner-div::after{
+        left: -69px;
+        transform: rotate(16deg);
+    }
+    .feature-zick-zack-type2 .zick-zack-inner-content:nth-child(even) .zig-zag-inner-div::after{
+        right: -69px;
+        transform: rotate(-16deg);
+    }
+    .feature-section .feature-content .col-left{
+        width: 65%;
+    }
+    .feature .feature-content{
+        flex-wrap: wrap;
+        padding-left: 80px;
+    }
+    .feature-section .feature-content .col-left{
+        width: 100%;
+        padding-left: 0;
+    }
+    .feature-section .col-right{
+        margin-left: 0;
+    }
+    .feature .circle-action{
+        top:0;
+    }
+    .architecture-right .content-title-heading,
+    .architecture-left  .content-title-heading {
+        padding-left: 0px;
+        margin-top: 30px;
+        padding-right: 0;
+    }
+    .architecture-right .content-title-heading + .info-text,
+    .architecture-left  .content-title-heading + .info-text{
+        padding-top: 0;
+        padding-right: 0;
+    }
+    
+    
   }
 @media only screen and (max-width: 768px) {
   .banner-content .text-content{
@@ -3202,7 +3650,7 @@ a#contact_us{
     
     
        .banner-content .banner-inner-content{
-           min-height: auto;
+           min-height: 480px;
            padding-bottom: 40px;
        }
        .banner-content .text-content{
@@ -3233,8 +3681,157 @@ a#contact_us{
     .banner-content h1{
         text-align: center;
     }
-    
+    .footer-links{
+        justify-content: flex-end !important;
+    }
+    .footer-links address{
+        display: inline-block !important;
+    }
+    .offer-content .icon-item.left, .offer-content .icon-item.right,
+    .offer-content .icon-item{
+        width: 50% !important;
+      
+    }
+    .offer-content .icon-item:not(.offer-content .icon-item.left):not(.offer-content .icon-item.right){
+        margin: 0;
+    }
+    .title-heading > h3{
+        font-size: 16px;
+    }
+    .footer:after{
+        top: 110px;
+    }
+    .two-colum-layout.cfr-tw-col-item.about-us .two-colum-content .col-right:after {
+        width: 100px;
+        height: 100px;
+        right: 35px;
+        top: 85px;
+        z-index: 0;
+    }
+    .banner-content:after{
+        top:100%;
+    }
+    .credit-assessment-content .inner-content{
+        flex-wrap: wrap;
+    }
+    .credit-assessment-content .inner-content .item{
+        width: 100%;
+    }
+    .credit-assessment-content .inner-content .item.last:after {
+        
+        left: calc(50% - 20px);
+        top: -21px;
+        transform: rotate(135deg);
+    }
+    .faq-accordian .accordion .accordion-content-item{
+        width: 100%;
+    }
+    .client-logos, .icon-box-list{
+        width: 100%;
+    }
+    .owl-nav .owl-next {      
+        right: 0px;
+        width: 30px;
+    }
+    .owl-nav button{
+        left: 0;
+        width: 30px;
+    }
+    .custom-tab-section .custom-screen-content .screen-content-innner{
+        width: 100%;
+    }
+    .custom-tab-section .section-img{
+        width: 96%;
+    }
+    .whatup-check > span:last-child{
+        font-size: 14px;
+    }
+    .paint-point-div a {
+        width: 150px;
+        height: 75px;
+        font-size: 15px;
+    }
+    .zick-zack-inner-content .zig-zag-inner-div{
+        width: 100%;
+    }
+    .zick-zack-inner-content:nth-child(even) .zig-zag-inner-div{
+        width: 100%;
+    }
+    .zick-zack-section .icon-image{
+        position: static;
+    }
+    .zick-zack-inner-content:nth-child(even) .zig-zag-inner-div::after,
+    .zick-zack-inner-content .zig-zag-inner-div::after{
+        display: none;
+    }
+    .zick-zack-inner-content .col-text{
+        text-align: center;
+        padding-left: 0;
+    }
+    .zick-zack-inner-content .col-img{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .zick-zack-inner-content:not(:last-child){
+        margin-bottom: 30px;
+    }
+    .zick-zack-section .col-img .img-content{
+        background-position: center center;
+    }
+    .testimonial-section .testimonial-content .client-details{
+        min-width: 250px;
+        min-height: 250px;
+        width: 250px;
+        height: 250px;
+        padding: 25px;
+        margin-bottom: 15px;
+    }
+    .testimonial-section .owl-nav{
+        padding: 8px 15px;
+        left: calc(50% - 66px);
+    }
+    .testimonial-section .owl-nav .owl-next.disabled img{
+        margin-left: 0;
+    }
+    .feature-zick-zack-type2 .zick-zack-inner-content:nth-child(even) .text-content{
+        text-align: center;
+    }
+    .feature-zick-zack-type2.zick-zack-section .zick-zack-inner-content .col-text{
+        padding-bottom: 0;
+    }
+    .zick-zack-section .icon-image{
+        display: none;
+    }   
+    .Website-list ul{
+        right: auto;
+        left: 0;
+    }
+    .Website-list ul::after {
+        left: 37px;
+    }
+    .Website-list > a:hover,
+    .topBar .navbar-nav li a:focus{
+        color: #ffffff !important;
+    }
+    .icon-item .icon{
+        margin-top: 0 !important;
+    }
+    .offer-content .icon-item.left, .offer-content .icon-item.right, .offer-content .icon-item{
+        height: 100%;
+        padding: 0 5px;
+    }
+  
+ 
 }
+@media only screen and (max-width: 576px) {
+    .custom-tab-section .custom-screen-content .screen-content-innner{
+        height: 420px;
+    }
+    .custom-tab-section .section-img{
+        height: 307px;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .navbar.fixed .navbar-collapse.show .primary-navigation > .primary-menu-container{
         top:49px;
@@ -3248,6 +3845,39 @@ a#contact_us{
         top: 110px;
         border: 0 !important;
     }  
+    
+       .whatup-check > span:last-child{
+           font-size: 14px;
+       }
+       .home-banner.banner-content .banner-inner-content .text-content h1{
+           font-size: 30px;
+       }
+       a#contact_us{
+           margin-left: 10px !important;
+       }
+       .navbar-toggler{
+           margin-left: 8px;
+       }
+       .footer:after {
+        top: 70px;
+    }
+   
+    .primary-navigation > div > .menu-wrapper{
+        top:0 !important;
+    }
+    .custom-tab-section .custom-screen-content .screen-content-innner{
+        height: 240px;
+    }
+    .custom-tab-section .section-img{
+        height: 170px;
+    }
+    .custom-tab-section .custom-tab-nav li{
+        min-width: 138px;
+    }
+    .custom-tab-section .custom-tab-nav li a{
+        font-size: 13px;
+        padding: 0 7px;
+    } 
 }
 @media only screen and (max-width: 375px) {
 .navbar-brand img{
