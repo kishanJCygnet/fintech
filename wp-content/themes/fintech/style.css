@@ -732,6 +732,13 @@ background-color: transparent;
 .form-content .form-check.whatup-check .wpcf7-list-item{
     margin-left: 0;
 }
+.form-content .form-check.whatup-check.terms-condition-check {
+    padding-bottom: 40px;
+}
+.form-content .form-check.whatup-check.terms-condition-check .wpcf7-not-valid-tip{
+    bottom: -28px;
+}
+
 .contact-form .form-check .wpcf7-not-valid-tip{
     position: absolute;
     left: 18px;
@@ -876,11 +883,14 @@ input[type=checkbox]:after{
     padding-left: 12px;
     position: relative;
 }
-.footer-links li:after {
+.footer-links li:after{
     content: "|";
     position: absolute;
     left: 0;
     top: 0;
+}
+.footer-links li:first-child::after{
+    display: none;
 }
 .footer .footer-sub-menu{
     margin-bottom: 20px;
@@ -951,7 +961,8 @@ input[type=checkbox]:after{
     background-repeat: no-repeat;  
     position: relative;
 }
-.banner-content:after{
+.banner-content:after,
+.banner-content.half-banner:after{
     content: '';
     position: absolute;
     background-image: url(./images/arrow-down.svg) !important;
@@ -978,7 +989,7 @@ input[type=checkbox]:after{
 .half-banner .banner-inner-content {
     height: 50vh;    
     min-height: 300px;
-    background-position: center top;
+    background-position: center bottom;
 }
 .pagination {
     display: none;
@@ -1660,7 +1671,7 @@ section{
     margin: 5px;
     color: #0C3761;
     font-weight: 500;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     background-image: url(./images/circle-check-solid.svg);
     background-repeat: no-repeat;
     background-size: 24px;
@@ -2883,6 +2894,41 @@ margin-top: 50px;
     opacity: 1;    
     background-color: #82b269;
 }
+/* about-cygnet-fintech */
+
+.about-cygnet-fintech ul{
+    list-style-type: none;
+    padding-left: 0;
+    margin: 30px 0;
+}
+.about-cygnet-fintech .p2{ margin-bottom: 30px;}
+.about-cygnet-fintech ul li{
+    background-color: rgb(23, 181, 123,0.1);
+    padding: 15px 30px;
+    margin-bottom: 15px !important;
+    font-size: 16px !important;
+    border-radius: 10px;
+}
+.about-cygnet-fintech .industry-highlight-text{
+    width: 900px;
+    max-width: 100%;
+    margin: auto;
+}
+.bg-blue{
+    background-color: #0C3761;
+}
+.btn-list-con{
+    display: flex;
+    justify-content: center;
+}
+.btn-list-con br{
+    display: none;
+}
+.btn-list-con a{
+    min-width: 140px;
+    margin: 0 10px;
+}
+
 @media only screen and (max-width: 1400px) {
     .primary-navigation .menu-wrapper li.menu-item{
         padding: 0 5px;
@@ -2968,7 +3014,9 @@ margin-top: 50px;
     .feature-zick-zack-type2 .zick-zack-inner-content .zig-zag-inner-div::after{
         height: 116%;
     }
-   
+    .btn-list-con a{       
+        font-size: 14px;
+    }
 }
 @media only screen and (max-width: 1200px) {
     .navbar-brand img{
@@ -3600,7 +3648,9 @@ margin-top: 50px;
         padding-top: 0;
         padding-right: 0;
     }
-    
+    .btn-list-con {       
+        flex-wrap: wrap;
+    }
     
   }
 @media only screen and (max-width: 768px) {
@@ -3686,7 +3736,7 @@ margin-top: 50px;
     }
     .footer-links address{
         display: inline-block !important;
-    }
+    } 
     .offer-content .icon-item.left, .offer-content .icon-item.right,
     .offer-content .icon-item{
         width: 50% !important;
