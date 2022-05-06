@@ -60,11 +60,10 @@ jQuery(function() {
         return false;
       }
     }
-    $('.banner-content:after').click (function() {
-      alert('hi');
-      $('html, body').animate({scrollTop: $('.banner-content:after').offset().top }, 'slow');
-    return false;
-  });
+    $('.banner-content .bottom-arrow').click (function() {
+        $('html, body').animate({scrollTop: $('.banner-content .bottom-arrow').offset().top - 80 });
+      return false;
+    });
 
 });
 
@@ -153,6 +152,54 @@ jQuery(function() {
   //Calling function after Page Load
   AddReadMore();
 }); 
+
+function iconReadMore() {
+  //This limit you can set after how much characters you want to show Read More.
+  var carLmt = 10;
+  // Text to show when text is collapsed
+  var readMoreTxt = " Read More";
+  // Text to show when text is expanded
+  var readLessTxt = " Read Less";
+  
+  //Traverse all selectors with this class and manupulate HTML part to show Read More
+  jQuery(".client-logos .description").each(function() {
+    
+    //alert(words.length);
+      if (jQuery(this).find(".firstSec").length)
+          return;
+
+      var allstr = jQuery(this).text().split(" ");
+      var firstSet = '';
+      var secdHalf = '';
+        for (var i=0;i<allstr.length;i++)
+        {
+          if(i < carLmt){
+            firstSet += allstr[i]+' ';
+          } else {
+            secdHalf += allstr[i]+' ';
+          }
+        }        
+          
+        if(secdHalf != ''){
+            var strtoadd = firstSet + "<span class='dot'>...</span>" + "<span class='SecSec'>" + secdHalf + "</span><span class='readMore'  title='Click to Show More'>" + readMoreTxt + "</span><span class='readLess' title='Click to Show Less'>" + readLessTxt + "</span>";
+         }
+         else{
+          var strtoadd = firstSet;
+        
+         }
+          jQuery(this).html(strtoadd);
+         
+  });
+  //Read More and Read Less Click Event binding
+  jQuery(document).on("click", ".readMore, .readLess", function() {
+      jQuery(this).closest(".client-logos .description").toggleClass("showlesscontent showmorecontent");
+  });
+}
+jQuery(function() {
+  //Calling function after Page Load
+  iconReadMore();
+}); 
+
 
 
 
@@ -286,14 +333,14 @@ jQuery(document).ready(function(){
       jQuery(this).parent('span').addClass('active');
     });
 
-    jQuery('.custom-tab-section .custom-tab-nav li').click(function(){
+   jQuery('.custom-tab-section .custom-tab-nav li').click(function(){
       jQuery('.custom-tab-section .custom-tab-nav li').removeClass('active');
       jQuery(this).addClass('active');
-    });
+      $('.screen-content li').eq($(this).index()).addClass('active').siblings().removeClass('active');
+    }); 
     $('.banner-content .banner-tag ul li:first-child:not(.banner-content.home-banner .banner-tag ul li:first-child)').addClass('active animate__animated animate__fadeIn');
 
-
-  });
+});
 // jQuery(window).on('resize', function(){
 //   solution();
 // });
