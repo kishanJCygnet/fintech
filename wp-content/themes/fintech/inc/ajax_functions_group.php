@@ -143,14 +143,15 @@ function get_casestudy_listing_data()
                 <?php endif; ?>
 
                 <?php if (get_the_title()) : ?>
-                  <h5 class="card-title"><a href="<?php echo the_field('pdf_link'); ?>" target="_blank"><?php echo wp_trim_words(get_the_title(), 10, '...'); ?></a></h5>
+                 <!-- <h5 class="card-title"><a href="<?php echo the_field('pdf_link'); ?>" target="_blank"><?php echo wp_trim_words(get_the_title(), 10, '...'); ?></a></h5>-->
+                  <h5 class="card-title"><a href="<?php echo the_field('pdf_link'); ?>" target="_blank"><?php echo get_the_title(); ?></a></h5>
                 <?php endif; ?>
 
                 <?php
-                $caseContent = get_field('short_description', $post->ID);
+                /*$caseContent = get_field('short_description', $post->ID);
                 if ($caseContent) : ?>
                   <p class="card-text"><?php echo wp_trim_words($caseContent, 30, '...'); ?></p>
-                <?php endif; ?>
+                <?php endif;*/ ?>
               </div>
 
               <?php if (get_field('pdf_link')) : ?>
