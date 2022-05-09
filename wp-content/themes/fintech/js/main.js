@@ -60,8 +60,8 @@ jQuery(function() {
         return false;
       }
     }
-    $('.banner-content .bottom-arrow').click (function() {
-        $('html, body').animate({scrollTop: $('.banner-content .bottom-arrow').offset().top - 80 });
+    jQuery('.banner-content .bottom-arrow').click (function() {
+        jQuery('html, body').animate({scrollTop: jQuery('.banner-content .bottom-arrow').offset().top - 80 });
       return false;
     });
 
@@ -336,9 +336,9 @@ jQuery(document).ready(function(){
    jQuery('.custom-tab-section .custom-tab-nav li').click(function(){
       jQuery('.custom-tab-section .custom-tab-nav li').removeClass('active');
       jQuery(this).addClass('active');
-      $('.screen-content li').eq($(this).index()).addClass('active').siblings().removeClass('active');
+      jQuery('.screen-content li').eq(jQuery(this).index()).addClass('active').siblings().removeClass('active');
     }); 
-    $('.banner-content .banner-tag ul li:first-child:not(.banner-content.home-banner .banner-tag ul li:first-child)').addClass('active animate__animated animate__fadeIn');
+    jQuery('.banner-content .banner-tag ul li:first-child:not(.banner-content.home-banner .banner-tag ul li:first-child)').addClass('active animate__animated animate__fadeIn');
 
 });
 // jQuery(window).on('resize', function(){
@@ -348,7 +348,7 @@ jQuery(document).ready(function(){
 setInterval(function()
 {
     // Remove .active class from the active li, select next li sibling.
-    var next = $('.banner-content .banner-tag ul > li.active').removeClass('active animate__animated animate__fadeIn').next('li');
+    var next = jQuery('.banner-content .banner-tag ul > li.active').removeClass('active animate__animated animate__fadeIn').next('li');
 
     // Did we reach the last element? Of so: select first sibling
     if (!next.length) next = next.prevObject.siblings('li:first-child');
@@ -359,22 +359,21 @@ setInterval(function()
 }, 5000);
 
 
+var scrollHeight;
 
-window.setInterval(scrollit, 3000);
- var scrollHeight;
-function scrollit() {
-    //$('.home-banner.banner-content .inner-img-content').delay(1000).animate({ scrollTop: $(".home-banner.banner-content .inner-img-content").scrollTop() + 60 });
-    $(".home-banner.banner-content .inner-img-content").animate({
-      scrollTop: $(
-        '.home-banner.banner-content .inner-img-content').get(0).scrollHeight
-  }, 3000);
-  }
-
-$('.home-banner.banner-content .inner-img-content').bind('scroll', function () {
-    if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-        $('.home-banner.banner-content .inner-img-content').delay(100).animate({ scrollTop: 0 }, 900);
+jQuery('.home-banner.banner-content .inner-img-content').bind('scroll', function () {
+    if (jQuery(this).scrollTop() + jQuery(this).innerHeight() >= jQuery(this)[0].scrollHeight) {
+        jQuery('.home-banner.banner-content .inner-img-content').delay(100).animate({ scrollTop: 0 }, 900);
     }
 });
+setInterval(function(){
+    jQuery(".home-banner.banner-content .inner-img-content").animate({
+      scrollTop: jQuery(
+        '.home-banner.banner-content .inner-img-content').get(0).scrollHeight
+   }, 3000);
+},3000);
+
+
 
 
 
