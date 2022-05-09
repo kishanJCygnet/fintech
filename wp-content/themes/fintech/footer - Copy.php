@@ -144,93 +144,134 @@
 	
 	<!-- Download functinality -->
 	<style>		
-		.otp-input{
-			display: flex;
-			flex-wrap: wrap;
+		.fixed-dialog{
+			position: fixed !important;
 		}
-		.otp-input > button{
-			width: 100%;
-		}
-		.otp-input input[type=number]::-webkit-inner-spin-button, 
-		.otp-input input[type=number]::-webkit-outer-spin-button { 
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			margin: 0; 
-		}
-		.resend{
-			font-size:14px;
-		}
-		.text-center{
-			text-align:center;
-		}
-		.ui-widget-content a{
-		 color: #3f77f5 !important;
-		}
-		#verify_email_send{
-			background-color: #002a54;
-			color: #fff;
-			padding: 5px 10px;
-			display: flex;
-			font-size: 14px;
-			align-items: center;	
-			margin-left:auto;					
-		}
-		#verify_email_send:hover{
-			opacity:0.8;
-			text-decoration:none
-		}
-		#verify_email_send[disabled=disabled]{
-			background-color: #cfcfcf;
-			color: #918c8c;
-			border-color:#cfcfcf;				
-		}
-		#billing_email_field{
-			display:flex;
-			flex-wrap:wrap;	
-			position:relative;
-		}
-		#billing_email_field .woocommerce-input-wrapper{
-			width: calc(100% - 68px);
-		}
-		#billing_email_field i{
-			display:none;
-			color: #409d11;
-			position: absolute;
-			top: 47px;
-			right: 77px;
-			font-size: 18px;
-		}
-		#billing_email_field input{
-			padding-right:28px;
-		}
-		.note{
-			font-size:13px;
-			color:#9d9d9d;
-			margin-top:5px;
-			display:inline-block;
-		}
-		.download-otp-form{
-			display:none;
-		}
+			.ui-widget-overlay{
+				background: #000 !important;
+				opacity: .6 !important;
+			}
+			.ui-widget.ui-widget-content{
+				width:350px !important;
+			}
+			.otp-input{
+				display: flex;
+				width: 300px;
+				margin:20px auto;
+				flex-wrap: wrap;
+			}
+			.otp-input input{
+				width: 300px;
+  			  	margin:10px 0;
+			}
+			.otp-input > label{
+				width:100%;		
+				font-size:14px;		
+			}
+			.otp-input > button{
+				width: 100%;
+			}
+			.otp-input input[type=number]::-webkit-inner-spin-button, 
+			.otp-input input[type=number]::-webkit-outer-spin-button { 
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				margin: 0; 
+			}
+			.resend{
+				font-size:14px;
+			}
+			.text-center{
+				text-align:center;
+			}
+			/*.ui-dialog-titlebar-close{
+				display:none !important;
+			}*/
+			.ui-widget-content a{
+			 color: #3f77f5 !important;
+			}
+			.resend-success-msg{
+				display:none;				
+				font-size: 14px;
+				margin-top: 10px;
+				color: #323030;
+			}
+			#verify_email_send{
+				background-color: #002a54;
+				color: #fff;
+				padding: 5px 10px;
+				display: flex;
+				font-size: 14px;
+				align-items: center;	
+				margin-left:auto;					
+			}
+			#verify_email_send:hover{
+				opacity:0.8;
+				text-decoration:none
+			}
+			#verify_email_send[disabled=disabled]{
+				background-color: #cfcfcf;
+				color: #918c8c;
+				border-color:#cfcfcf;				
+			}
+			#billing_email_field{
+				display:flex;
+				flex-wrap:wrap;	
+				position:relative;
+			}
+			#billing_email_field .woocommerce-input-wrapper{
+				width: calc(100% - 68px);
+			}
+			#billing_email_field i{
+				display:none;
+			    color: #409d11;
+				position: absolute;
+				top: 47px;
+				right: 77px;
+				font-size: 18px;
+			}
+			#billing_email_field input{
+				padding-right:28px;
+			}
+			.note{
+				font-size:13px;
+				color:#9d9d9d;
+				margin-top:5px;
+				display:inline-block;
+			}
+			.download-otp-form{
+				display:none;
+			}
 	</style>
-	
-	<div class="modal fade" id="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog modal-lg">
-		<div class="modal-content">
-		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLabel">Download full report</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		  </div>
-		  <div class="modal-body">
-			<?php echo do_shortcode("[contact-form-7 id='25308' title='Download form']"); ?>
-		  </div>
+
+	<div id="dialog" title="Email Verification">
+		<!--<div class="download-form">
+			<input type="email" class="input-text formInput" name="billing_email" id="billing_email" placeholder="" value="" autocomplete="email username">
+			<button type="button" id="verify_email_send">Verify</button> <i class="fas fa-check-circle"></i>
+			<span class="note">Please verify email id to proceed</span>
 		</div>
-	  </div>
+		<div class="download-otp-form">
+			<div>We have sent an OTP on your email id.</div>
+			<div> Please check your email to verify.</div>
+			
+			<div class="otp-input">
+					<label>Enter OTP</label>
+					<input type="number" id="otp_num" max="4" />
+					<button type="submit" id="verify_otp">Submit</button>
+			</div>
+			<div class="text-center">
+				<a href="javascript:void(0);" class="resend" id="resend_otp">Resend OTP</a>
+				<div class="resend-success-msg">We have resent an OTP on your email id.</div>
+			</div>
+		</div>-->
+		<?php echo do_shortcode("[contact-form-7 id='25308' title='Download form']"); ?>
 	</div>
 	
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 	<script>
 	jQuery( window ).on("load", function() {
+		jQuery("#dialog").hide();
 		jQuery('#verify_otp').attr("disabled", "disabled");
 		localStorage.removeItem('OTP-value');
 	});
@@ -240,7 +281,6 @@
 		   jQuery('#billing_email').attr('readonly', false);
 		   jQuery('#verify_email_send').removeAttr("disabled");
 		   jQuery('#verify_otp').attr("disabled", "disabled");
-		   jQuery('.otp-email-msg').show();
 			localStorage.removeItem('OTP-value');
 		}, 1000);
 	   
@@ -251,12 +291,16 @@
 			jQuery('#billing_email').attr('readonly', false);
 		    jQuery('#verify_email_send').removeAttr("disabled");
 			jQuery('#verify_otp').attr("disabled", "disabled");
-			jQuery('.otp-email-msg').show();
-			jQuery('.download-otp-form').hide();
+			jQuery( "#dialog" ).dialog({
+				modal: true, 
+				dialogClass: 'fixed-dialog',
+				closeOnEscape: false,
+			});
+			return false;
 		});
 		
 		jQuery("#verify_email_send").click(function(){
-			jQuery('#billing_email').css('border-color', '#0C3761');
+			jQuery('#billing_email').css('border-color', '#eaeaea');
 			if(jQuery('#billing_email').val() != ''){
 				jQuery.ajax({
 					url: ajaxPath.ajaxurl,
@@ -268,8 +312,12 @@
 					success: function (response) {
 						localStorage.setItem('OTP-value',response);
 						jQuery('.download-otp-form').show();
-						jQuery('.otp-email-msg').show();
 						jQuery('#verify_otp').removeAttr("disabled");
+						/*jQuery( "#dialog" ).dialog({
+							modal: true, 
+							dialogClass: 'fixed-dialog',
+							closeOnEscape: false,
+						});*/
 						return false;
 					}
 				});							
@@ -279,9 +327,9 @@
 			}
 		});
 		
-		/* Click on re-send click */
+		/* Click on re send click */
 		jQuery("#resend_otp").click(function(){
-			jQuery('#billing_email').css('border-color', '#0C3761');
+			jQuery('#billing_email').css('border-color', '#eaeaea');
 			jQuery('.resend-success-msg').hide();
 			if(jQuery('#billing_email').val() != ''){							
 				jQuery.ajax({
@@ -294,7 +342,6 @@
 					success: function (response) {
 						localStorage.setItem('OTP-value',response);	
 						jQuery('.resend-success-msg').show();
-						jQuery('.otp-email-msg').hide();
 						jQuery('#verify_otp').removeAttr("disabled");
 						return false;
 					}
@@ -305,13 +352,38 @@
 			}
 		});
 		
-		/* Click on submit button */
+		/* Click on submit button */		
+		/*jQuery("#verify_otp").click(function(){
+			if(jQuery('#otp_num').val() != ''){
+				var get_otp = localStorage.getItem('OTP-value');
+				var final_val = jQuery('#otp_num').val()+0;
+				if(final_val == get_otp){					
+					jQuery('#otp_num').css('border-color', '#eaeaea');
+					localStorage.removeItem('OTP-value');
+					jQuery( "#dialog" ).dialog('close');
+					jQuery('#billing_email').attr('readonly', true);
+					jQuery('#verify_email_send').attr("disabled", "disabled");
+					//jQuery('#billing_email_field i').show();
+					jQuery('.download-otp-form').hide();
+					jQuery('#billing_email').val('');
+					jQuery('#otp_num').val('');
+					window.location.href = "<?php echo THEME_PATH; ?>/images/favicons.zip";				
+				} else {
+					jQuery('#otp_num').css('border-color', '#d65d67');
+					return false;
+				}
+			} else {
+				jQuery('#otp_num').css('border-color', '#d65d67');
+				return false;
+			}
+			return false;
+		});*/
 		jQuery("#verify_otp").click(function(){
 			if(jQuery('#otp_num').val() != ''){
 				var get_otp = localStorage.getItem('OTP-value');
 				var final_val = jQuery('#otp_num').val()+0;
 				if(final_val == get_otp){					
-					jQuery('#otp_num').css('border-color', '#0C3761');
+					jQuery('#otp_num').css('border-color', '#eaeaea');
 					jQuery('#billing_email').attr('readonly', true);
 					jQuery('#verify_email_send').attr("disabled", "disabled");
 					return true;
@@ -329,22 +401,23 @@
 	});
 	
 	document.addEventListener('wpcf7mailsent', function(e) {
-		if(e.detail.contactFormId == 26304) {
+		if(e.detail.contactFormId == 25308) {
 			if(jQuery('#otp_num').val() != ''){
 				var get_otp = localStorage.getItem('OTP-value');
 				var final_val = jQuery('#otp_num').val()+0;
 				if(final_val == get_otp){					
-					jQuery('#otp_num').css('border-color', '#0C3761');
+					jQuery('#otp_num').css('border-color', '#eaeaea');
 					localStorage.removeItem('OTP-value');
+					jQuery( "#dialog" ).dialog('close');
 					jQuery('#billing_email').attr('readonly', true);
 					jQuery('#verify_email_send').attr("disabled", "disabled");
+					//jQuery('#billing_email_field i').show();
 					jQuery('.download-otp-form').hide();
 					jQuery('#billing_email').val('');
 					jQuery('.wpcf7-response-output').hide();
-					jQuery('#otp_num').val('');	
-					var tab = window.open('<?php echo THEME_PATH; ?>/images/Vendor_Complaince_sample_report.pdf', '_blank');
-					tab.focus();
-					jQuery("#dialog").modal('hide');					
+					jQuery('#otp_num').val('');
+					//window.location.href = "<?php echo THEME_PATH; ?>/images/Vendor Complaince sample report.pdf";	
+					window.open('<?php echo THEME_PATH; ?>/images/Vendor_Complaince_sample_report.pdf');					
 				} else {
 					jQuery('#otp_num').css('border-color', '#d65d67');
 					return false;

@@ -509,3 +509,24 @@ function favicon4admin() {
 echo '<link rel="icon" type="image/x-icon" href="' . get_theme_file_uri() . '/images/favicons/favicon.ico" />';
 }
 add_action( 'admin_head', 'favicon4admin' );
+
+/* Download functinality */
+add_action('wp_ajax_get_verify_email_data', 'get_verify_email_data');
+add_action('wp_ajax_nopriv_get_verify_email_data', 'get_verify_email_data');
+
+function get_verify_email_data()
+{
+	$FourDigitRandomNumber = rand(1231,7879);
+	//$email = 'priyank.patel@cygnetinfotech.com';
+	$email = $_REQUEST['email_val'];
+	$subject = 'Email Verification OTP';
+	$new_message ='Thank you for your interest in vendor compliance report based on GRC Score.<br/>
+				Please find below your One Time Password (OTP) for email verification.<br/><br/>
+				OTP: '.$FourDigitRandomNumber;
+	$new_message .='<br/><br/>Copy and paste this OTP on the website for verification, post which you will be able to download full sample report.<br/><br/>
+				If you face any trouble verifying your email id, please write to us at <a href="mailto:hello@cygnetfintech.com">hello@cygnetfintech.com</a><br/><br/>
+				Regards,<br/>Cygnet Fintech<br/><br/>';
+	$headers = array('Content-Type: text/html; charset=UTF-8');
+	wp_mail( $email, $subject, $new_message, $headers );
+	echo $FourDigitRandomNumber;
+}
