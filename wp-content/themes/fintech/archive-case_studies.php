@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <!-- Banner Slider start -->
 <section class="banner-content inner-page-banner">
+	<span class="bottom-arrow"></span> 
 	<div class="banner-inner-content w-100" <?php if (get_field('case_studies_listing_banner_image', 'option')) : ?> style="background-image: url('<?php echo the_field('case_studies_listing_banner_image', 'option'); ?>')" <?php endif; ?>>  
 		<div class="container"> 
 		<div class="d-md-flex flex-wrap slide-content-main align-items-center w-100">
@@ -18,7 +19,7 @@
 <!-- Banner Slider end -->
 <div>
 	<!-- Featured Case Studies section start -->
-	<section class="webnair-sec">
+	<!--<section class="webnair-sec">
 		<div class="container webinar-page-listing pb-0">
 			<div class="title-heading">
 					<h2 class="wow fadeInUp">Featured Case Studies
@@ -87,16 +88,16 @@
 				wp_reset_postdata(); ?>
 			</div>
 		</div>
-	</section>
+	</section>-->
 	<!-- Featured Case Studies section end -->
 	<!-- More case studies section start -->
 	<section class="webnair-sec bg-light">
 		<div class="container webinar-page-listing casestudy-page-listing">
-			<div class="title-heading">
+			<?php /*<div class="title-heading">
 				<h2 class="wow fadeInUp">More Case Studies
 					<span class="heading-border"></span>
 				</h2>
-			</div>
+			</div>*/ ?>
 
 			<!-- Filter block start -->
 			<!--<div class="filter-box mb-5">

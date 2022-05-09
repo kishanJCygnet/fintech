@@ -335,7 +335,9 @@ class PROFunctions{
 		//$attachments = $module_fields['attachments'];
 		$body_json = array();
 		$body_json["data"] = array();
+		$module_fields['Lead_created_for'] = array($module_fields['Lead_created_for']);
 		array_push($body_json["data"], $module_fields);
+		
 
 		$record = $zohoapi->Zoho_CreateRecord( $module,$body_json,$attachments);
 	
@@ -733,7 +735,7 @@ $attachment='';
 		// Mari uncommented this line
 		$zohoapi=new SmackZohoApi();
 		//$record = $zohoapi->Zoho_UpdateRecord( $module,$body_json,$ids_present);
-
+		$module_fields['Lead_created_for'] = array($module_fields['Lead_created_for']);
 		$record = $zohoapi->Zoho_UpdateRecord( $module,$module_fields,$ids_present);
 
 		if($record['code']=='INVALID_TOKEN' || $record['code']=='AUTHENTICATION_FAILURE'){

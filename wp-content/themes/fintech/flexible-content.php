@@ -4,6 +4,7 @@
 	/* banner content */
 		if (have_rows('banner')) : ?>
 			<section class="banner-content <?php echo the_field('banner_class'); ?>">    
+				<span class="bottom-arrow"></span>  
 				<div <?php if ( is_front_page() ) : ?> class="owl-carousel banner-slider" <?php endif; ?> >
 				<!--<div class="owl-carousel banner-slider">-->
 					<?php while (have_rows('banner')) : the_row(); ?>
@@ -38,7 +39,7 @@
 											<?php if (get_sub_field('secondary_button_url') && get_sub_field('secondary_button_label')) : ?>
 												<a href="<?php echo the_sub_field('secondary_button_url'); ?>" class="btn wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('secondary_button_label'); ?></a>
 											<?php endif; ?>
-											<?php /*if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); */ ?>
+											<?php //if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs();  ?>
 										</div>
 									</div>
 								</div>
@@ -238,36 +239,38 @@
 								<div class="row icon-box-list">
 								<?php while (have_rows('icon_box_content')) : the_row(); ?>
 									<div class="col-lg-<?php echo $dynamic_col; ?>">
-									<div class="icon-box wow fadeInUp" data-wow-delay="<?php echo $s; ?>s" data-wow-offset="30">
-											<?php if (get_sub_field('icon_box_image')){ ?>
-											<div class="icon">
-											<?php $extension = pathinfo(get_sub_field('icon_box_image'), PATHINFO_EXTENSION);
-												if($extension == 'svg'){
-													$icon_box_image = get_sub_field('icon_box_image');
-													echo file_get_contents($icon_box_image);  
-												} else { ?>
-													<img src="<?php echo the_sub_field('icon_box_image'); ?>" alt="<?php echo the_sub_field('icon_box_title'); ?>" />
-											<?php } ?>
+										<div class="icon-box wow fadeInUp" data-wow-delay="<?php echo $s; ?>s" data-wow-offset="30">
+											<div class="icon-box-inner">
+												<?php if (get_sub_field('icon_box_image')){ ?>
+												<div class="icon">
+												<?php $extension = pathinfo(get_sub_field('icon_box_image'), PATHINFO_EXTENSION);
+													if($extension == 'svg'){
+														$icon_box_image = get_sub_field('icon_box_image');
+														echo file_get_contents($icon_box_image);  
+													} else { ?>
+														<img src="<?php echo the_sub_field('icon_box_image'); ?>" alt="<?php echo the_sub_field('icon_box_title'); ?>" />
+												<?php } ?>
+												</div>
+												<?php } ?>
+												<?php if (get_sub_field('icon_box_title')){ ?>
+													<div class="icon-box-title-content">
+														<h3><?php echo the_sub_field('icon_box_title'); ?></h3>
+													</div>
+												<?php } ?>						   
+												<?php if (get_sub_field('icon_box_description')){ ?>
+													<div class="iconbox-description p2 showlesscontent"><?php echo the_sub_field('icon_box_description'); ?></div>
+												<?php } ?>
+												<?php if (get_sub_field('icon_box_url')){ ?>
+													<div class="action">
+														<a href="<?php echo the_sub_field('icon_box_url'); ?>" class="readmore text-uppercase">Read More</a>
+													</div>
+												<?php } else { ?>
+													<!-- <div class="action">
+														<a href="javascript:void(0);" class="readmore text-uppercase">Read More</a>
+													</div> -->
+												<?php } ?>
 											</div>
-											<?php } ?>
-											<?php if (get_sub_field('icon_box_title')){ ?>
-												<div class="icon-box-title-content">
-													<h3><?php echo the_sub_field('icon_box_title'); ?></h3>
-												</div>
-											<?php } ?>						   
-											<?php if (get_sub_field('icon_box_description')){ ?>
-												<div class="iconbox-description p2 showlesscontent"><?php echo the_sub_field('icon_box_description'); ?></div>
-											<?php } ?>
-											<?php if (get_sub_field('icon_box_url')){ ?>
-												<div class="action">
-													<a href="<?php echo the_sub_field('icon_box_url'); ?>" class="readmore text-uppercase">Read More</a>
-												</div>
-											<?php } else { ?>
-												<!-- <div class="action">
-													<a href="javascript:void(0);" class="readmore text-uppercase">Read More</a>
-												</div> -->
-											<?php } ?>
-									</div>
+										</div>
 									</div>
 								<?php $s = $s + 0.2;
 								endwhile; ?>
@@ -315,7 +318,8 @@
 															<img src="<?php echo the_sub_field('logo_image'); ?>" alt="<?php echo the_sub_field('logo_title'); ?>" />
 													<?php } ?>
 												</span>
-												<span class="text"><?php echo the_sub_field('logo_title'); ?></span>
+												<!--<span class="text"><?php echo the_sub_field('logo_title'); ?></span>-->
+												<div class="text description p2 showlesscontent"><?php echo the_sub_field('logo_title'); ?></div>
 											</span>												
 										<?php } ?>										
 								   <?php endwhile;?>
@@ -325,7 +329,7 @@
 							jQuery(document).ready(function() {
 								jQuery(<?php echo 'logo_slider_'.$logo_slider_cnt; ?>).length && jQuery(<?php echo 'logo_slider_'.$logo_slider_cnt; ?>).owlCarousel({
 									loop: false,									
-									autoplay: true,
+									autoplay: false,
 									nav: true,
 									dots: false,									
 									navText: [
@@ -335,7 +339,7 @@
 									responsive : {
 											// breakpoint from 0 up
 											0 : {
-												items:2,
+												items:1,
 												margin: 20,
 											},
 											768 : {
@@ -414,9 +418,11 @@
 								</div>
 							</div>
 							<div class="col-right">
-								<?php if (get_sub_field('image')){ ?>
-									<img src="<?php echo the_sub_field('image'); ?>"  alt="image" class="wow fadeIn" data-wow-delay="0.3s">
-								<?php } ?>
+								<div class="two-inner-image-content">
+									<?php if (get_sub_field('image')){ ?>
+										<img src="<?php echo the_sub_field('image'); ?>"  alt="image" class="wow fadeIn" data-wow-delay="0.3s">
+									<?php } ?>
+								</div>
 							</div>
 						</div>
 					</div>
