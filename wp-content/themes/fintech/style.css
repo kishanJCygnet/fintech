@@ -3173,6 +3173,19 @@ font-size: 14px !important;
 .two-colum-layout.download-report .col-left{
     padding-right: 30px;
 }
+.error404 header {
+    background: linear-gradient(263deg, rgba(24,181,123,1) 0%, #0c3761 100%);
+  
+}
+.error404 header .navbar{
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.error404 .not-found-page{
+    margin-top: 176px;
+}
+.error404 .contact-form{
+    padding-top: 0;
+}
 @media only screen and (min-width: 1550px) {
     .home-banner.banner-content .banner-inner-content{
         min-height: 800px;
