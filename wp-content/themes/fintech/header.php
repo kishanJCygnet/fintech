@@ -154,7 +154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                
               
                <?php $post_slug = $post->post_name;
-				if($post_slug != '15-days-free-trial' && $post_slug != 'sign-up' && $post_slug != 'thank-you-for-contacting-us' && $post_slug != 'thank-you-for-signing-up' && $post_slug != 'thank-you-for-your-interest' ){?>
+				if($post_slug != 'thank-you-for-contacting-us' && !is_404() ){?>
                     <a id="contact_us" href="#contactus" class="btn btn-outline-primary rounded-pill contact-us ms-2 fw-bold">Get In Touch</a>
                     <?php } ?>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
