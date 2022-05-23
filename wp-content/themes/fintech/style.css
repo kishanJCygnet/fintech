@@ -1498,7 +1498,7 @@ section{
     background-image: url(./images/banner-bg.jpg) !important;
     min-height: 750px;
     align-items: flex-start;
-    background-attachment: fixed;
+    background-attachment: unset;
 }
 .home-banner.banner-content .banner-inner-content .text-content{
     margin-top: 30px;
