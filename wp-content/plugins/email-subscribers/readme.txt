@@ -6,7 +6,7 @@ Tags: email marketing, subscription, autoresponder, post notification, welcome e
 Requires at least: 3.9
 Tested up to: 5.9.3
 Requires PHP: 5.6
-Stable tag: 5.3.14
+Stable tag: 5.3.15
 License: GPLv3
 License URI: http://www.gnu.org/licenses
 
@@ -310,15 +310,17 @@ Refer [here](https://www.icegram.com/documentation/es-faq/).
 
 == Upgrade Notice ==
 
-= 5.3.14 =
+= 5.3.15 =
 
-* New: Automatic email list cleanup service[PRO]
-* Fix: Issue with Created at date while importing
-* Fix: Unsubscribe link not working when WooCommerce styling is selected in workflow emails
-* Fix: Issue with Drag and Drop campaign editor on some setup
-* Fix: Unable to subscribe with a Hotmail email address[PRO]
+* New: Advanced audience filters[PRO]
+* Fix: Template already exists issue on some setup using Amazon SES[PRO]
 
 == Changelog ==
+
+**5.3.15 (18.05.2022)**
+
+* New: Advanced audience filters[PRO]
+* Fix: Template already exists issue on some setup using Amazon SES[PRO]
 
 **5.3.14 (11.05.2022)**
 

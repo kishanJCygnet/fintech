@@ -1233,7 +1233,7 @@ sup{
 }
 .search.search-results .navbar,
 .search.search-no-results .navbar{
-    background-color: #0c3761;
+        background: linear-gradient(263deg, rgba(24,181,123,1) 0%, #0c3761 100%);
 }
 .search.search-results .banner-content,
 .search.search-no-results .banner-content{
@@ -1308,9 +1308,9 @@ margin-top: 15px;
 .search.search-results{
     background-color: #fff;
 }
-.search.search-results .contact-form-content h2{
+/*.search.search-results .contact-form-content h2{
  color: #Fff;
-}
+}*/
 .search.search-results .contact-form-content{
     margin-top: 180px;
 }
@@ -1498,7 +1498,7 @@ section{
     background-image: url(./images/banner-bg.jpg) !important;
     min-height: 750px;
     align-items: flex-start;
-    background-attachment: unset;
+    background-attachment: fixed;
 }
 .home-banner.banner-content .banner-inner-content .text-content{
     margin-top: 30px;

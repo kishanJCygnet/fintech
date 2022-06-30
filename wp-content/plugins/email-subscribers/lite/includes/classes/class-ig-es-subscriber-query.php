@@ -145,13 +145,7 @@ class IG_ES_Subscribers_Query {
 			$this->args['select'] = array();
 		}
 
-		if ( false !== $this->args['status'] && is_null( $this->args['status'] ) ) {
-			if ( ! $this->args['s'] ) {
-				$this->args['status'] = array( 1 );
-			}
-		}
-
-		if ( false !== $this->args['status'] && ! is_null( $this->args['status'] ) && ! is_array( $this->args['status'] ) ) {
+		if ( !empty( $this->args['status'] ) && ! is_null( $this->args['status'] ) && !is_array( $this->args['status'] ) ) {
 			$this->args['status'] = explode( ',', $this->args['status'] );
 		}
 
@@ -336,9 +330,16 @@ class IG_ES_Subscribers_Query {
 			$wheres[] = 'AND ( ' . implode( ' AND ', $cond ) . ' )';
 		}
 
-		$joins[]  = "LEFT JOIN {$wpbd->prefix}ig_lists_contacts AS lists_subscribers ON subscribers.id = lists_subscribers.contact_id";
-		$wheres[] = "AND lists_subscribers.status IN( 'subscribed', 'confirmed' )";
-		$wheres[] = "AND subscribers.status IN( 'verified' )";
+		$joins[] = "LEFT JOIN {$wpbd->prefix}ig_lists_contacts AS lists_subscribers ON subscribers.id = lists_subscribers.contact_id";
+		
+		// Added where clause for including status if only sent in parameters
+		if ( !empty( $this->args['status']) ) {
+			$wheres[] = "AND lists_subscribers.status IN( '" . implode("', '", $this->args['status'] ) . "' ) ";
+		}
+		
+		if ( ! empty( $this->args['subscriber_status'] ) ) {
+			$wheres[] = "AND subscribers.status IN( '" . implode("', '", $this->args['subscriber_status'] ) . "' )";
+		}
 
 		if ( ! is_bool( $this->args['lists'] ) ) {
 			// unassigned members if NULL

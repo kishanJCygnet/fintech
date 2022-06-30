@@ -232,6 +232,7 @@ if ( ! class_exists( 'ES_Action_Send_Email' ) ) {
 					$email_content = $wc_email->style_inline( $email_content );
 					// When inlining CSS, curly braces {{UNSUBSCRIBE-LINK}} gets converted to following characters. We are reverting them back 
 					$email_content = str_replace( array( '%5C%7B', '%5C%7D' ), array( '{', '}' ), $email_content );
+					$email_content = str_replace( array( '%7B', '%7D' ), array( '{', '}' ), $email_content );
 				}
 			}
 

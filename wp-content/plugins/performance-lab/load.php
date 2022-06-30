@@ -5,7 +5,7 @@
  * Description: Performance plugin from the WordPress Performance Group, which is a collection of standalone performance modules.
  * Requires at least: 5.8
  * Requires PHP: 5.6
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: WordPress Performance Group
  * Author URI: https://make.wordpress.org/core/tag/performance/
  * License: GPLv2 or later
@@ -15,7 +15,7 @@
  * @package performance-lab
  */
 
-define( 'PERFLAB_VERSION', '1.0.0' );
+define( 'PERFLAB_VERSION', '1.1.0' );
 define( 'PERFLAB_MAIN_FILE', __FILE__ );
 define( 'PERFLAB_MODULES_SETTING', 'perflab_modules_settings' );
 define( 'PERFLAB_MODULES_SCREEN', 'perflab-modules' );
@@ -136,6 +136,37 @@ function perflab_get_active_modules() {
 
 	return $modules;
 }
+
+/**
+ * Gets the content attribute for the generator tag for the Performance Lab plugin.
+ *
+ * This attribute is then used in {@see perflab_render_generator()}.
+ *
+ * @since 1.1.0
+ */
+function perflab_get_generator_content() {
+	$active_modules = perflab_get_active_modules();
+
+	return sprintf(
+		'Performance Lab %1$s; modules: %2$s',
+		PERFLAB_VERSION,
+		implode( ', ', $active_modules )
+	);
+}
+
+/**
+ * Displays the HTML generator tag for the Performance Lab plugin.
+ *
+ * See {@see 'wp_head'}.
+ *
+ * @since 1.1.0
+ */
+function perflab_render_generator() {
+	$content = perflab_get_generator_content();
+
+	echo '<meta name="generator" content="' . esc_attr( $content ) . '">' . "\n";
+}
+add_action( 'wp_head', 'perflab_render_generator' );
 
 /**
  * Loads the active performance modules.
