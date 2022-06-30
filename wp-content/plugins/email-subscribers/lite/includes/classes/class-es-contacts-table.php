@@ -223,9 +223,11 @@ class ES_Contacts_Table extends ES_List_Table {
 			</div>
 			<div>
 				<hr class="wp-header-end">
+				
 			</div>
+			
 			<?php $this->get_contacts_reports(); ?>
-
+			
 			<div id="poststuff" class="es-audience-view es-items-lists">
 				<div id="post-body" class="metabox-holder column-1">
 					<div id="post-body-content">
@@ -235,9 +237,13 @@ class ES_Contacts_Table extends ES_List_Table {
 								<?php
 								// Display search field and other available filter fields.
 								$this->prepare_items();
+
+								// Display Advanced Filter block
+								do_action('ig_es_render_advanced_filter');
+								
 								?>
 							</form>
-							<form method="post">
+							<form method ='post'>
 								<?php
 								// Add hidden list dropdown and status dropdown fields. They will be displayed accordling to the chosen bulk action using JS.
 								$this->prepare_lists_dropdown();
@@ -249,11 +255,10 @@ class ES_Contacts_Table extends ES_List_Table {
 							</form>
 						</div>
 					</div>
+					<br class="clear">
 				</div>
-				<br class="clear">
 			</div>
-			</div>
-			<?php
+			<?php 
 		}
 	}
 
@@ -609,6 +614,10 @@ class ES_Contacts_Table extends ES_List_Table {
 		$filter_by_list_id = ig_es_get_request_data( 'filter_by_list_id' );
 		$filter_by_status  = ig_es_get_request_data( 'filter_by_status' );
 
+		// Advanced filters for Audience Section
+		$advanced_filter = ig_es_get_request_data('advanced_filter');
+		$advanced_filter = ( !empty($advanced_filter) ) ? $advanced_filter['conditions'] : '';
+
 		$contacts_table       = IG_CONTACTS_TABLE;
 		$lists_contacts_table = IG_LISTS_CONTACTS_TABLE;
 
@@ -623,6 +632,21 @@ class ES_Contacts_Table extends ES_List_Table {
 			$sql = "SELECT * FROM {$contacts_table}";
 		}
 
+		// Construct proper query conditions for advanced filtering 
+		if ( !empty ( $advanced_filter ) ) {
+
+			$query_obj  = new IG_ES_Subscribers_Query();
+			$query_args = array(
+				'select'    => array( 'subscribers.id' ),
+				'conditions'=> $advanced_filter,
+				'return_sql'=> true,
+			);
+
+			$condition = $query_obj->run($query_args);
+
+			array_push($query, 'id IN ( ' . $condition . ' )');
+			$add_where_clause = true;
+		}
 		// Prepare filter by list query
 		if ( ! empty( $filter_by_list_id ) || ! empty( $filter_by_status ) ) {
 			$add_where_clause = true;
@@ -929,7 +953,7 @@ class ES_Contacts_Table extends ES_List_Table {
 			if ( ! empty( $contact_id ) ) {
 				$list_contact_status_map = ES()->lists_contacts_db->get_list_contact_status_map( $contact_id );
 			}
-
+			
 			$lists_html = "<table class='ig-es-form-list-html'><tr>";
 
 			$i = 0;
@@ -938,21 +962,21 @@ class ES_Contacts_Table extends ES_List_Table {
 					$lists_html .= "</tr><tr class='mt-3'>";
 				}
 
-				$selected = ! empty( $list_contact_status_map[ $list_id ] ) ? $list_contact_status_map[ $list_id ] : '';
+	$selected = ! empty( $list_contact_status_map[ $list_id ] ) ? $list_contact_status_map[ $list_id ] : '';
 
-				$status_dropdown_html  = '<select class="h-8 form-select w-40 mt-2 mr-8 shadow-sm border-gray-400 ig-es-statuses-dropdown shadow-sm  sm:text-sm sm:leading-5" name="contact_data[lists][' . esc_attr( $list_id ) . ']" >';
-				$status_dropdown_html .= ES_Common::prepare_statuses_dropdown_options( $selected );
-				$status_dropdown_html .= '</select>';
+	$status_dropdown_html  = '<select class="h-8 form-select w-40 mt-2 mr-8 shadow-sm border-gray-400 ig-es-statuses-dropdown shadow-sm  sm:text-sm sm:leading-5" name="contact_data[lists][' . esc_attr( $list_id ) . ']" >';
+	$status_dropdown_html .= ES_Common::prepare_statuses_dropdown_options( $selected );
+	$status_dropdown_html .= '</select>';
 
-				$status_span = '';
+	$status_span = '';
 				if ( ! empty( $list_contact_status_map[ $list_id ] ) ) {
 					$status_span = '<span class="border-gray-400 focus:bg-gray-100 es_list_contact_status ' . $list_contact_status_map[ $list_id ] . '" title="' . ucwords( $list_contact_status_map[ $list_id ] ) . '">';
 				}
 
-				$list_name   = strlen( $list_name ) > 15 ? substr( $list_name, 0, 15 ) . '...' : $list_name;
-				$lists_html .= "<td class='pr-1 pt-2 text-sm leading-5 font-normal text-gray-500'>$status_span$list_name</td><td>$status_dropdown_html</td>";
+	$list_name   = strlen( $list_name ) > 15 ? substr( $list_name, 0, 15 ) . '...' : $list_name;
+	$lists_html .= "<td class='pr-1 pt-2 text-sm leading-5 font-normal text-gray-500'>$status_span$list_name</td><td>$status_dropdown_html</td>";
 
-				$i ++;
+	$i ++;
 			}
 
 			$lists_html .= '</tr></table>';
@@ -1031,7 +1055,7 @@ class ES_Contacts_Table extends ES_List_Table {
 		}
 
 		$title .= $item['email'];
-		$title = apply_filters( 'ig_es_contact_column_subscriber', $title, $item );
+		$title  = apply_filters( 'ig_es_contact_column_subscriber', $title, $item );
 		$page   = ig_es_get_request_data( 'page' );
 
 		$actions = array(
@@ -1071,7 +1095,7 @@ class ES_Contacts_Table extends ES_List_Table {
 	 * @since 4.0.0
 	 */
 	public function get_columns() {
-		$columns      = array(
+		$columns = array(
 			'cb'   		 => '<input type="checkbox"/>',
 			'subscriber' => __( 'Contact', 'email-subscribers' ),
 			'lists' 	 => __( 'List(s)', 'email-subscribers' ),
@@ -1129,13 +1153,29 @@ class ES_Contacts_Table extends ES_List_Table {
 	 * @since 4.3.4 Added esc_attr()
 	 */
 	public function search_box( $text = '', $input_id = '' ) {
-
+		
 		?>
 		<p class="search-box box-ma10">
 			<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_attr( $text ); ?>:</label>
 			<input type="search" id="<?php echo esc_attr( $input_id ); ?>" name="s" value="<?php _admin_search_query(); ?>"/>
 			<?php submit_button( __( 'Search Contacts', 'email-subscribers' ), 'button', false, false, array( 'id' => 'search-submit' ) ); ?>
 		</p>
+
+		<?php if ( ES()->is_pro() ) { ?>
+		<p class="search-box search-group-box box-ma10">
+			<span class="flex items-center pt-1">
+				<span class="relative">
+					<button id="advanced_filter" type="button" class="ig-es-switch js-toggle-collapse" value="no" data-ig-es-switch="inactive" ></button>
+				</span>
+				<span>
+					<label class="mx-2" >
+						<?php echo esc_html__( 'Advanced Filter', 'email-subscribers'); ?>
+					</label>
+				</span>
+			</span>
+		</p>
+		<?php } ?> 
+
 		<p class="search-box search-group-box box-ma10">
 			<?php $filter_by_status = ig_es_get_request_data( 'filter_by_status' ); ?>
 			<select name="filter_by_status">

@@ -310,6 +310,8 @@ if ( ! class_exists( 'ES_Queue' ) ) {
 						'having'        => array( "timestamp <= UNIX_TIMESTAMP ( CONVERT_TZ( '$end_time', '+0:00', @@session.time_zone ) )" ),
 						'orderby'       => array( 'timestamp' ),
 						'groupby'       => 'lists_subscribers.contact_id',
+						'status'		=> 'subscribed',
+						'subscriber_status'		=> array( 'verified' ),
 					);
 
 					if ( $grace_period ) {

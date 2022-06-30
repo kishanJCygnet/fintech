@@ -677,6 +677,7 @@ class Email_Subscribers_Admin {
 					'lists'        => $list_id,
 					'conditions'   => $conditions,
 					'status'       => $status,
+					'subscriber_status' => array( 'verified' ),
 					'return_count' => true,
 				);
 				$query                  = new IG_ES_Subscribers_Query();

@@ -135,9 +135,23 @@ function wpcf7_k_password_validation_filter( $result, $tag ) {
 	if ( $tag->is_required() and '' === $value ) {
 		$result->invalidate( $tag, wpcf7_get_message( 'invalid_required' ) );
 	}elseif ( '' !== $value ){
-		if(strlen($value) < $password_min) {
+		$maxlength = $tag->get_maxlength_option();
+		$minlength = $tag->get_minlength_option();
+		if ( $maxlength and $minlength and $maxlength < $minlength ) {
+			$maxlength = $minlength = null;
+		}
+		$code_units = wpcf7_count_code_units( $value );
+		if ( false !== $code_units ) {
+			if ( $maxlength and $maxlength < $code_units ) {
+				$result->invalidate( $tag, wpcf7_get_message( 'invalid_too_long' ) );
+			} elseif ( $minlength and $code_units < $minlength ) {
+				$result->invalidate( $tag, wpcf7_get_message( 'invalid_too_short' ) );
+			}
+		}elseif(strlen($value) < $password_min) {
 			$result->invalidate($tag, __("Please limit the number of characters to at least: ",'cf7-add-password-field') . $password_min);
-		}elseif ($password_strength > 0) {
+		}
+		
+		if ($password_strength > 0) {
 			if($password_strength === 1){
 				if(!preg_match("/^[0-9]+$/", $value)){
 					$result->invalidate($tag, __("Please use the numbers only", 'cf7-add-password-field' ));
@@ -229,11 +243,14 @@ function wpcf7_k_password_pane_confirm( $contact_form, $args = '' ) {
 			</tr>
 			<tr>
 				<th scope="row"><label
-					for="<?php echo esc_attr( $args['content'] . '-password_min' ); ?>"><?php echo esc_html( __( 'Password Length', 'cf7-add-password-field' ) ); ?></label>
+					for="<?php echo esc_attr( $args['content'] . '-minlength' ); ?>"><?php echo esc_html( __( 'Password Length', 'cf7-add-password-field' ) ); ?></label>
 				</th>
-				<td><input type="text" name="password_min" class="classvalue oneline option"
-				           id="<?php echo esc_attr( $args['content'] . '-password_min' ); ?>"/><br/>
-				           <?php echo esc_html( __( 'Required more than the specified number of characters the input.', 'cf7-add-password-field' ) ); ?></td>
+				<td> Min <input type="text" name="minlength" class="classvalue oneline option"
+				           id="<?php echo esc_attr( $args['content'] . '-minlength' ); ?>"/><br/>
+				           <?php echo esc_html( __( 'Required more than the specified number of characters the input.', 'cf7-add-password-field' ) ); ?><br/>
+				           Max <input type="text" name="maxlength" class="classvalue oneline option"
+				           id="<?php echo esc_attr( $args['content'] . '-naxlength' ); ?>"/><br/>
+				           <?php echo esc_html( __( 'Required less than the specified number of characters the input.', 'cf7-add-password-field' ) ); ?></td>
 			</tr>
 			<tr>
 				<th scope="row"><label
